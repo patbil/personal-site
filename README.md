@@ -68,10 +68,3 @@ The project is organized for easy maintenance and scalability:
 - All styles are compiled to a single CSS file for optimal performance
 
 To modify styles, edit the SCSS files in the `scss/` directory and compile them to `css/styles.css`.
-
-## Contact
-
-- GitHub: [patbil](https://github.com/patbil)
-- LinkedIn: [Patryk Bilski](https://www.linkedin.com/in/patryk-bilski1/)
-
----
