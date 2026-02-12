@@ -53,6 +53,7 @@ personal-site/
 ## Browser Support
 
 Works on all modern browsers that support:
+
 - ES6 JavaScript
 - CSS Grid and Flexbox
 - HTML5 Canvas
@@ -61,6 +62,7 @@ Works on all modern browsers that support:
 ## Development
 
 The project is organized for easy maintenance and scalability:
+
 - SCSS files are modular and follow a logical structure
 - JavaScript is kept minimal and focused on core functionality
 - All styles are compiled to a single CSS file for optimal performance
@@ -73,4 +75,3 @@ To modify styles, edit the SCSS files in the `scss/` directory and compile them 
 - LinkedIn: [Patryk Bilski](https://www.linkedin.com/in/patryk-bilski1/)
 
 ---
-
