@@ -1,0 +1,54 @@
+@use "../base/variables" as *;
+
+.hero h1 {
+  font-size: clamp(3rem, 10vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+}
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+}
+
+/* --- TECH STACK --- */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+}
+.tech-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border: 1px solid $border;
+  padding: 25px 15px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+}
+.tech-card i {
+  font-size: 2.2rem;
+  color: $text-dim;
+  transition: 0.3s;
+}
+.tech-card span {
+  font-family: "JetBrains Mono";
+  font-size: 0.6rem;
+  opacity: 0.5;
+  letter-spacing: 1px;
+}
+.tech-card:hover {
+  border-color: $accent;
+  transform: translateY(-8px);
+  background: rgba(155, 107, 255, 0.08);
+}
+.tech-card:hover i {
+  color: $accent-bright;
+  transform: scale(1.1);
+}

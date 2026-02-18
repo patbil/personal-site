@@ -1,0 +1,34 @@
+@use "../base/variables" as *;
+
+.loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: $background;
+  z-index: 9999;
+
+  .loader-text {
+    font-family: $mono-font;
+    color: $text-main;
+    letter-spacing: 5px;
+    font-size: map-get($map: $font-sizes, $key: sm);
+    text-transform: uppercase;
+  }
+
+  .loader-bar {
+    width: 180px;
+    height: 2px;
+    margin-top: 15px;
+    background: $loader-bar;
+
+    .loader-progress {
+      height: 100%;
+      width: 0;
+      background: $accent;
+      box-shadow: 0 0 15px $accent;
+    }
+  }
+}

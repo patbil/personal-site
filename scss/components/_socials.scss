@@ -1,0 +1,32 @@
+@use "../base/variables" as *;
+
+.side-socials {
+  position: fixed;
+  left: 40px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  z-index: 9999;
+
+  &::after {
+    content: "";
+    width: 1px;
+    height: 100px;
+    background: linear-gradient(to bottom, $accent, transparent);
+    margin: 0 auto;
+  }
+
+  a {
+    color: $text-dim;
+    font-size: map-get($map: $font-sizes, $key: xl);
+    transition:
+      color 0.3s,
+      transform 0.3s;
+
+    &:hover {
+      color: $accent-bright;
+      transform: translateY(-5px);
+    }
+  }
+}

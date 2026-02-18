@@ -1,0 +1,79 @@
+@use '../base/variables' as *;
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.contact-form {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  padding: 50px;
+  border-radius: 35px;
+  border: 1px solid $border;
+  position: relative;
+}
+.contact-form .field {
+  margin-bottom: 40px;
+  position: relative;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $border;
+  padding: 15px 0;
+  color: #fff;
+  font-size: 1rem;
+  font-family: "JetBrains Mono";
+  transition: 0.4s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-bottom-color: $accent;
+}
+.contact-form label {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  font-family: "JetBrains Mono";
+  font-size: 0.7rem;
+  color: $text-dim;
+  transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.contact-form input:focus ~ label,
+.contact-form input:valid ~ label,
+.contact-form textarea:focus ~ label,
+.contact-form textarea:valid ~ label {
+  top: -15px;
+  color: $accent-bright;
+  font-size: 0.6rem;
+}
+.submit-trigger {
+  width: 100%;
+  background: $accent;
+  color: #000;
+  border: none;
+  padding: 22px;
+  font-family: "JetBrains Mono";
+  font-weight: 800;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: 0.4s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.submit-trigger:hover {
+  background: $accent-bright;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(155, 107, 255, 0.3);
+}

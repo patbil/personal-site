@@ -1,3 +1,4 @@
+// Base color variables for the project.
 $background: #050505;
 $accent: #9b6bff;
 $accent-bright: #c4a1ff;
@@ -6,4 +7,22 @@ $text-main: #f0f0f0;
 $text-dim: #808080;
 $card-bg: rgba(25, 25, 25, 0.4);
 $border: rgba(255, 255, 255, 0.08);
+$loader-bar: rgba(255, 255, 255, 0.1);
 $glass-blur: blur(20px);
+
+// Font variables
+$main-font: "Plus Jakarta Sans", sans-serif;
+$mono-font: "JetBrains Mono", monospace;
+
+// Font size variables
+$font-sizes: (
+  xs: 0.75rem,
+  sm: 0.875rem,
+  base: 1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  "2xl": 1.5rem,
+  "3xl": 1.875rem,
+  "4xl": 2.25rem,
+  "5xl": 3rem,
+);

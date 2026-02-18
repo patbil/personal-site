@@ -81,7 +81,7 @@ gsap.registerPlugin(ScrollTrigger);
 window.addEventListener("load", () => {
   const tl = gsap.timeline();
   tl.to(".loader-progress", { width: "100%", duration: 0.8 })
-    .to("#loader", { yPercent: -100, duration: 0.6, ease: "expo.inOut" })
+    .to(".loader", { yPercent: -100, duration: 0.6, ease: "expo.inOut" })
     .from(
       ".hero h1",
       { y: 60, opacity: 0, duration: 1, ease: "power3.out" },
