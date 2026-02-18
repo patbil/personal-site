@@ -13,19 +13,23 @@
     content: "";
     width: 1px;
     height: 100px;
-    background: linear-gradient(to bottom, $accent, transparent);
+    background: linear-gradient(
+      to bottom,
+      map-get($colors, accent),
+      transparent
+    );
     margin: 0 auto;
   }
 
   a {
-    color: $text-dim;
-    font-size: map-get($map: $font-sizes, $key: xl);
+    color: map-get($colors, text-dim);
+    font-size: map-get($sizes, xl);
     transition:
-      color 0.3s,
-      transform 0.3s;
+      color map-get($animation-time, fast),
+      transform map-get($animation-time, fast);
 
     &:hover {
-      color: $accent-bright;
+      color: map-get($colors, accent-bright);
       transform: translateY(-5px);
     }
   }

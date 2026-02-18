@@ -1,27 +1,46 @@
 @use "../base/variables" as *;
 
 .experience-box {
-  border-left: 1px solid $border;
+  border-left: 1px solid map-get($colors, border);
   padding-left: 35px;
 }
+
 .exp-item {
-  position: relative;
   margin-bottom: 60px;
-}
-.exp-item::before {
-  content: "";
-  position: absolute;
-  left: -41.5px;
-  top: 8px;
-  width: 12px;
-  height: 12px;
-  background: $accent;
-  border-radius: 50%;
-  box-shadow: 0 0 15px $accent;
-}
-.exp-date {
-  font-family: "JetBrains Mono";
-  color: $accent;
-  font-size: 0.8rem;
-  font-weight: 500;
+
+  .exp-date {
+    font-family: map-get($fonts, mono);
+    font-size: map-get($sizes, sm);
+    font-weight: 500;
+    color: map-get($colors, accent);
+  }
+
+  .exp-role {
+    margin: 8px 0;
+  }
+
+  .exp-company {
+    font-family: map-get($fonts, mono);
+    font-size: map-get($sizes, sm);
+    color: map-get($colors, text-dim);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  .exp-desc {
+    color: map-get($colors, text-dim);
+    line-height: 1.6;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -40.5px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: map-get($colors, accent);
+    box-shadow: 0 0 15px map-get($colors, accent);
+  }
 }

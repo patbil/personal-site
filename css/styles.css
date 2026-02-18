@@ -45,24 +45,7 @@ table {
   border-spacing: 0;
 }
 
-@media (max-width: 968px) {
-  section {
-    padding: 100px 5% 60px 5%;
-  }
-  .side-socials {
-    display: none;
-  }
-  .project-row,
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    direction: ltr !important;
-  }
-  .project-preview {
-    height: 300px;
-  }
-}
-#bg-canvas {
+.bg-canvas {
   position: fixed;
   inset: 0;
   z-index: -2;
@@ -81,27 +64,50 @@ section {
   padding: 140px 8% 80px 12%;
   min-height: 100vh;
 }
-
-.section-title {
+section .section-title {
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   margin-bottom: 50px;
-  letter-spacing: -3px;
-  font-weight: 800;
+}
+section .label-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+section .section-label {
+  font-family: "JetBrains Mono";
+  font-size: 0.875rem;
+  letter-spacing: 2px;
+}
+section .section-label.accent {
+  color: #9b6bff;
+}
+section .section-label.dim {
+  color: #808080;
+}
+section .section-label.muted {
+  opacity: 0.5;
 }
 
-.hero h1 {
-  font-size: clamp(3rem, 10vw, 7.5rem);
-  font-weight: 800;
-  line-height: 0.85;
-  letter-spacing: -0.06em;
-}
-
-.outline {
+.about-section .outline {
   color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
 }
+.about-section .hero-title {
+  font-size: clamp(3rem, 10vw, 7.5rem);
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+}
+.about-section .hero-text {
+  max-width: 900px;
+  margin-top: 35px;
+  color: #808080;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+.about-section .tech-title {
+  margin-top: 120px;
+}
 
-/* --- TECH STACK --- */
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -109,36 +115,33 @@ section {
 }
 
 .tech-card {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 25px 15px;
-  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 25px 15px;
   gap: 15px;
-  transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+  transition: border-color 0.4s, transform 0.4s, background-color 0.4s;
 }
-
+.tech-card span {
+  font-family: "JetBrains Mono";
+  font-size: 0.625rem;
+  opacity: 0.5;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 .tech-card i {
   font-size: 2.2rem;
   color: #808080;
-  transition: 0.3s;
+  transition: transform 0.4s, color 0.4s;
 }
-
-.tech-card span {
-  font-family: "JetBrains Mono";
-  font-size: 0.6rem;
-  opacity: 0.5;
-  letter-spacing: 1px;
-}
-
 .tech-card:hover {
   border-color: #9b6bff;
   transform: translateY(-8px);
-  background: rgba(155, 107, 255, 0.08);
+  background-color: rgba(155, 107, 255, 0.15);
 }
-
 .tech-card:hover i {
   color: #c4a1ff;
   transform: scale(1.1);
@@ -155,7 +158,7 @@ section {
   z-index: 9999;
 }
 .loader .loader-text {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "JetBrains Mono";
   color: #f0f0f0;
   letter-spacing: 5px;
   font-size: 0.875rem;
@@ -174,107 +177,95 @@ section {
   box-shadow: 0 0 15px #9b6bff;
 }
 
-header {
+.header {
   position: fixed;
   top: 0;
-  width: 100%;
-  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   padding: 25px 8%;
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 1000;
 }
 
 .logo {
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.3rem;
-  letter-spacing: -1px;
-  z-index: 1100;
+  cursor: pointer;
 }
-
-.logo span {
+.logo .role {
+  margin-top: 2px;
+  color: #808080;
+  font-family: "JetBrains Mono";
+  font-size: 0.625rem;
+  letter-spacing: 2px;
+}
+.logo .name span {
   color: #9b6bff;
 }
 
-/* Hamburger Button */
 .hamburger {
   display: none;
-  cursor: pointer;
-  z-index: 1100;
+  padding: 10px;
   background: none;
   border: none;
-  padding: 10px;
+  cursor: pointer;
+  z-index: 1100;
 }
-
 .hamburger span {
   display: block;
   width: 25px;
   height: 2px;
-  background: #f0f0f0;
   margin: 5px 0;
-  transition: 0.4s;
+  background: #f0f0f0;
+  transition: transform 0.4s, opacity 0.4s;
 }
 
-nav a {
-  text-decoration: none;
-  color: #f0f0f0;
-  font-size: 0.75rem;
-  font-family: "JetBrains Mono", monospace;
+.nav a {
   margin-left: 35px;
   opacity: 0.5;
-  transition: 0.4s;
+  color: #f0f0f0;
+  font-size: 0.875rem;
+  font-family: "JetBrains Mono";
+  text-transform: uppercase;
+  transition: opacity 0.4s, color 0.4s;
 }
-
-nav a:hover {
+.nav a:hover {
   opacity: 1;
   color: #c4a1ff;
 }
 
-/* Mobile Nav States */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-  nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    height: 100vh;
-    background: #050505;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: 1000;
-  }
-  nav.active {
-    right: 0;
-  }
-  nav a {
-    margin: 20px 0;
-    font-size: 1.5rem;
-  }
-  /* Hamburger Animation to X */
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-}
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
+}
+.contact-grid .section-title {
+  margin-top: 20px;
+  line-height: 0.9;
+}
+.contact-grid .outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+}
+.contact-grid .contact-info {
+  margin-top: 40px;
+  font-family: "JetBrains Mono";
+  font-size: 0.875rem;
+  color: #808080;
+  line-height: 2;
+}
+.contact-grid .contact-info i {
+  margin-right: 10px;
+  color: #9b6bff;
+  transition: color 0.4s;
+}
+.contact-grid .contact-info i:hover {
+  color: #c4a1ff;
 }
 
 .contact-form {
@@ -282,70 +273,63 @@ nav a:hover {
   padding: 50px;
   border-radius: 35px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  position: relative;
 }
 
-.contact-form .field {
+.field {
   margin-bottom: 40px;
   position: relative;
 }
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 15px 0;
-  color: #fff;
-  font-size: 1rem;
-  font-family: "JetBrains Mono";
-  transition: 0.4s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-bottom-color: #9b6bff;
-}
-
-.contact-form label {
+.field label {
   position: absolute;
   left: 0;
   top: 15px;
   font-family: "JetBrains Mono";
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: #808080;
-  transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   pointer-events: none;
-  text-transform: uppercase;
   letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
-
-.contact-form input:focus ~ label,
-.contact-form input:valid ~ label,
-.contact-form textarea:focus ~ label,
-.contact-form textarea:valid ~ label {
+.field input,
+.field textarea {
+  width: 100%;
+  background: transparent;
+  padding: 15px 0;
+  color: #f0f0f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border: none;
+  font-size: 1rem;
+  font-family: "JetBrains Mono";
+  transition: 0.4s;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-color: #9b6bff;
+}
+.field input:focus ~ label, .field input:valid ~ label,
+.field textarea:focus ~ label,
+.field textarea:valid ~ label {
   top: -15px;
   color: #c4a1ff;
-  font-size: 0.6rem;
+  font-size: 0.625rem;
 }
 
 .submit-trigger {
   width: 100%;
-  background: #9b6bff;
-  color: #000;
-  border: none;
   padding: 22px;
+  color: #050505;
+  background: #9b6bff;
+  border: none;
+  border-radius: 15px;
   font-family: "JetBrains Mono";
   font-weight: 800;
   cursor: pointer;
-  border-radius: 15px;
-  transition: 0.4s;
   text-transform: uppercase;
   letter-spacing: 2px;
+  transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
 }
-
 .submit-trigger:hover {
   background: #c4a1ff;
   transform: translateY(-3px);
@@ -371,7 +355,7 @@ nav a:hover {
 .side-socials a {
   color: #808080;
   font-size: 1.25rem;
-  transition: color 0.3s, transform 0.3s;
+  transition: color 0.4s, transform 0.4s;
 }
 .side-socials a:hover {
   color: #c4a1ff;
@@ -388,13 +372,19 @@ nav a:hover {
 .project-row {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
   align-items: center;
+  gap: 60px;
 }
-
-.project-info h3 {
+.project-row .project-label {
+  font-family: "JetBrains Mono";
+  color: #9b6bff;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+}
+.project-row h3 {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 20px;
+  margin-top: 10px;
   font-weight: 800;
   letter-spacing: -1px;
 }
@@ -405,47 +395,57 @@ nav a:hover {
   gap: 8px;
   margin: 25px 0;
 }
-
 .project-tags span {
-  font-family: "JetBrains Mono";
-  font-size: 0.6rem;
-  background: rgba(155, 107, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 6px 12px;
-  border-radius: 8px;
   color: #c4a1ff;
+  background: rgba(155, 107, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-family: "JetBrains Mono";
+  font-size: 0.625rem;
 }
 
 .project-preview {
-  height: 420px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 35px;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 420px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 35px;
+  overflow: hidden;
   transition: 0.6s;
+}
+.project-preview div {
+  font-family: "JetBrains Mono";
+  font-size: 0.75rem;
+  color: #9b6bff;
+  opacity: 0.3;
+  text-align: center;
+}
+.project-preview div i {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 20px;
 }
 
 .code-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   padding: 14px 24px;
-  border: 1px solid #9b6bff;
+  gap: 10px;
   color: #9b6bff;
-  text-decoration: none;
+  border: 1px solid #9b6bff;
+  border-radius: 12px;
   font-family: "JetBrains Mono";
   font-size: 0.75rem;
-  border-radius: 12px;
-  transition: 0.3s;
+  text-decoration: none;
+  transition: background 0.4s, color 0.4s, box-shadow 0.4s;
 }
-
 .code-btn:hover {
   background: #9b6bff;
-  color: #000;
-  box-shadow: 0 10px 20px rgba(155, 107, 255, 0.2);
+  color: #050505;
+  box-shadow: 0 10px 20px rgba(155, 107, 255, 0.15);
 }
 
 .experience-box {
@@ -454,31 +454,96 @@ nav a:hover {
 }
 
 .exp-item {
-  position: relative;
   margin-bottom: 60px;
 }
-
+.exp-item .exp-date {
+  font-family: "JetBrains Mono";
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #9b6bff;
+}
+.exp-item .exp-role {
+  margin: 8px 0;
+}
+.exp-item .exp-company {
+  font-family: "JetBrains Mono";
+  font-size: 0.875rem;
+  color: #808080;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+.exp-item .exp-desc {
+  color: #808080;
+  line-height: 1.6;
+}
 .exp-item::before {
   content: "";
   position: absolute;
-  left: -41.5px;
+  left: -40.5px;
   top: 8px;
   width: 12px;
   height: 12px;
-  background: #9b6bff;
   border-radius: 50%;
+  background: #9b6bff;
   box-shadow: 0 0 15px #9b6bff;
 }
 
-.exp-date {
-  font-family: "JetBrains Mono";
-  color: #9b6bff;
-  font-size: 0.8rem;
-  font-weight: 500;
+@media (max-width: 968px) {
+  section {
+    padding: 100px 5% 60px 5%;
+  }
+  .side-socials {
+    display: none;
+  }
+  .project-row,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    direction: ltr !important;
+  }
+  .project-preview {
+    height: 300px;
+  }
 }
-
+/* Mobile Nav States */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #050505;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 1000;
+  }
+  nav.active {
+    right: 0;
+  }
+  nav a {
+    margin: 20px 0;
+    font-size: 1.5rem;
+  }
+  /* Hamburger Animation to X */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
 html {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Plus Jakarta Sans";
   font-size: 1rem;
 }
 
@@ -487,14 +552,4 @@ body {
   color: #f0f0f0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 1000;
 }/*# sourceMappingURL=styles.css.map */

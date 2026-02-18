@@ -7,14 +7,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: $background;
+  background: map-get($colors, background);
   z-index: 9999;
 
   .loader-text {
-    font-family: $mono-font;
-    color: $text-main;
+    font-family: map-get($fonts, mono);
+    color: map-get($colors, text-main);
     letter-spacing: 5px;
-    font-size: map-get($map: $font-sizes, $key: sm);
+    font-size: map-get($sizes, sm);
     text-transform: uppercase;
   }
 
@@ -22,13 +22,13 @@
     width: 180px;
     height: 2px;
     margin-top: 15px;
-    background: $loader-bar;
+    background: map-get($colors, neutral-weak);
 
     .loader-progress {
       height: 100%;
       width: 0;
-      background: $accent;
-      box-shadow: 0 0 15px $accent;
+      background: map-get($colors, accent);
+      box-shadow: 0 0 15px map-get($colors, accent);
     }
   }
 }

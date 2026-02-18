@@ -1,54 +1,74 @@
 @use "../base/variables" as *;
 
-.hero h1 {
-  font-size: clamp(3rem, 10vw, 7.5rem);
-  font-weight: 800;
-  line-height: 0.85;
-  letter-spacing: -0.06em;
-}
-.outline {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+.about-section {
+  .outline {
+    color: transparent;
+    -webkit-text-stroke: 1px map-get($colors, text-stroke);
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 10vw, 7.5rem);
+    letter-spacing: -0.06em;
+    line-height: 0.85;
+  }
+
+  .hero-text {
+    max-width: 900px;
+    margin-top: 35px;
+    color: map-get($colors, text-dim);
+    font-size: map-get($sizes, lg);
+    line-height: 1.8;
+  }
+
+  .tech-title {
+    margin-top: 120px;
+  }
 }
 
-/* --- TECH STACK --- */
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 15px;
 }
+
 .tech-card {
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  border: 1px solid $border;
-  padding: 25px 15px;
-  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 25px 15px;
   gap: 15px;
-  transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-}
-.tech-card i {
-  font-size: 2.2rem;
-  color: $text-dim;
-  transition: 0.3s;
-}
-.tech-card span {
-  font-family: "JetBrains Mono";
-  font-size: 0.6rem;
-  opacity: 0.5;
-  letter-spacing: 1px;
-}
-.tech-card:hover {
-  border-color: $accent;
-  transform: translateY(-8px);
-  background: rgba(155, 107, 255, 0.08);
-}
-.tech-card:hover i {
-  color: $accent-bright;
-  transform: scale(1.1);
+  border: 1px solid map-get($colors, border);
+  border-radius: 20px;
+  background: map-get($gradients, glass-surface);
+  transition:
+    border-color map-get($animation-time, fast),
+    transform map-get($animation-time, fast),
+    background-color map-get($animation-time, fast);
+
+  span {
+    font-family: map-get($fonts, mono);
+    font-size: map-get($sizes, xxs);
+    opacity: 0.5;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  i {
+    font-size: 2.2rem;
+    color: map-get($colors, text-dim);
+    transition:
+      transform map-get($animation-time, fast),
+      color map-get($animation-time, fast);
+  }
+
+  &:hover {
+    border-color: map-get($colors, accent);
+    transform: translateY(-8px);
+    background-color: map-get($colors, accent-dim);
+
+    i {
+      color: map-get($colors, accent-bright);
+      transform: scale(1.1);
+    }
+  }
 }

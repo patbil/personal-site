@@ -1,28 +1,66 @@
-// Base color variables for the project.
-$background: #050505;
-$accent: #9b6bff;
-$accent-bright: #c4a1ff;
-$accent-dim: rgba(155, 107, 255, 0.15);
-$text-main: #f0f0f0;
-$text-dim: #808080;
-$card-bg: rgba(25, 25, 25, 0.4);
-$border: rgba(255, 255, 255, 0.08);
-$loader-bar: rgba(255, 255, 255, 0.1);
-$glass-blur: blur(20px);
+$colors: (
+  background: #050505,
+  accent: #9b6bff,
+  accent-bright: #c4a1ff,
+  accent-dim: rgba(155, 107, 255, 0.15),
+  text-main: #f0f0f0,
+  text-dim: #808080,
+  card-bg: rgba(25, 25, 25, 0.4),
+  border: rgba(255, 255, 255, 0.08),
+  neutral-weak: rgba(255, 255, 255, 0.1),
+  text-stroke: rgba(255, 255, 255, 0.25),
+);
 
-// Font variables
-$main-font: "Plus Jakarta Sans", sans-serif;
-$mono-font: "JetBrains Mono", monospace;
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+);
 
-// Font size variables
-$font-sizes: (
+$fonts: (
+  main: "Plus Jakarta Sans",
+  mono: "JetBrains Mono",
+);
+
+$sizes: (
+  xxs: 0.625rem,
   xs: 0.75rem,
   sm: 0.875rem,
   base: 1rem,
   lg: 1.125rem,
   xl: 1.25rem,
-  "2xl": 1.5rem,
-  "3xl": 1.875rem,
-  "4xl": 2.25rem,
-  "5xl": 3rem,
+  2xl: 1.5rem,
+  3xl: 1.875rem,
+  4xl: 2.25rem,
+  5xl: 3rem,
+);
+
+$gradients: (
+  accent: linear-gradient(135deg, #9b6bff, #c4a1ff),
+  glass-surface: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+  mouse-glow: radial-gradient(
+      circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(155, 107, 255, 0.07) 0%,
+      transparent 45%
+    ),
+  glass-overlay-subtle: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+);
+
+$animation-time: (
+  fast: 0.4s,
+  normal: 0.6s,
+  slow: 0.8s,
+);
+
+$effects: (
+  glass-blur: blur(20px),
 );

@@ -1,79 +1,110 @@
-@use '../base/variables' as *;
+@use "../base/variables" as *;
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
+
+  .section-title {
+    margin-top: 20px;
+    line-height: 0.9;
+  }
+
+  .outline {
+    color: transparent;
+    -webkit-text-stroke: 1px map-get($colors, text-stroke);
+  }
+
+  .contact-info {
+    margin-top: 40px;
+    font-family: map-get($fonts, mono);
+    font-size: map-get($sizes, sm);
+    color: map-get($colors, text-dim);
+    line-height: 2;
+
+    i {
+      margin-right: 10px;
+      color: map-get($colors, accent);
+      transition: color map-get($animation-time, fast);
+
+      &:hover {
+        color: map-get($colors, accent-bright);
+      }
+    }
+  }
 }
+
 .contact-form {
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: map-get($gradients, glass-overlay-subtle);
   padding: 50px;
   border-radius: 35px;
-  border: 1px solid $border;
-  position: relative;
+  border: 1px solid map-get($colors, border);
 }
-.contact-form .field {
+
+.field {
   margin-bottom: 40px;
   position: relative;
+
+  label {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    font-family: map-get($fonts, mono);
+    font-size: map-get($sizes, xs);
+    color: map-get($colors, text-dim);
+    pointer-events: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: map-get($animation-time, fast) cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    background: transparent;
+    padding: 15px 0;
+    color: map-get($colors, text-main);
+    border-bottom: 1px solid map-get($colors, border);
+    border: none;
+    font-size: map-get($sizes, base);
+    font-family: map-get($fonts, mono);
+    transition: map-get($animation-time, fast);
+
+    &:focus {
+      outline: none;
+      border-bottom-color: map-get($colors, accent);
+    }
+
+    &:focus ~ label,
+    &:valid ~ label {
+      top: -15px;
+      color: map-get($colors, accent-bright);
+      font-size: map-get($sizes, xxs);
+    }
+  }
 }
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid $border;
-  padding: 15px 0;
-  color: #fff;
-  font-size: 1rem;
-  font-family: "JetBrains Mono";
-  transition: 0.4s;
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-bottom-color: $accent;
-}
-.contact-form label {
-  position: absolute;
-  left: 0;
-  top: 15px;
-  font-family: "JetBrains Mono";
-  font-size: 0.7rem;
-  color: $text-dim;
-  transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  pointer-events: none;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.contact-form input:focus ~ label,
-.contact-form input:valid ~ label,
-.contact-form textarea:focus ~ label,
-.contact-form textarea:valid ~ label {
-  top: -15px;
-  color: $accent-bright;
-  font-size: 0.6rem;
-}
+
 .submit-trigger {
   width: 100%;
-  background: $accent;
-  color: #000;
-  border: none;
   padding: 22px;
-  font-family: "JetBrains Mono";
+  color: map-get($colors, background);
+  background: map-get($colors, accent);
+  border: none;
+  border-radius: 15px;
+  font-family: map-get($fonts, mono);
   font-weight: 800;
   cursor: pointer;
-  border-radius: 15px;
-  transition: 0.4s;
   text-transform: uppercase;
   letter-spacing: 2px;
-}
-.submit-trigger:hover {
-  background: $accent-bright;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(155, 107, 255, 0.3);
+  transition:
+    background map-get($animation-time, fast),
+    transform map-get($animation-time, fast),
+    box-shadow map-get($animation-time, fast);
+
+  &:hover {
+    background: map-get($colors, accent-bright);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(155, 107, 255, 0.3);
+  }
 }

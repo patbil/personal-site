@@ -1,6 +1,5 @@
 @use "./base/reset" as *;
 @use "./base/variables" as *;
-@use "./base/responsive" as *;
 @use "./layout/canvas" as *;
 @use "./layout/sections" as *;
 @use "./components/about" as *;
@@ -10,25 +9,16 @@
 @use "./components/socials" as *;
 @use "./components/projects" as *;
 @use "./components/experience" as *;
+@use "./utilities/responsive" as *;
 
 html {
-  font-family: $main-font;
-  font-size: map-get($map: $font-sizes, $key: base);
+  font-family: map-get($fonts, main);
+  font-size: map-get($sizes, base);
 }
 
 body {
-  background: $background;
-  color: $text-main;
+  background: map-get($colors, background);
+  color: map-get($colors, text-main);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 1000;
 }
