@@ -1,12 +1,5 @@
 @use "../base/variables" as *;
 
-.bg-canvas {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-}
-
 .mouse-glow {
   position: fixed;
   inset: 0;

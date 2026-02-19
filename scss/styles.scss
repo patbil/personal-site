@@ -2,6 +2,7 @@
 @use "./base/variables" as *;
 @use "./layout/canvas" as *;
 @use "./layout/sections" as *;
+@use "./utils/responsive" as *;
 @use "./components/about" as *;
 @use "./components/loader" as *;
 @use "./components/header" as *;
@@ -9,7 +10,6 @@
 @use "./components/socials" as *;
 @use "./components/projects" as *;
 @use "./components/experience" as *;
-@use "./utilities/responsive" as *;
 
 html {
   font-family: map-get($fonts, main);

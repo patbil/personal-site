@@ -9,16 +9,11 @@ section {
     margin-bottom: 50px;
   }
 
-  .label-container {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-  }
-
   .section-label {
     font-family: map-get($fonts, mono);
     font-size: map-get($sizes, sm);
     letter-spacing: 2px;
+    margin-bottom: 20px;
 
     &.accent {
       color: map-get($colors, accent);
