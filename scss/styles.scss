@@ -1,0 +1,25 @@
+@use "./base/reset" as *;
+@use "./base/typography" as *;
+@use "./abstracts/variables" as *;
+@use "./layout/layout" as *;
+@use "./components/about" as *;
+@use "./components/loader" as *;
+@use "./components/header" as *;
+@use "./components/footer" as *;
+@use "./components/contact" as *;
+@use "./components/socials" as *;
+@use "./components/projects" as *;
+@use "./components/experience" as *;
+
+html {
+  font-family: map-get($fonts, main);
+  font-size: map-get($sizes, base);
+  scroll-padding-top: 92px;
+}
+
+body {
+  background: map-get($colors, background);
+  color: map-get($colors, text-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}

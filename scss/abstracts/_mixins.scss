@@ -1,0 +1,117 @@
+@use "./variables" as *;
+
+// =========== TYPOGRAPHY =========== //
+
+@mixin text-style(
+  $font: mono,
+  $size: xxs,
+  $color: null,
+  $transform: uppercase,
+  $spacing: 1px,
+  $line-height: 1
+) {
+  font-family: map-get($fonts, $font);
+  font-size: map-get($sizes, $size);
+  text-transform: $transform;
+  letter-spacing: $spacing;
+  line-height: $line-height;
+
+  @if $color {
+    color: map-get($colors, $color);
+  }
+}
+
+@mixin text-outline($stroke-width: 1px) {
+  color: transparent;
+  -webkit-text-stroke: $stroke-width map-get($colors, text-stroke);
+}
+
+// =========== LAYOUTS =========== //
+
+@mixin layout-flex($dir: row, $justify: center, $align: center, $gap: 0) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin layout-center-abs {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// =========== FORMS =========== //
+
+@mixin field-input-base {
+  width: 100%;
+  background: transparent;
+  padding: 15px 0;
+  color: map-get($colors, text-main);
+  border: none;
+  border-bottom: 1px solid map-get($colors, border);
+  font-size: map-get($sizes, base);
+  font-family: map-get($fonts, mono);
+  transition: border-color map-get($animation-time, fast);
+
+  &:focus {
+    outline: none;
+    border-bottom-color: map-get($colors, accent);
+  }
+}
+
+// =========== EFFECTS =========== //
+
+@mixin effect-glass($bg: glass-surface, $radius: 20px) {
+  background: map-get($gradients, $bg);
+  border: 1px solid map-get($colors, border);
+  border-radius: $radius;
+
+  @if $bg == glass-surface or $bg == glass-overlay-subtle {
+    backdrop-filter: map-get($effects, glass-blur);
+  }
+}
+
+@mixin effect-hover-lift(
+  $hover-color: accent-bright,
+  $opacity: null,
+  $y: null,
+  $scale: null
+) {
+  transition:
+    color map-get($animation-time, fast),
+    transform map-get($animation-time, fast),
+    opacity map-get($animation-time, fast);
+
+  &:hover {
+    @if $hover-color {
+      color: map-get($colors, $hover-color);
+    }
+    @if $opacity {
+      opacity: $opacity;
+    }
+
+    $transforms: ();
+    @if $y {
+      $transforms: append($transforms, translateY($y));
+    }
+    @if $scale {
+      $transforms: append($transforms, scale($scale));
+    }
+
+    @if length($transforms) > 0 {
+      transform: $transforms;
+    }
+  }
+}
+
+// =========== RESPONSIVE =========== //
+
+@mixin responsive($size) {
+  $width: map-get($breakpoints, $size);
+  @media (max-width: $width) {
+    @content;
+  }
+}

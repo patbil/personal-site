@@ -1,0 +1,48 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.mouse-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: map-get($gradients, mouse-glow);
+}
+
+.page {
+  position: relative;
+  margin-top: 92px;
+}
+
+.container {
+  width: min(100% - 48px, 1400px);
+  margin-inline: auto;
+}
+
+.section-item {
+  padding: 80px 0;
+
+  &:first-child {
+    padding-top: map-get($sizes, 3xl);
+  }
+
+  &-title {
+    margin-bottom: map-get($sizes, 3xl);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &-label {
+    display: inline-block;
+    margin-bottom: map-get($sizes, base);
+    @include text-style($size: sm, $spacing: 2px, $color: accent);
+
+    &.dim {
+      color: map-get($colors, text-dim);
+    }
+
+    &.muted {
+      opacity: 0.5;
+    }
+  }
+}

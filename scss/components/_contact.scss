@@ -1,0 +1,232 @@
+@use "../abstracts/variables" as *;
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  .section-title {
+    margin-top: 20px;
+    line-height: 0.9;
+  }
+
+  .outline {
+    color: transparent;
+    -webkit-text-stroke: 1px map-get($colors, text-stroke);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    font-size: map-get($sizes, md);
+    color: map-get($colors, text-dim);
+    line-height: 2;
+
+    a {
+      color: map-get($colors, text-dim);
+      transition: color map-get($animation-time, fast);
+
+      &.mail {
+        user-select: text;
+      }
+
+      &:hover {
+        color: map-get($colors, accent-bright);
+      }
+    }
+
+    i {
+      margin-right: 10px;
+      color: map-get($colors, accent);
+      transition: color map-get($animation-time, fast);
+
+      &:hover {
+        color: map-get($colors, accent-bright);
+      }
+    }
+  }
+}
+
+.contact-form {
+  background: map-get($gradients, glass-overlay-subtle);
+  padding: 50px;
+  border-radius: 35px;
+  border: 1px solid map-get($colors, border);
+}
+
+.field {
+  margin-bottom: 40px;
+  position: relative;
+
+  label {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    font-family: map-get($fonts, mono);
+    font-size: map-get($sizes, xs);
+    color: map-get($colors, text-dim);
+    pointer-events: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: map-get($animation-time, fast) cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  textarea {
+    min-height: 150px;
+    resize: none;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    background: transparent;
+    padding: 15px 0;
+    color: map-get($colors, text-main);
+    border: none;
+    border-bottom: 1px solid map-get($colors, border);
+    font-size: map-get($sizes, base);
+    font-family: map-get($fonts, mono);
+    transition: map-get($animation-time, fast);
+
+    &:focus {
+      outline: none;
+      border-bottom-color: map-get($colors, accent);
+    }
+
+    &:focus ~ label,
+    &:valid ~ label {
+      top: -15px;
+      color: map-get($colors, accent-bright);
+      font-size: map-get($sizes, xxs);
+    }
+
+    &:user-invalid {
+      border-bottom-color: map-get($colors, error);
+
+      & ~ label {
+        top: -15px;
+        color: map-get($colors, error);
+      }
+    }
+  }
+}
+
+.submit-trigger {
+  position: relative;
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  padding: 22px;
+  color: map-get($colors, background);
+  background: map-get($colors, accent);
+  border: none;
+  border-radius: 15px;
+  font-family: map-get($fonts, mono);
+  font-weight: 800;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  overflow: hidden;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    background: map-get($colors, accent-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(155, 107, 255, 0.3);
+  }
+
+  /* Stan wysyłania */
+  &.loading {
+    cursor: wait;
+
+    .btn-text {
+      visibility: hidden; // tekst znika, ale miejsce zostaje
+    }
+
+    .spinner {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  /* Stan wysłano */
+  &.success {
+    background: #28a745;
+    color: #fff;
+    transform: translateY(0);
+    box-shadow: 0 5px 20px rgba(40, 167, 69, 0.5);
+  }
+
+  &.error {
+    background: red;
+    color: #fff;
+    transform: translateY(0);
+    box-shadow: 0 5px 20px rgba(224, 11, 4, 0.5);
+  }
+
+  /* Tekst przycisku */
+  .btn-text {
+    display: inline-block;
+  }
+
+  /* Spinner */
+  .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 1s linear infinite;
+    pointer-events: none;
+
+    /* Początkowo niewidoczny, ale miejsce zachowane */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+}
+
+.submit-message {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  font-family: map-get($fonts, mono);
+  font-size: map-get($sizes, sm);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.submit-message.success {
+  color: #28a745;
+  opacity: 1;
+}
+
+.submit-message.error {
+  color: red;
+  opacity: 1;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+@media (max-width: 968px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

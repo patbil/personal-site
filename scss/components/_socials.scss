@@ -1,0 +1,42 @@
+@use "../abstracts/variables" as *;
+
+.side-socials {
+  position: fixed;
+  left: 40px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  z-index: 100;
+
+  &::after {
+    content: "";
+    width: 1px;
+    height: 100px;
+    background: linear-gradient(
+      to bottom,
+      map-get($colors, accent),
+      transparent
+    );
+    margin: 0 auto;
+  }
+
+  a {
+    color: map-get($colors, text-dim);
+    font-size: map-get($sizes, xl);
+    transition:
+      color map-get($animation-time, fast),
+      transform map-get($animation-time, fast);
+
+    &:hover {
+      color: map-get($colors, accent-bright);
+      transform: translateY(-5px);
+    }
+  }
+}
+
+@media (max-width: 968px) {
+  .side-socials {
+    display: none;
+  }
+}

@@ -1,0 +1,47 @@
+@use "../abstracts/variables" as *;
+
+.experience-box {
+  border-left: 1px solid map-get($colors, border);
+  padding-left: 35px;
+  max-width: 900px;
+}
+
+.exp-item {
+  margin-bottom: 60px;
+
+  .exp-date {
+    font-family: map-get($fonts, mono);
+    font-weight: 500;
+    color: map-get($colors, accent);
+  }
+
+  .exp-role {
+    margin: 8px 0;
+  }
+
+  .exp-company {
+    font-family: map-get($fonts, mono);
+    font-size: map-get($sizes, sm);
+    color: map-get($colors, text-dim);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  .exp-desc {
+    color: map-get($colors, text-dim);
+    line-height: 1.6;
+
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -40.5px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: map-get($colors, accent);
+    box-shadow: 0 0 15px map-get($colors, accent);
+  }
+}
