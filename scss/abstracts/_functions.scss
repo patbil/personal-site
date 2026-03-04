@@ -1,8 +1,10 @@
+@use "sass:map";
+@use "sass:meta";
 @use "./variables" as *;
 
 @function _check-map($map, $key, $map-name) {
-  @if map-has-key($map, $key) {
-    @return map-get($map, $key);
+  @if map.has-key($map, $key) {
+    @return map.get($map, $key);
   }
 
   @error "ERROR: Key '#{$key}' does not exist in #{$map-name}!";
@@ -10,7 +12,7 @@
 }
 
 @function clr($key) {
-  @if type-of($key) == color {
+  @if meta.type-of($key) == color {
     @return $key;
   }
   @return _check-map($colors, $key, "$colors");
@@ -34,6 +36,10 @@
 
 @function size($key) {
   @return _check-map($sizes, $key, "$sizes");
+}
+
+@function shadow($key) {
+  @return _check-map($shadows, $key, "$shadows");
 }
 
 @function gradient($key) {

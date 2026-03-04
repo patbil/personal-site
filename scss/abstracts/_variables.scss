@@ -8,6 +8,7 @@ $fonts: (
 );
 
 $animation-time: (
+  ultra: 0.1s,
   fast: 0.4s,
   normal: 0.6s,
   slow: 0.8s,
@@ -39,17 +40,24 @@ $sizes: (
   9xl: 8rem,
 );
 
+$shadows: (
+  accent-glow: 0 8px 25px rgba(155, 107, 255, 0.3),
+  error: 0 5px 20px rgba(224, 11, 4, 0.5),
+  success: 0 5px 20px rgba(40, 167, 69, 0.5),
+);
+
 $colors: (
-  accent: #af85ff,
-  accent-bright: #d6bcff,
+  accent: rgba(175, 133, 255, 1),
+  accent-bright: rgba(214, 188, 255, 1),
   accent-dim: rgba(175, 133, 255, 0.15),
-  background: #050505,
+  background: rgba(5, 5, 5, 1),
   border: rgba(255, 255, 255, 0.12),
   card-bg: rgba(25, 25, 25, 0.6),
-  error: #ff6b6b,
+  error: rgba(255, 107, 107, 1),
   neutral-weak: rgba(255, 255, 255, 0.1),
-  text-main: #f0f0f0,
-  text-dim: #9e9e9e,
+  success: rgba(40, 167, 69, 1),
+  text-main: rgba(240, 240, 240, 1),
+  text-dim: rgba(158, 158, 158, 1),
   text-stroke: rgba(255, 255, 255, 0.25),
 );
 

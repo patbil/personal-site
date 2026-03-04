@@ -1,10 +1,9 @@
-@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
 
 .projects-container {
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
   margin-top: 60px;
+  @include layout-flex($dir: column, $gap: 100px);
 }
 
 .project-row {
@@ -13,128 +12,119 @@
   align-items: center;
   gap: 60px;
 
-  .project-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    .project-label {
-      font-family: map-get($fonts, mono);
-      color: map-get($colors, accent);
-      font-size: map-get($sizes, xs);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    h3 {
-      font-size: clamp(2rem, 4vw, 2.25rem);
-      margin: 10px 0 20px 0;
-      font-weight: 800;
-      letter-spacing: -1px;
-      text-transform: uppercase;
-      line-height: 1.1;
-    }
-
-    p {
-      color: map-get($colors, text-dim);
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .project-preview {
-      display: none;
+  &:nth-child(even) {
+    direction: rtl;
+    .project-info {
+      direction: ltr;
     }
   }
 
-  .project-preview,
-  .project-preview-desktop {
-    height: 420px;
-    background: map-get($colors, neutral-weak);
-    border: 1px solid map-get($colors, border);
-    border-radius: 35px;
-    overflow: hidden;
-    transition: map-get($animation-time, normal);
-  }
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 25px 0;
-
-  span {
-    padding: 6px 12px;
-    color: map-get($colors, accent-bright);
-    background: map-get($colors, accent-dim);
-    border: 1px solid map-get($colors, border);
-    border-radius: 8px;
-    font-family: map-get($fonts, mono);
-    font-size: map-get($sizes, xs);
-  }
-}
-
-.code-btn {
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  padding: 11px 21px;
-  gap: 10px;
-  color: map-get($colors, accent);
-  border: 1px solid map-get($colors, accent);
-  border-radius: 12px;
-  font-family: map-get($fonts, mono);
-  font-size: map-get($sizes, xs);
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all map-get($animation-time, fast);
-
-  &:hover {
-    background: map-get($colors, accent);
-    color: map-get($colors, background);
-    box-shadow: 0 10px 20px map-get($colors, accent-dim);
-  }
-}
-
-@media (max-width: 992px) {
-  .project-row {
+  @include responsive(lg) {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+}
 
-    .project-info {
-      .project-preview {
-        display: block;
-        height: 280px;
-        margin: 15px 0 25px 0;
-      }
+.project-info {
+  @include layout-flex($dir: column, $align: unset);
+
+  .project-label {
+    @include text-style(
+      $color: accent,
+      $size: xs,
+      $spacing: 2px,
+      $transform: uppercase
+    );
+  }
+
+  h3 {
+    margin: 10px 0 20px 0;
+    @include text-style(
+      $font: main,
+      $weight: 700,
+      $spacing: -1px,
+      $transform: uppercase
+    );
+  }
+
+  p {
+    margin: 0;
+    color: clr(text-dim);
+    line-height: 1.7;
+  }
+
+  .project-tags {
+    margin: 25px 0;
+    @include layout-flex($gap: size(xxs), $justify: unset);
+
+    span {
+      padding: 8px 12px;
+      background: clr(accent-dim);
+      border: 1px solid clr(border);
+      border-radius: 8px;
+      @include text-style(
+        $font: main,
+        $size: xxs,
+        $color: accent-bright,
+        $transform: uppercase
+      );
     }
+  }
 
-    .project-preview-desktop {
-      display: none;
+  .code-btn {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 15px 20px;
+    gap: 10px;
+    border: 1px solid clr(accent);
+    border-radius: 12px;
+    transition: all anim(fast);
+    @include text-style($color: accent, $size: xs, $transform: uppercase);
+
+    &:hover {
+      background: clr(accent);
+      color: clr(background);
+      box-shadow: shadow(accent-glow);
     }
   }
 }
 
 .project-smart-home {
-  .project-preview,
-  .project-preview-desktop {
-    background: url("../../assets/projects/smart-home.png") center/cover
-      no-repeat;
-  }
+  --project-img: url("../../assets/projects/smart-home.png");
 }
 
 .project-strapi-client {
-  .project-preview,
-  .project-preview-desktop {
-    background: url("../../assets/projects/strapi-client.png") center/cover
-      no-repeat;
-  }
+  --project-img: url("../../assets/projects/strapi-client.png");
 }
 
 .project-snake-game {
-  .project-preview,
-  .project-preview-desktop {
-    background: url("../../assets/projects/snake-game.png") center/cover
-      no-repeat;
+  --project-img: url("../../assets/projects/snake-game.png");
+}
+
+.project-image,
+.project-image-desktop {
+  height: 420px;
+  background-image: var(--project-img);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid clr(border);
+  border-radius: 35px;
+  overflow: hidden;
+}
+
+.project-image {
+  display: none;
+  @include responsive(lg) {
+    display: block;
+    height: 280px;
+    margin: 15px 0 25px 0;
+  }
+}
+
+.project-image-desktop {
+  @include responsive(lg) {
+    display: none;
   }
 }

@@ -1,12 +1,17 @@
 @use "../abstracts/mixins" as *;
-@use "../abstracts/variables" as *;
 @use "../abstracts/functions" as *;
+@use "../abstracts/animations" as *;
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 80px;
+
+  @include responsive(lg) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 
   .section-item-title span {
     @include text-outline;
@@ -17,24 +22,28 @@
   display: flex;
   flex-direction: column;
   margin-top: 40px;
-  @include text-style($font: main, $color: text-dim, $line-height: 2);
+  @include text-style($font: main, $color: text-dim, $height: 2);
 
   &-link {
     color: clr(text-dim);
     transition: anim(fast);
 
     i {
-      margin-right: 10px;
+      margin-right: size(sm);
       color: clr(accent);
-      transition: color anim(fast);
-      &:hover {
+      transition:
+        color anim(fast),
+        transform anim(fast);
+    }
+
+    &:hover {
+      color: clr(accent-bright);
+
+      i {
         color: clr(accent-bright);
+        transform: scale(1.1);
       }
     }
-  }
-
-  &-link:hover {
-    color: clr(accent-bright);
   }
 }
 
@@ -43,6 +52,10 @@
   border-radius: 35px;
   border: 1px solid clr(border);
   background: gradient(glass-overlay-subtle);
+
+  @include responsive(md) {
+    padding: 30px 20px;
+  }
 
   &-field {
     position: relative;
@@ -58,6 +71,7 @@
     }
 
     textarea {
+      min-height: 100px;
       resize: none;
     }
 
@@ -86,111 +100,79 @@
 .submit-trigger {
   position: relative;
   display: block;
-  width: 50%;
+  width: 100%;
+  max-width: 250px;
   margin: 0 auto;
   padding: size(lg);
   color: clr(background);
   background: clr(accent);
   border: none;
   border-radius: 15px;
-  font-family: font(mono);
-  font-weight: 800;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   overflow: hidden;
+  @include text-style($weight: 800, $transform: uppercase, $spacing: 2px);
   transition:
-    background 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    background anim(fast) ease,
+    transform anim(fast) ease,
+    box-shadow anim(fast) ease;
 
   &:hover {
     background: clr(accent-bright);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(155, 107, 255, 0.3);
+    box-shadow: shadow(accent-glow);
   }
 
   &.loading {
     cursor: wait;
 
     .btn-text {
-      visibility: hidden; 
+      visibility: hidden;
     }
 
     .spinner {
       visibility: visible;
-      opacity: 1;
     }
   }
 
   &.success {
-    background: #28a745;
-    color: #fff;
-    transform: translateY(0);
-    box-shadow: 0 5px 20px rgba(40, 167, 69, 0.5);
+    background: clr(success);
   }
 
   &.error {
-    background: red;
-    color: #fff;
-    transform: translateY(0);
-    box-shadow: 0 5px 20px rgba(224, 11, 4, 0.5);
-  }
-
-  .btn-text {
-    display: inline-block;
+    background: clr(error);
   }
 
   .spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     width: 20px;
     height: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top-color: #fff;
+    border: 3px solid clr(border);
+    border-top-color: clr(text-main);
     border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: spin 1s linear infinite;
+    animation: spin anim(ultra) linear infinite;
     pointer-events: none;
-
     visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity anim(fast) ease;
+    @include layout-center-abs;
   }
 }
 
 .submit-message {
   display: block;
-  text-align: center;
-  margin-top: 15px;
+  min-height: 1.5em;
+  margin-top: size(base);
   font-family: font(mono);
   font-size: size(sm);
+  text-align: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
-}
+  transition: opacity anim(fast) ease;
 
-.submit-message.success {
-  color: #28a745;
-  opacity: 1;
-}
-
-.submit-message.error {
-  color: red;
-  opacity: 1;
-}
-
-@keyframes spin {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
+  &.success {
+    color: clr(success);
+    opacity: 1;
   }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
 
-@media (max-width: 968px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
+  &.error {
+    color: clr(error);
+    opacity: 1;
   }
 }

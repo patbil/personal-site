@@ -27,7 +27,12 @@
   }
 
   &-date {
-    @include text-style($color: accent, $spacing: 2px, $transform: uppercase);
+    @include text-style(
+      $color: accent,
+      $size: base,
+      $spacing: 2px,
+      $transform: uppercase
+    );
   }
 
   &-role {

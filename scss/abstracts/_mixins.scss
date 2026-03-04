@@ -1,25 +1,29 @@
+@use "sass:list";
 @use "./functions" as *;
 
 // =========== TYPOGRAPHY =========== //
 
 @mixin text-style(
   $font: mono,
-  $size: base,
+  $size: null,
   $color: null,
   $transform: none,
   $spacing: 1px,
-  $line-height: 1,
-  $font-weight: 500
+  $height: 1,
+  $weight: 500
 ) {
   font-family: font($font);
-  font-size: size($size);
-  font-weight: $font-weight;
+  font-weight: $weight;
   text-transform: $transform;
   letter-spacing: $spacing;
-  line-height: $line-height;
+  line-height: $height;
 
   @if $color {
     color: clr($color);
+  }
+
+  @if $size {
+    font-size: size($size);
   }
 }
 
@@ -30,12 +34,13 @@
 
 // =========== LAYOUTS =========== //
 
-@mixin layout-flex($dir: row, $justify: center, $align: center, $gap: 0) {
+@mixin layout-flex($dir: row, $justify: center, $align: center, $gap: 0, $wrap: wrap) {
   display: flex;
   flex-direction: $dir;
   justify-content: $justify;
   align-items: $align;
   gap: $gap;
+  wrap: $wrap;
 }
 
 @mixin layout-center-abs {
@@ -103,7 +108,7 @@
       $transforms: append($transforms, scale($scale));
     }
 
-    @if length($transforms) > 0 {
+    @if list.length($transforms) > 0 {
       transform: $transforms;
     }
   }
