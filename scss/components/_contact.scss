@@ -1,113 +1,83 @@
+@use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
   align-items: center;
+  gap: 80px;
 
-  .section-title {
-    margin-top: 20px;
-    line-height: 0.9;
+  .section-item-title span {
+    @include text-outline;
   }
+}
 
-  .outline {
-    color: transparent;
-    -webkit-text-stroke: 1px map-get($colors, text-stroke);
-  }
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  @include text-style($font: main, $color: text-dim, $line-height: 2);
 
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-    font-size: map-get($sizes, md);
-    color: map-get($colors, text-dim);
-    line-height: 2;
-
-    a {
-      color: map-get($colors, text-dim);
-      transition: color map-get($animation-time, fast);
-
-      &.mail {
-        user-select: text;
-      }
-
-      &:hover {
-        color: map-get($colors, accent-bright);
-      }
-    }
+  &-link {
+    color: clr(text-dim);
+    transition: anim(fast);
 
     i {
       margin-right: 10px;
-      color: map-get($colors, accent);
-      transition: color map-get($animation-time, fast);
-
+      color: clr(accent);
+      transition: color anim(fast);
       &:hover {
-        color: map-get($colors, accent-bright);
+        color: clr(accent-bright);
       }
     }
+  }
+
+  &-link:hover {
+    color: clr(accent-bright);
   }
 }
 
 .contact-form {
-  background: map-get($gradients, glass-overlay-subtle);
   padding: 50px;
   border-radius: 35px;
-  border: 1px solid map-get($colors, border);
-}
+  border: 1px solid clr(border);
+  background: gradient(glass-overlay-subtle);
 
-.field {
-  margin-bottom: 40px;
-  position: relative;
+  &-field {
+    position: relative;
+    margin-bottom: size(4xl);
 
-  label {
-    position: absolute;
-    left: 0;
-    top: 15px;
-    font-family: map-get($fonts, mono);
-    font-size: map-get($sizes, xs);
-    color: map-get($colors, text-dim);
-    pointer-events: none;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: map-get($animation-time, fast) cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  textarea {
-    min-height: 150px;
-    resize: none;
-  }
-
-  input,
-  textarea {
-    width: 100%;
-    background: transparent;
-    padding: 15px 0;
-    color: map-get($colors, text-main);
-    border: none;
-    border-bottom: 1px solid map-get($colors, border);
-    font-size: map-get($sizes, base);
-    font-family: map-get($fonts, mono);
-    transition: map-get($animation-time, fast);
-
-    &:focus {
-      outline: none;
-      border-bottom-color: map-get($colors, accent);
+    label {
+      position: absolute;
+      left: 0;
+      top: 15px;
+      pointer-events: none;
+      transition: anim(fast) cubic-bezier(0.23, 1, 0.32, 1);
+      @include text-style($size: xs, $color: text-dim, $transform: uppercase);
     }
 
-    &:focus ~ label,
-    &:valid ~ label {
-      top: -15px;
-      color: map-get($colors, accent-bright);
-      font-size: map-get($sizes, xxs);
+    textarea {
+      resize: none;
     }
 
-    &:user-invalid {
-      border-bottom-color: map-get($colors, error);
+    input,
+    textarea {
+      @include field-input-base;
 
-      & ~ label {
+      &:focus ~ label,
+      &:valid ~ label {
         top: -15px;
-        color: map-get($colors, error);
+        color: clr(accent-bright);
+        font-size: size(xxs);
+      }
+
+      &:user-invalid {
+        border-bottom-color: clr(error);
+        & ~ label {
+          top: -15px;
+          color: clr(error);
+        }
       }
     }
   }
@@ -118,12 +88,12 @@
   display: block;
   width: 50%;
   margin: 0 auto;
-  padding: 22px;
-  color: map-get($colors, background);
-  background: map-get($colors, accent);
+  padding: size(lg);
+  color: clr(background);
+  background: clr(accent);
   border: none;
   border-radius: 15px;
-  font-family: map-get($fonts, mono);
+  font-family: font(mono);
   font-weight: 800;
   cursor: pointer;
   text-transform: uppercase;
@@ -135,17 +105,16 @@
     box-shadow 0.2s ease;
 
   &:hover {
-    background: map-get($colors, accent-bright);
+    background: clr(accent-bright);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(155, 107, 255, 0.3);
   }
 
-  /* Stan wysyłania */
   &.loading {
     cursor: wait;
 
     .btn-text {
-      visibility: hidden; // tekst znika, ale miejsce zostaje
+      visibility: hidden; 
     }
 
     .spinner {
@@ -154,7 +123,6 @@
     }
   }
 
-  /* Stan wysłano */
   &.success {
     background: #28a745;
     color: #fff;
@@ -169,12 +137,10 @@
     box-shadow: 0 5px 20px rgba(224, 11, 4, 0.5);
   }
 
-  /* Tekst przycisku */
   .btn-text {
     display: inline-block;
   }
 
-  /* Spinner */
   .spinner {
     position: absolute;
     top: 50%;
@@ -188,7 +154,6 @@
     animation: spin 1s linear infinite;
     pointer-events: none;
 
-    /* Początkowo niewidoczny, ale miejsce zachowane */
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.2s ease;
@@ -199,8 +164,8 @@
   display: block;
   text-align: center;
   margin-top: 15px;
-  font-family: map-get($fonts, mono);
-  font-size: map-get($sizes, sm);
+  font-family: font(mono);
+  font-size: size(sm);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -223,7 +188,6 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-
 
 @media (max-width: 968px) {
   .contact-grid {

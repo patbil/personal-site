@@ -1,29 +1,31 @@
-@use "./variables" as *;
+@use "./functions" as *;
 
 // =========== TYPOGRAPHY =========== //
 
 @mixin text-style(
   $font: mono,
-  $size: xxs,
+  $size: base,
   $color: null,
-  $transform: uppercase,
+  $transform: none,
   $spacing: 1px,
-  $line-height: 1
+  $line-height: 1,
+  $font-weight: 500
 ) {
-  font-family: map-get($fonts, $font);
-  font-size: map-get($sizes, $size);
+  font-family: font($font);
+  font-size: size($size);
+  font-weight: $font-weight;
   text-transform: $transform;
   letter-spacing: $spacing;
   line-height: $line-height;
 
   @if $color {
-    color: map-get($colors, $color);
+    color: clr($color);
   }
 }
 
 @mixin text-outline($stroke-width: 1px) {
   color: transparent;
-  -webkit-text-stroke: $stroke-width map-get($colors, text-stroke);
+  -webkit-text-stroke: $stroke-width clr(text-stroke);
 }
 
 // =========== LAYOUTS =========== //
@@ -49,28 +51,28 @@
   width: 100%;
   background: transparent;
   padding: 15px 0;
-  color: map-get($colors, text-main);
+  color: clr(text-main);
   border: none;
-  border-bottom: 1px solid map-get($colors, border);
-  font-size: map-get($sizes, base);
-  font-family: map-get($fonts, mono);
-  transition: border-color map-get($animation-time, fast);
+  border-bottom: 1px solid clr(border);
+  font-size: size(base);
+  font-family: font(mono);
+  transition: border-color anim(fast);
 
   &:focus {
     outline: none;
-    border-bottom-color: map-get($colors, accent);
+    border-bottom-color: clr(accent);
   }
 }
 
 // =========== EFFECTS =========== //
 
 @mixin effect-glass($bg: glass-surface, $radius: 20px) {
-  background: map-get($gradients, $bg);
-  border: 1px solid map-get($colors, border);
+  background: gradient($bg);
+  border: 1px solid clr(border);
   border-radius: $radius;
 
   @if $bg == glass-surface or $bg == glass-overlay-subtle {
-    backdrop-filter: map-get($effects, glass-blur);
+    backdrop-filter: effect(glass-blur);
   }
 }
 
@@ -81,13 +83,13 @@
   $scale: null
 ) {
   transition:
-    color map-get($animation-time, fast),
-    transform map-get($animation-time, fast),
-    opacity map-get($animation-time, fast);
+    color anim(fast),
+    transform anim(fast),
+    opacity anim(fast);
 
   &:hover {
     @if $hover-color {
-      color: map-get($colors, $hover-color);
+      color: clr($hover-color);
     }
     @if $opacity {
       opacity: $opacity;
@@ -110,7 +112,7 @@
 // =========== RESPONSIVE =========== //
 
 @mixin responsive($size) {
-  $width: map-get($breakpoints, $size);
+  $width: bp($size);
   @media (max-width: $width) {
     @content;
   }

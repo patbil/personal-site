@@ -1,9 +1,9 @@
 @use "../abstracts/mixins" as *;
-@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
 
 .hero {
   max-width: 900px;
-  margin-bottom: map-get($sizes, 4xl);
+  margin-bottom: size(4xl);
 
   &-title {
     font-weight: 700;
@@ -17,14 +17,13 @@
   }
 
   &-text {
-    margin-top: map-get($sizes, 2xl);
+    margin-top: size(2xl);
     @include text-style(
       $size: lg,
       $color: text-dim,
       $line-height: 1.8,
       $spacing: 0,
-      $font: main,
-      $transform: none
+      $font: main
     );
   }
 }
@@ -39,28 +38,29 @@
   padding: 25px 15px;
   @include layout-flex($dir: column, $gap: 15px);
   @include effect-glass;
+
   transition:
-    border-color map-get($animation-time, fast),
-    transform map-get($animation-time, fast),
-    background-color map-get($animation-time, fast);
+    border-color anim(fast),
+    transform anim(fast),
+    background-color anim(fast);
 
   i {
-    font-size: map-get($sizes, 4xl);
-    color: map-get($colors, text-dim);
-    transition: all map-get($animation-time, fast);
+    font-size: size(4xl);
+    color: clr(text-dim);
+    transition: all anim(fast);
   }
 
   span {
     opacity: 0.7;
-    @include text-style;
+    @include text-style($size: xxs, $transform: uppercase);
   }
 
   &:hover {
-    border-color: map-get($colors, accent);
-    background-color: map-get($colors, accent-dim);
+    border-color: clr(accent);
+    background-color: clr(accent-dim);
 
     i {
-      color: map-get($colors, accent-bright);
+      color: clr(accent-bright);
       transform: scale(1.1);
     }
   }

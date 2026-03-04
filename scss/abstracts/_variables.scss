@@ -1,3 +1,44 @@
+$effects: (
+  glass-blur: blur(20px),
+);
+
+$fonts: (
+  main: "Plus Jakarta Sans",
+  mono: "JetBrains Mono",
+);
+
+$animation-time: (
+  fast: 0.4s,
+  normal: 0.6s,
+  slow: 0.8s,
+);
+
+$breakpoints: (
+  xs: 375px,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1440px,
+);
+
+$sizes: (
+  xxs: 0.625rem,
+  xs: 0.75rem,
+  sm: 0.875rem,
+  base: 1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  2xl: 1.5rem,
+  3xl: 1.875rem,
+  4xl: 2.25rem,
+  5xl: 3rem,
+  6xl: 3.75rem,
+  7xl: 4.5rem,
+  8xl: 6rem,
+  9xl: 8rem,
+);
+
 $colors: (
   accent: #af85ff,
   accent-bright: #d6bcff,
@@ -10,31 +51,6 @@ $colors: (
   text-main: #f0f0f0,
   text-dim: #9e9e9e,
   text-stroke: rgba(255, 255, 255, 0.25),
-);
-
-$breakpoints: (
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-);
-
-$fonts: (
-  main: "Plus Jakarta Sans",
-  mono: "JetBrains Mono",
-);
-
-$sizes: (
-  xxs: 0.65rem,
-  xs: 0.75rem,
-  sm: 0.875rem,
-  base: 1rem,
-  lg: 1.125rem,
-  xl: 1.3rem,
-  2xl: 1.5rem,
-  3xl: 2rem,
-  4xl: 2.5rem,
-  5xl: 3rem,
 );
 
 $gradients: (
@@ -54,14 +70,4 @@ $gradients: (
       rgba(255, 255, 255, 0.03) 0%,
       rgba(255, 255, 255, 0) 100%
     ),
-);
-
-$animation-time: (
-  fast: 0.4s,
-  normal: 0.6s,
-  slow: 0.8s,
-);
-
-$effects: (
-  glass-blur: blur(20px),
 );

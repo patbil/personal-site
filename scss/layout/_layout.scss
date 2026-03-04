@@ -1,12 +1,12 @@
 @use "../abstracts/mixins" as *;
-@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
 
 .mouse-glow {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: map-get($gradients, mouse-glow);
+  background: gradient(mouse-glow);
 }
 
 .page {
@@ -15,7 +15,7 @@
 }
 
 .container {
-  width: min(100% - 48px, 1400px);
+  width: min(100% - 48px, bp(xxl));
   margin-inline: auto;
 }
 
@@ -23,22 +23,27 @@
   padding: 80px 0;
 
   &:first-child {
-    padding-top: map-get($sizes, 3xl);
+    padding-top: size(3xl);
   }
 
   &-title {
-    margin-bottom: map-get($sizes, 3xl);
+    margin-bottom: size(3xl);
     font-weight: 700;
     text-transform: uppercase;
   }
 
   &-label {
     display: inline-block;
-    margin-bottom: map-get($sizes, base);
-    @include text-style($size: sm, $spacing: 2px, $color: accent);
+    margin-bottom: size(base);
+    @include text-style(
+      $size: sm,
+      $spacing: 2px,
+      $color: accent,
+      $transform: uppercase
+    );
 
     &.dim {
-      color: map-get($colors, text-dim);
+      color: clr(text-dim);
     }
 
     &.muted {

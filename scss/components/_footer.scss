@@ -1,61 +1,34 @@
-@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
 
 .footer {
   width: 100%;
   padding: 40px 8%;
-  border-top: 1px solid map-get($colors, border);
-  backdrop-filter: map-get($effects, glass-blur);
+  border-top: 1px solid clr(border);
+  backdrop-filter: effect(glass-blur);
 
-  .footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .footer-text {
-    font-family: map-get($fonts, mono);
-    font-size: map-get($sizes, xs);
-    color: map-get($colors, text-dim);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .footer-socials {
-    display: none;
-    gap: 18px;
-
-    a {
-      color: map-get($colors, text-dim);
-      font-size: 1.2rem;
-      transition:
-        color map-get($animation-time, fast),
-        transform map-get($animation-time, fast);
-
-      &:hover {
-        color: map-get($colors, accent);
-        transform: translateY(-3px);
-      }
-    }
-  }
-}
-
-/* ========================= */
-/* MOBILE */
-/* ========================= */
-
-@media (max-width: 768px) {
-  .footer {
+  @include responsive(md) {
     padding: 35px 6%;
+  }
 
-    .footer-content {
+  &-content {
+    @include layout-flex;
+    @include responsive(md) {
       flex-direction: column;
-      gap: 25px;
+      gap: size(xl);
       text-align: center;
     }
+  }
 
-    .footer-socials {
-      display: flex;
-      justify-content: center;
+  &-text {
+    @include text-style($size: xs, $color: text-dim, $transform: uppercase);
+  }
+
+  &-socials {
+    display: none;
+
+    @include responsive(md) {
+      @include layout-flex($gap: size(lg));
     }
   }
 }

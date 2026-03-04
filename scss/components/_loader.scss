@@ -1,34 +1,33 @@
-@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
 
 .loader {
   position: fixed;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: map-get($colors, background);
   z-index: 9999;
+  background: clr(background);
+  @include layout-flex($dir: column);
 
-  .loader-text {
-    font-family: map-get($fonts, mono);
-    color: map-get($colors, text-main);
-    letter-spacing: 5px;
-    font-size: map-get($sizes, sm);
-    text-transform: uppercase;
+  &-text {
+    @include text-style(
+      $size: sm,
+      $color: text-main,
+      $spacing: 5px,
+      $transform: uppercase
+    );
   }
 
-  .loader-bar {
+  &-bar {
     width: 180px;
     height: 2px;
     margin-top: 15px;
-    background: map-get($colors, neutral-weak);
+    background: clr(neutral-weak);
+  }
 
-    .loader-progress {
-      height: 100%;
-      width: 0;
-      background: map-get($colors, accent);
-      box-shadow: 0 0 15px map-get($colors, accent);
-    }
+  &-progress {
+    height: 100%;
+    width: 0;
+    background: clr(accent);
+    box-shadow: 0 0 15px clr(accent);
   }
 }

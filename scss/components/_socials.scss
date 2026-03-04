@@ -1,42 +1,36 @@
-@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
 
 .side-socials {
   position: fixed;
-  left: 40px;
   bottom: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+  left: 40px;
   z-index: 100;
+
+  @include layout-flex($dir: column, $gap: 25px);
+
+  @include responsive(xxl) {
+    display: none;
+  }
 
   &::after {
     content: "";
     width: 1px;
     height: 100px;
-    background: linear-gradient(
-      to bottom,
-      map-get($colors, accent),
-      transparent
-    );
     margin: 0 auto;
-  }
-
-  a {
-    color: map-get($colors, text-dim);
-    font-size: map-get($sizes, xl);
-    transition:
-      color map-get($animation-time, fast),
-      transform map-get($animation-time, fast);
-
-    &:hover {
-      color: map-get($colors, accent-bright);
-      transform: translateY(-5px);
-    }
+    background: linear-gradient(to bottom, clr(accent), transparent);
   }
 }
 
-@media (max-width: 968px) {
-  .side-socials {
-    display: none;
+.social-link {
+  color: clr(text-dim);
+  font-size: size(xl);
+  transition:
+    color anim(fast),
+    transform anim(fast);
+
+  &:hover {
+    color: clr(accent);
+    transform: translateY(-5px);
   }
 }

@@ -1,47 +1,48 @@
-@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
 
 .experience-box {
-  border-left: 1px solid map-get($colors, border);
-  padding-left: 35px;
   max-width: 900px;
+  padding-left: 35px;
+  border-left: 1px solid clr(border);
 }
 
 .exp-item {
   margin-bottom: 60px;
 
-  .exp-date {
-    font-family: map-get($fonts, mono);
-    font-weight: 500;
-    color: map-get($colors, accent);
-  }
-
-  .exp-role {
-    margin: 8px 0;
-  }
-
-  .exp-company {
-    font-family: map-get($fonts, mono);
-    font-size: map-get($sizes, sm);
-    color: map-get($colors, text-dim);
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-  }
-
-  .exp-desc {
-    color: map-get($colors, text-dim);
-    line-height: 1.6;
-
+  &:last-child {
+    margin-bottom: 0;
   }
 
   &::before {
     content: "";
     position: absolute;
-    left: -40.5px;
-    top: 8px;
+    left: -41.5px;
+    top: 6px;
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: map-get($colors, accent);
-    box-shadow: 0 0 15px map-get($colors, accent);
+    background: clr(accent);
+    box-shadow: 0 0 15px clr(accent);
+  }
+
+  &-date {
+    @include text-style($color: accent, $spacing: 2px, $transform: uppercase);
+  }
+
+  &-role {
+    margin: size(sm) 0;
+    font-weight: 600;
+  }
+
+  &-company {
+    margin-bottom: 12px;
+    @include text-style($size: sm, $color: text-dim, $spacing: 0);
+  }
+
+  &-desc {
+    color: clr(text-dim);
+    line-height: 1.6;
+    max-width: 800px;
   }
 }
