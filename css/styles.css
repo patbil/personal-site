@@ -879,7 +879,7 @@ header .header-row {
   transition: all 0.3s ease-out;
 }
 .exp-item:hover {
-  padding-left: 1rem;
+  padding-left: 3px;
 }
 .exp-item:hover::before {
   left: -38px;

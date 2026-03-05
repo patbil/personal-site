@@ -34,7 +34,7 @@ $offset-left: -35px;
   }
 
   &:hover {
-    padding-left: size(base);
+    padding-left: 3px;
 
     &::before {
       left: $offset-left - 3px;
