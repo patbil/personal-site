@@ -4,7 +4,7 @@
 .experience-box {
   max-width: 900px;
   padding-left: 35px;
-  border-left: 1px solid clr(border);
+  border-left: 1px solid clr(border-subtle);
 }
 
 .exp-item {
@@ -22,13 +22,13 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: clr(accent);
-    box-shadow: 0 0 15px clr(accent);
+    background: clr(primary);
+    box-shadow: 0 0 15px clr(primary);
   }
 
   &-date {
     @include text-style(
-      $color: accent,
+      $color: primary,
       $size: base,
       $spacing: 2px,
       $transform: uppercase
@@ -42,11 +42,11 @@
 
   &-company {
     margin-bottom: 12px;
-    @include text-style($size: sm, $color: text-dim, $spacing: 0);
+    @include text-style($size: sm, $color: text-muted, $spacing: 0);
   }
 
   &-desc {
-    color: clr(text-dim);
+    color: clr(text-muted);
     line-height: 1.6;
     max-width: 800px;
   }

@@ -3,11 +3,12 @@
 
 .hero {
   max-width: 900px;
-  margin-bottom: size(4xl);
+  margin-bottom: size(3xl);
+  margin-top: size(base);
 
   &-title {
-    font-weight: 700;
-    line-height: 0.85;
+    font-weight: 800;
+    line-height: 0.9;
     letter-spacing: -0.06em;
     text-transform: uppercase;
 
@@ -17,12 +18,11 @@
   }
 
   &-text {
-    margin-top: size(2xl);
     @include text-style(
       $size: lg,
-      $color: text-dim,
+      $color: text-muted,
       $height: 1.8,
-      $spacing: 0,
+      $spacing: 0.2px,
       $font: main
     );
   }
@@ -31,37 +31,55 @@
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 15px;
+  gap: size(base);
 }
 
 .tech-card {
-  padding: 25px 15px;
-  @include layout-flex($dir: column, $gap: 15px);
-  @include effect-glass;
-
+  position: relative;
+  padding: size(2xl) size(base);
   transition:
-    border-color anim(fast),
-    transform anim(fast),
-    background-color anim(fast);
+    transform anim(normal) cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color anim(normal),
+    border-color anim(normal),
+    box-shadow anim(normal);
+  @include effect-glass;
+  @include layout-flex($dir: column, $gap: 15px);
 
   i {
     font-size: size(4xl);
-    color: clr(text-dim);
-    transition: all anim(fast);
+    color: clr(text-muted);
+    transition:
+      transform anim(normal) ease-out,
+      color anim(normal);
+    will-change: transform;
   }
 
   span {
-    opacity: 0.7;
-    @include text-style($size: xxs, $transform: uppercase);
+    opacity: 0.5;
+    text-align: center;
+    transition:
+      color anim(normal),
+      opacity anim(normal),
+      letter-spacing anim(normal);
+    @include text-style($size: xxs, $spacing: 2px, $transform: uppercase);
   }
 
   &:hover {
-    border-color: clr(accent);
-    background-color: clr(accent-dim);
+    border-color: clr(primary-soft);
+    background-color: clr(background-card);
+    box-shadow: shadow(primary-glow);
+    transform: translateY(-20px);
 
     i {
-      color: clr(accent-bright);
-      transform: scale(1.1);
+      color: clr(primary-light);
+      transform: scale(1.15);
+      filter: drop-shadow(clr(primary-soft));
+    }
+
+    span {
+      color: clr(primary);
+      opacity: 1;
+      letter-spacing: 3px;
     }
   }
 }

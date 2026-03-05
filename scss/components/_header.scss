@@ -5,10 +5,10 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 25px 0;
+  padding: 20px 0;
   z-index: 1000;
   backdrop-filter: effect(glass-blur);
-  border-bottom: 1px solid clr(border);
+  border-bottom: 1px solid clr(border-subtle);
 
   .header-row {
     @include layout-flex($justify: space-between);
@@ -17,22 +17,33 @@ header {
 
 .logo {
   cursor: pointer;
-  text-transform: uppercase;
-  font-weight: 700;
   font-size: size(xl);
+  font-weight: 700;
+  letter-spacing: 0.8;
+  text-transform: uppercase;
 
   .name span {
-    color: clr(accent);
+    color: clr(primary);
+    transition:
+      color anim(fast),
+      text-shadow anim(fast);
   }
 
   .role {
     margin-top: 3px;
     @include text-style(
       $size: xs,
-      $color: text-dim,
-      $spacing: 2px,
+      $color: text-muted,
+      $spacing: 1.5px,
       $transform: uppercase
     );
+  }
+
+  &:hover {
+    .name span {
+      color: clr(primary-light);
+      text-shadow: shadow(primary-glow);
+    }
   }
 }
 
@@ -43,9 +54,9 @@ header {
     right: -100%;
     width: 100%;
     height: 100vh;
-    background: clr(background);
+    background: clr(background-main);
     z-index: 1000;
-    transition: anim(normal) cubic-bezier(0.77, 0, 0.175, 1);
+    transition: right anim(normal) cubic-bezier(0.77, 0, 0.175, 1);
     @include layout-flex($dir: column);
 
     &.active {
@@ -54,31 +65,56 @@ header {
   }
 
   &-link {
-    margin-left: 2rem;
-    opacity: 0.5;
+    position: relative;
+    display: inline-block;
+    margin-left: size(xl);
+    opacity: 0.6;
     cursor: pointer;
+    transition: all anim(fast) ease-out;
+    @include effect-hover-lift($opacity: 1);
     @include text-style(
-      $color: text-main,
+      $color: text-primary,
       $size: sm,
-      $spacing: 0,
+      $spacing: 0.5px,
       $transform: uppercase
     );
-    @include effect-hover-lift($opacity: 1);
-    @include responsive(md) {
-      margin: 20px 0;
-      font-size: size(lg);
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: clr(primary);
+      transition: width anim(fast) ease-out;
+    }
+
+    &:hover {
+      color: clr(primary-light);
+      opacity: 1;
+      transform: scale(1.05);
     }
 
     &.active {
-      color: clr(accent);
-      opacity: 0.9;
+      color: clr(primary);
+      opacity: 1;
+
+      &::before {
+        width: 100%;
+      }
+    }
+
+    @include responsive(md) {
+      margin: 20px 0;
+      font-size: size(lg);
     }
   }
 }
 
 .hamburger {
   display: none;
-  padding: 10px;
+  padding: size(sm);
   background: none;
   border: none;
   cursor: pointer;
@@ -93,10 +129,15 @@ header {
     width: 25px;
     height: 2px;
     margin: 5px 0;
-    background: clr(text-main);
+    background: clr(text-primary);
     transition:
       transform anim(fast),
-      opacity anim(fast);
+      opacity anim(fast),
+      background anim(fast);
+  }
+
+  &:hover span {
+    background: clr(primary);
   }
 
   &.active {

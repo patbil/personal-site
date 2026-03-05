@@ -4,7 +4,7 @@
 .footer {
   width: 100%;
   padding: 40px 8%;
-  border-top: 1px solid clr(border);
+  border-top: 1px solid clr(border-subtle);
   backdrop-filter: effect(glass-blur);
 
   @include responsive(md) {
@@ -21,7 +21,7 @@
   }
 
   &-text {
-    @include text-style($size: xs, $color: text-dim, $transform: uppercase);
+    @include text-style($size: xs, $color: text-muted, $transform: uppercase);
   }
 
   &-socials {

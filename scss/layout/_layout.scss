@@ -38,12 +38,12 @@
     @include text-style(
       $size: sm,
       $spacing: 2px,
-      $color: accent,
+      $color: primary,
       $transform: uppercase
     );
 
     &.dim {
-      color: clr(text-dim);
+      color: clr(text-muted);
     }
 
     &.muted {

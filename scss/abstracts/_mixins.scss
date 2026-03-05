@@ -29,12 +29,18 @@
 
 @mixin text-outline($stroke-width: 1px) {
   color: transparent;
-  -webkit-text-stroke: $stroke-width clr(text-stroke);
+  -webkit-text-stroke: $stroke-width clr(primary);
 }
 
 // =========== LAYOUTS =========== //
 
-@mixin layout-flex($dir: row, $justify: center, $align: center, $gap: 0, $wrap: wrap) {
+@mixin layout-flex(
+  $dir: row,
+  $justify: center,
+  $align: center,
+  $gap: 0,
+  $wrap: wrap
+) {
   display: flex;
   flex-direction: $dir;
   justify-content: $justify;
@@ -56,16 +62,16 @@
   width: 100%;
   background: transparent;
   padding: 15px 0;
-  color: clr(text-main);
+  color: clr(text-primary);
   border: none;
-  border-bottom: 1px solid clr(border);
+  border-bottom: 1px solid clr(border-subtle);
   font-size: size(base);
   font-family: font(mono);
   transition: border-color anim(fast);
 
   &:focus {
     outline: none;
-    border-bottom-color: clr(accent);
+    border-bottom-color: clr(primary);
   }
 }
 
@@ -73,7 +79,7 @@
 
 @mixin effect-glass($bg: glass-surface, $radius: 20px) {
   background: gradient($bg);
-  border: 1px solid clr(border);
+  border: 1px solid clr(border-subtle);
   border-radius: $radius;
 
   @if $bg == glass-surface or $bg == glass-overlay-subtle {
@@ -82,7 +88,7 @@
 }
 
 @mixin effect-hover-lift(
-  $hover-color: accent-bright,
+  $hover-color: primary-light,
   $opacity: null,
   $y: null,
   $scale: null

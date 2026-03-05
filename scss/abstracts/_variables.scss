@@ -9,9 +9,10 @@ $fonts: (
 
 $animation-time: (
   ultra: 0.1s,
-  fast: 0.4s,
-  normal: 0.6s,
+  fast: 0.3s,
+  normal: 0.5s,
   slow: 0.8s,
+  luxury: 1.2s,
 );
 
 $breakpoints: (
@@ -41,41 +42,44 @@ $sizes: (
 );
 
 $shadows: (
-  accent-glow: 0 8px 25px rgba(155, 107, 255, 0.3),
+  primary-glow: (
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    0 8px 25px rgba(212, 175, 112, 0.1),
+  ),
   error: 0 5px 20px rgba(224, 11, 4, 0.5),
   success: 0 5px 20px rgba(40, 167, 69, 0.5),
 );
 
 $colors: (
-  accent: rgba(175, 133, 255, 1),
-  accent-bright: rgba(214, 188, 255, 1),
-  accent-dim: rgba(175, 133, 255, 0.15),
-  background: rgba(5, 5, 5, 1),
-  border: rgba(255, 255, 255, 0.12),
-  card-bg: rgba(25, 25, 25, 0.6),
-  error: rgba(255, 107, 107, 1),
-  neutral-weak: rgba(255, 255, 255, 0.1),
-  success: rgba(40, 167, 69, 1),
-  text-main: rgba(240, 240, 240, 1),
-  text-dim: rgba(158, 158, 158, 1),
-  text-stroke: rgba(255, 255, 255, 0.25),
+  primary: rgba(212, 175, 112, 1),
+  primary-light: rgba(232, 200, 111, 1),
+  primary-soft: rgba(212, 175, 112, 0.15),
+  background-main: rgba(5, 5, 5, 1),
+  background-card: rgba(212, 175, 112, 0.03),
+  border-subtle: rgba(255, 255, 255, 0.12),
+  border-soft: rgba(255, 255, 255, 0.1),
+  text-primary: rgba(240, 240, 240, 1),
+  text-secondary: rgba(176, 184, 196, 1),
+  text-muted: rgba(156, 163, 175, 1),
+  state-error: rgba(255, 107, 107, 1),
+  state-success: rgba(40, 167, 69, 1),
 );
 
 $gradients: (
-  accent: linear-gradient(135deg, #9b6bff, #c4a1ff),
+  primary: linear-gradient(135deg, #d4af70, #e8c86f),
   glass-surface: linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.04) 0%,
       rgba(255, 255, 255, 0) 100%
     ),
   mouse-glow: radial-gradient(
       circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(155, 107, 255, 0.07) 0%,
-      transparent 45%
+      rgba(212, 175, 112, 0.06) 0%,
+      transparent 50%
     ),
   glass-overlay-subtle: linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.025) 0%,
       rgba(255, 255, 255, 0) 100%
     ),
 );

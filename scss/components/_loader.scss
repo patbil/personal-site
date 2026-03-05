@@ -5,13 +5,13 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: clr(background);
+  background: clr(background-main);
   @include layout-flex($dir: column);
 
   &-text {
     @include text-style(
       $size: sm,
-      $color: text-main,
+      $color: text-primary,
       $spacing: 5px,
       $transform: uppercase
     );
@@ -21,13 +21,13 @@
     width: 180px;
     height: 2px;
     margin-top: 15px;
-    background: clr(neutral-weak);
+    background: clr(border-soft);
   }
 
   &-progress {
     height: 100%;
     width: 0;
-    background: clr(accent);
-    box-shadow: 0 0 15px clr(accent);
+    background: clr(primary);
+    box-shadow: 0 0 15px clr(primary);
   }
 }

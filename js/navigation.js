@@ -52,8 +52,8 @@ function initSectionObserver() {
       });
     },
     {
-      threshold: 0.1,
-      rootMargin: "-20% 0px -20% 0px",
+      rootMargin: "-45% 0px -45% 0px",
+      threshold: 0,
     },
   );
 

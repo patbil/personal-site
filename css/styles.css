@@ -100,7 +100,7 @@ img {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(155, 107, 255, 0.07) 0%, transparent 45%);
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(212, 175, 112, 0.06) 0%, transparent 50%);
 }
 
 .page {
@@ -132,11 +132,11 @@ img {
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1;
-  color: rgb(175, 133, 255);
+  color: rgb(212, 175, 112);
   font-size: 0.875rem;
 }
 .section-item-label.dim {
-  color: rgb(158, 158, 158);
+  color: rgb(156, 163, 175);
 }
 .section-item-label.muted {
   opacity: 0.5;
@@ -144,70 +144,82 @@ img {
 
 .hero {
   max-width: 900px;
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.875rem;
+  margin-top: 1rem;
 }
 .hero-title {
-  font-weight: 700;
-  line-height: 0.85;
+  font-weight: 800;
+  line-height: 0.9;
   letter-spacing: -0.06em;
   text-transform: uppercase;
 }
 .hero-title span {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+  -webkit-text-stroke: 1px rgb(212, 175, 112);
 }
 .hero-text {
-  margin-top: 1.5rem;
   font-family: "Plus Jakarta Sans";
   font-weight: 500;
   text-transform: none;
-  letter-spacing: 0;
+  letter-spacing: 0.2px;
   line-height: 1.8;
-  color: rgb(158, 158, 158);
+  color: rgb(156, 163, 175);
   font-size: 1.125rem;
 }
 
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 15px;
+  gap: 1rem;
 }
 
 .tech-card {
-  padding: 25px 15px;
+  position: relative;
+  padding: 1.5rem 1rem;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.5s, border-color 0.5s, box-shadow 0.5s;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 15px;
   wrap: wrap;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
-  backdrop-filter: blur(20px);
-  transition: border-color 0.4s, transform 0.4s, background-color 0.4s;
 }
 .tech-card i {
   font-size: 2.25rem;
-  color: rgb(158, 158, 158);
-  transition: all 0.4s;
+  color: rgb(156, 163, 175);
+  transition: transform 0.5s ease-out, color 0.5s;
+  will-change: transform;
 }
 .tech-card span {
-  opacity: 0.7;
+  opacity: 0.5;
+  text-align: center;
+  transition: color 0.5s, opacity 0.5s, letter-spacing 0.5s;
   font-family: "JetBrains Mono";
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   line-height: 1;
   font-size: 0.625rem;
 }
 .tech-card:hover {
-  border-color: rgb(175, 133, 255);
-  background-color: rgba(175, 133, 255, 0.15);
+  border-color: rgba(212, 175, 112, 0.15);
+  background-color: rgba(212, 175, 112, 0.03);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 8px 25px rgba(212, 175, 112, 0.1);
+  transform: translateY(-20px);
 }
 .tech-card:hover i {
-  color: rgb(214, 188, 255);
-  transform: scale(1.1);
+  color: rgb(232, 200, 111);
+  transform: scale(1.15);
+  filter: drop-shadow(rgba(212, 175, 112, 0.15));
+}
+.tech-card:hover span {
+  color: rgb(212, 175, 112);
+  opacity: 1;
+  letter-spacing: 3px;
 }
 
 .loader {
@@ -240,15 +252,15 @@ img {
 .loader-progress {
   height: 100%;
   width: 0;
-  background: rgb(175, 133, 255);
-  box-shadow: 0 0 15px rgb(175, 133, 255);
+  background: rgb(212, 175, 112);
+  box-shadow: 0 0 15px rgb(212, 175, 112);
 }
 
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 25px 0;
+  padding: 20px 0;
   z-index: 1000;
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -264,22 +276,28 @@ header .header-row {
 
 .logo {
   cursor: pointer;
-  text-transform: uppercase;
-  font-weight: 700;
   font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.8;
+  text-transform: uppercase;
 }
 .logo .name span {
-  color: rgb(175, 133, 255);
+  color: rgb(212, 175, 112);
+  transition: color 0.3s, text-shadow 0.3s;
 }
 .logo .role {
   margin-top: 3px;
   font-family: "JetBrains Mono";
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   line-height: 1;
-  color: rgb(158, 158, 158);
+  color: rgb(156, 163, 175);
   font-size: 0.75rem;
+}
+.logo:hover .name span {
+  color: rgb(232, 200, 111);
+  text-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 8px 25px rgba(212, 175, 112, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -291,7 +309,7 @@ header .header-row {
     height: 100vh;
     background: rgb(5, 5, 5);
     z-index: 1000;
-    transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -304,21 +322,48 @@ header .header-row {
   }
 }
 .nav-link {
-  margin-left: 2rem;
-  opacity: 0.5;
+  position: relative;
+  display: inline-block;
+  margin-left: 1.25rem;
+  opacity: 0.6;
   cursor: pointer;
+  transition: all 0.3s ease-out;
+  transition: color 0.3s, transform 0.3s, opacity 0.3s;
+}
+.nav-link:hover {
+  color: rgb(232, 200, 111);
+  opacity: 1;
+}
+.nav-link {
   font-family: "JetBrains Mono";
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0;
+  letter-spacing: 0.5px;
   line-height: 1;
   color: rgb(240, 240, 240);
   font-size: 0.875rem;
-  transition: color 0.4s, transform 0.4s, opacity 0.4s;
+}
+.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: rgb(212, 175, 112);
+  transition: width 0.3s ease-out;
 }
 .nav-link:hover {
-  color: rgb(214, 188, 255);
+  color: rgb(232, 200, 111);
   opacity: 1;
+  transform: scale(1.05);
+}
+.nav-link.active {
+  color: rgb(212, 175, 112);
+  opacity: 1;
+}
+.nav-link.active::before {
+  width: 100%;
 }
 @media (max-width: 768px) {
   .nav-link {
@@ -326,14 +371,10 @@ header .header-row {
     font-size: 1.125rem;
   }
 }
-.nav-link.active {
-  color: rgb(175, 133, 255);
-  opacity: 0.9;
-}
 
 .hamburger {
   display: none;
-  padding: 10px;
+  padding: 0.875rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -350,7 +391,10 @@ header .header-row {
   height: 2px;
   margin: 5px 0;
   background: rgb(240, 240, 240);
-  transition: transform 0.4s, opacity 0.4s;
+  transition: transform 0.3s, opacity 0.3s, background 0.3s;
+}
+.hamburger:hover span {
+  background: rgb(212, 175, 112);
 }
 .hamburger.active span:nth-child(1) {
   transform: rotate(-45deg) translate(-4px, 6px);
@@ -394,7 +438,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1;
-  color: rgb(158, 158, 158);
+  color: rgb(156, 163, 175);
   font-size: 0.75rem;
 }
 .footer-socials {
@@ -433,7 +477,7 @@ header .header-row {
 }
 .contact-grid .section-item-title span {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+  -webkit-text-stroke: 1px rgb(212, 175, 112);
 }
 
 .contact-info {
@@ -445,22 +489,22 @@ header .header-row {
   text-transform: none;
   letter-spacing: 1px;
   line-height: 2;
-  color: rgb(158, 158, 158);
+  color: rgb(156, 163, 175);
 }
 .contact-info-link {
-  color: rgb(158, 158, 158);
-  transition: 0.4s;
+  color: rgb(156, 163, 175);
+  transition: 0.3s;
 }
 .contact-info-link i {
   margin-right: 0.875rem;
-  color: rgb(175, 133, 255);
-  transition: color 0.4s, transform 0.4s;
+  color: rgb(212, 175, 112);
+  transition: color 0.3s, transform 0.3s;
 }
 .contact-info-link:hover {
-  color: rgb(214, 188, 255);
+  color: rgb(232, 200, 111);
 }
 .contact-info-link:hover i {
-  color: rgb(214, 188, 255);
+  color: rgb(232, 200, 111);
   transform: scale(1.1);
 }
 
@@ -468,7 +512,7 @@ header .header-row {
   padding: 50px;
   border-radius: 35px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.025) 0%, rgba(255, 255, 255, 0) 100%);
 }
 @media (max-width: 768px) {
   .contact-form {
@@ -484,13 +528,13 @@ header .header-row {
   left: 0;
   top: 15px;
   pointer-events: none;
-  transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   font-family: "JetBrains Mono";
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1;
-  color: rgb(158, 158, 158);
+  color: rgb(156, 163, 175);
   font-size: 0.75rem;
 }
 .contact-form-field textarea {
@@ -507,18 +551,18 @@ header .header-row {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 1rem;
   font-family: "JetBrains Mono";
-  transition: border-color 0.4s;
+  transition: border-color 0.3s;
 }
 .contact-form-field input:focus,
 .contact-form-field textarea:focus {
   outline: none;
-  border-bottom-color: rgb(175, 133, 255);
+  border-bottom-color: rgb(212, 175, 112);
 }
 .contact-form-field input:focus ~ label, .contact-form-field input:valid ~ label,
 .contact-form-field textarea:focus ~ label,
 .contact-form-field textarea:valid ~ label {
   top: -15px;
-  color: rgb(214, 188, 255);
+  color: rgb(232, 200, 111);
   font-size: 0.625rem;
 }
 .contact-form-field input:user-invalid,
@@ -539,7 +583,7 @@ header .header-row {
   margin: 0 auto;
   padding: 1.125rem;
   color: rgb(5, 5, 5);
-  background: rgb(175, 133, 255);
+  background: rgb(212, 175, 112);
   border: none;
   border-radius: 15px;
   cursor: pointer;
@@ -549,12 +593,12 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1;
-  transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .submit-trigger:hover {
-  background: rgb(214, 188, 255);
+  background: rgb(232, 200, 111);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(155, 107, 255, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 8px 25px rgba(212, 175, 112, 0.1);
 }
 .submit-trigger.loading {
   cursor: wait;
@@ -580,7 +624,7 @@ header .header-row {
   animation: spin 0.1s linear infinite;
   pointer-events: none;
   visibility: hidden;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -595,7 +639,7 @@ header .header-row {
   font-size: 0.875rem;
   text-align: center;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
 }
 .submit-message.success {
   color: rgb(40, 167, 69);
@@ -628,16 +672,16 @@ header .header-row {
   width: 1px;
   height: 100px;
   margin: 0 auto;
-  background: linear-gradient(to bottom, rgb(175, 133, 255), transparent);
+  background: linear-gradient(to bottom, rgb(212, 175, 112), transparent);
 }
 
 .social-link {
-  color: rgb(158, 158, 158);
+  color: rgb(156, 163, 175);
   font-size: 1.25rem;
-  transition: color 0.4s, transform 0.4s;
+  transition: color 0.3s, transform 0.3s;
 }
 .social-link:hover {
-  color: rgb(175, 133, 255);
+  color: rgb(212, 175, 112);
   transform: translateY(-5px);
 }
 
@@ -684,7 +728,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1;
-  color: rgb(175, 133, 255);
+  color: rgb(212, 175, 112);
   font-size: 0.75rem;
 }
 .project-info h3 {
@@ -697,7 +741,7 @@ header .header-row {
 }
 .project-info p {
   margin: 0;
-  color: rgb(158, 158, 158);
+  color: rgb(156, 163, 175);
   line-height: 1.7;
 }
 .project-info .project-tags {
@@ -711,7 +755,7 @@ header .header-row {
 }
 .project-info .project-tags span {
   padding: 8px 12px;
-  background: rgba(175, 133, 255, 0.15);
+  background: rgba(212, 175, 112, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
   font-family: "Plus Jakarta Sans";
@@ -719,7 +763,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1;
-  color: rgb(214, 188, 255);
+  color: rgb(232, 200, 111);
   font-size: 0.625rem;
 }
 .project-info .code-btn {
@@ -728,21 +772,21 @@ header .header-row {
   align-self: flex-start;
   padding: 15px 20px;
   gap: 10px;
-  border: 1px solid rgb(175, 133, 255);
+  border: 1px solid rgb(212, 175, 112);
   border-radius: 12px;
-  transition: all 0.4s;
+  transition: all 0.3s;
   font-family: "JetBrains Mono";
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1;
-  color: rgb(175, 133, 255);
+  color: rgb(212, 175, 112);
   font-size: 0.75rem;
 }
 .project-info .code-btn:hover {
-  background: rgb(175, 133, 255);
+  background: rgb(212, 175, 112);
   color: rgb(5, 5, 5);
-  box-shadow: 0 8px 25px rgba(155, 107, 255, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 8px 25px rgba(212, 175, 112, 0.1);
 }
 
 .project-smart-home {
@@ -806,8 +850,8 @@ header .header-row {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgb(175, 133, 255);
-  box-shadow: 0 0 15px rgb(175, 133, 255);
+  background: rgb(212, 175, 112);
+  box-shadow: 0 0 15px rgb(212, 175, 112);
 }
 .exp-item-date {
   font-family: "JetBrains Mono";
@@ -815,7 +859,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1;
-  color: rgb(175, 133, 255);
+  color: rgb(212, 175, 112);
   font-size: 1rem;
 }
 .exp-item-role {
@@ -829,11 +873,11 @@ header .header-row {
   text-transform: none;
   letter-spacing: 0;
   line-height: 1;
-  color: rgb(158, 158, 158);
+  color: rgb(156, 163, 175);
   font-size: 0.875rem;
 }
 .exp-item-desc {
-  color: rgb(158, 158, 158);
+  color: rgb(156, 163, 175);
   line-height: 1.6;
   max-width: 800px;
 }

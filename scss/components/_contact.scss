@@ -22,25 +22,25 @@
   display: flex;
   flex-direction: column;
   margin-top: 40px;
-  @include text-style($font: main, $color: text-dim, $height: 2);
+  @include text-style($font: main, $color: text-muted, $height: 2);
 
   &-link {
-    color: clr(text-dim);
+    color: clr(text-muted);
     transition: anim(fast);
 
     i {
       margin-right: size(sm);
-      color: clr(accent);
+      color: clr(primary);
       transition:
         color anim(fast),
         transform anim(fast);
     }
 
     &:hover {
-      color: clr(accent-bright);
+      color: clr(primary-light);
 
       i {
-        color: clr(accent-bright);
+        color: clr(primary-light);
         transform: scale(1.1);
       }
     }
@@ -50,7 +50,7 @@
 .contact-form {
   padding: 50px;
   border-radius: 35px;
-  border: 1px solid clr(border);
+  border: 1px solid clr(border-subtle);
   background: gradient(glass-overlay-subtle);
 
   @include responsive(md) {
@@ -67,7 +67,7 @@
       top: 15px;
       pointer-events: none;
       transition: anim(fast) cubic-bezier(0.23, 1, 0.32, 1);
-      @include text-style($size: xs, $color: text-dim, $transform: uppercase);
+      @include text-style($size: xs, $color: text-muted, $transform: uppercase);
     }
 
     textarea {
@@ -82,15 +82,15 @@
       &:focus ~ label,
       &:valid ~ label {
         top: -15px;
-        color: clr(accent-bright);
+        color: clr(primary-light);
         font-size: size(xxs);
       }
 
       &:user-invalid {
-        border-bottom-color: clr(error);
+        border-bottom-color: clr(state-error);
         & ~ label {
           top: -15px;
-          color: clr(error);
+          color: clr(state-error);
         }
       }
     }
@@ -104,8 +104,8 @@
   max-width: 250px;
   margin: 0 auto;
   padding: size(lg);
-  color: clr(background);
-  background: clr(accent);
+  color: clr(background-main);
+  background: clr(primary);
   border: none;
   border-radius: 15px;
   cursor: pointer;
@@ -117,9 +117,9 @@
     box-shadow anim(fast) ease;
 
   &:hover {
-    background: clr(accent-bright);
+    background: clr(primary-light);
     transform: translateY(-2px);
-    box-shadow: shadow(accent-glow);
+    box-shadow: shadow(primary-glow);
   }
 
   &.loading {
@@ -135,18 +135,18 @@
   }
 
   &.success {
-    background: clr(success);
+    background: clr(state-success);
   }
 
   &.error {
-    background: clr(error);
+    background: clr(state-error);
   }
 
   .spinner {
     width: 20px;
     height: 20px;
-    border: 3px solid clr(border);
-    border-top-color: clr(text-main);
+    border: 3px solid clr(border-subtle);
+    border-top-color: clr(text-primary);
     border-radius: 50%;
     animation: spin anim(ultra) linear infinite;
     pointer-events: none;
@@ -167,12 +167,12 @@
   transition: opacity anim(fast) ease;
 
   &.success {
-    color: clr(success);
+    color: clr(state-success);
     opacity: 1;
   }
 
   &.error {
-    color: clr(error);
+    color: clr(state-error);
     opacity: 1;
   }
 }

@@ -18,19 +18,19 @@
     width: 1px;
     height: 100px;
     margin: 0 auto;
-    background: linear-gradient(to bottom, clr(accent), transparent);
+    background: linear-gradient(to bottom, clr(primary), transparent);
   }
 }
 
 .social-link {
-  color: clr(text-dim);
+  color: clr(text-muted);
   font-size: size(xl);
   transition:
     color anim(fast),
     transform anim(fast);
 
   &:hover {
-    color: clr(accent);
+    color: clr(primary);
     transform: translateY(-5px);
   }
 }
