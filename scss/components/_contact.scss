@@ -2,59 +2,76 @@
 @use "../abstracts/functions" as *;
 @use "../abstracts/animations" as *;
 
+.contact-section {
+  padding: size(base) 0;
+  @include layout-flex($dir: column, $align: unset);
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 80px;
+  gap: 40px;
 
   @include responsive(lg) {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 20px;
   }
 
-  .section-item-title span {
-    @include text-outline;
+  .section-item-title {
+    font-size: size(6xl);
+
+    span {
+      @include text-outline;
+    }
   }
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  align-items: flex-start;
+  margin-top: 20px;
   @include text-style($font: main, $color: text-muted, $height: 2);
 
   &-link {
     color: clr(text-muted);
-    transition: anim(fast);
+    transition:
+      color anim(fast),
+      transform anim(fast);
 
     i {
       margin-right: size(sm);
       color: clr(primary);
+      font-size: size(lg);
       transition:
         color anim(fast),
-        transform anim(fast);
+        transform anim(fast),
+        filter anim(fast);
     }
 
     &:hover {
       color: clr(primary-light);
+      transform: translateX(4px);
 
       i {
         color: clr(primary-light);
         transform: scale(1.1);
+        filter: drop-shadow(shadow(primary-glow));
       }
     }
   }
 }
 
 .contact-form {
-  padding: 50px;
-  border-radius: 35px;
+  padding: 50px 50px 30px;
+  border-radius: radius(form);
   border: 1px solid clr(border-subtle);
   background: gradient(glass-overlay-subtle);
+  box-shadow: shadow(primary-glow);
 
   @include responsive(md) {
-    padding: 30px 20px;
+    padding: size(2xl);
   }
 
   &-field {
@@ -81,7 +98,7 @@
 
       &:focus ~ label,
       &:valid ~ label {
-        top: -15px;
+        top: - size(base);
         color: clr(primary-light);
         font-size: size(xxs);
       }
@@ -89,7 +106,7 @@
       &:user-invalid {
         border-bottom-color: clr(state-error);
         & ~ label {
-          top: -15px;
+          top: - size(base);
           color: clr(state-error);
         }
       }
@@ -107,7 +124,7 @@
   color: clr(background-main);
   background: clr(primary);
   border: none;
-  border-radius: 15px;
+  border-radius: radius(button);
   cursor: pointer;
   overflow: hidden;
   @include text-style($weight: 800, $transform: uppercase, $spacing: 2px);
@@ -147,8 +164,8 @@
     height: 20px;
     border: 3px solid clr(border-subtle);
     border-top-color: clr(text-primary);
-    border-radius: 50%;
-    animation: spin anim(ultra) linear infinite;
+    border-radius: radius(circle);
+    animation: spin anim(fast) linear infinite;
     pointer-events: none;
     visibility: hidden;
     transition: opacity anim(fast) ease;

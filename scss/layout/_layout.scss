@@ -11,20 +11,17 @@
 
 .page {
   position: relative;
-  margin-top: 92px;
+  margin-top: 90px;
 }
 
 .container {
-  width: min(100% - 48px, bp(xxl));
+  width: min(100% - 32px, bp(xxl));
   margin-inline: auto;
 }
 
 .section-item {
-  padding: 80px 0;
-
-  &:first-child {
-    padding-top: size(3xl);
-  }
+  min-height: 100vh;
+  padding: 30px 0;
 
   &-title {
     margin-bottom: size(3xl);
@@ -34,20 +31,12 @@
 
   &-label {
     display: inline-block;
-    margin-bottom: size(base);
+    margin-bottom: size(sm);
     @include text-style(
       $size: sm,
-      $spacing: 2px,
+      $spacing: 1px,
       $color: primary,
       $transform: uppercase
     );
-
-    &.dim {
-      color: clr(text-muted);
-    }
-
-    &.muted {
-      opacity: 0.5;
-    }
   }
 }

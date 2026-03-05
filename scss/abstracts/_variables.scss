@@ -7,6 +7,19 @@ $fonts: (
   mono: "JetBrains Mono",
 );
 
+$projects: (
+  smart-home: "smart-home.png",
+  strapi-client: "strapi-client.png",
+  snake-game: "snake-game.png",
+);
+
+$radius: (
+  circle: 50%,
+  form: 35px,
+  card: 20px,
+  button: 8px,
+);
+
 $animation-time: (
   ultra: 0.1s,
   fast: 0.3s,
@@ -74,8 +87,9 @@ $gradients: (
     ),
   mouse-glow: radial-gradient(
       circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(212, 175, 112, 0.06) 0%,
-      transparent 50%
+      rgba(232, 200, 111, 0.08) 0%,
+      rgba(212, 175, 112, 0.03) 30%,
+      transparent 70%
     ),
   glass-overlay-subtle: linear-gradient(
       145deg,

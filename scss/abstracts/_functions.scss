@@ -26,6 +26,10 @@
   @return _check-map($fonts, $key, "$fonts");
 }
 
+@function radius($key) {
+  @return _check-map($radius, $key, "$radius");
+}
+
 @function anim($key) {
   @return _check-map($animation-time, $key, "$animation-time");
 }
@@ -44,4 +48,8 @@
 
 @function gradient($key) {
   @return _check-map($gradients, $key, "$gradients");
+}
+
+@function get-projects() {
+  @return $projects;
 }

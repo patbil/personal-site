@@ -12,7 +12,7 @@
   $spacing: 1px,
   $height: 1,
   $weight: 500,
-  $opacity: 1,
+  $opacity: 1
 ) {
   font-family: font($font);
   font-weight: $weight;
@@ -46,7 +46,7 @@
   $justify: center,
   $align: center,
   $gap: 0,
-  $wrap: wrap
+  $wrap: unset
 ) {
   display: flex;
   flex-direction: $dir;
@@ -84,7 +84,7 @@
 
 // =========== EFFECTS =========== //
 
-@mixin effect-glass($bg: glass-surface, $radius: 20px) {
+@mixin effect-glass($bg: glass-surface, $radius: radius(card)) {
   background: gradient($bg);
   border: 1px solid clr(border-subtle);
   border-radius: $radius;

@@ -1,4 +1,5 @@
-const form = document.getElementById("form");
+const form = document.getElementById("contact-form");
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // --- STATE ---
 
@@ -54,6 +55,7 @@ export function initForm() {
 
     const data = new FormData(form);
     const response = await sendMessage(data);
+    await sleep(500);
 
     if (response.ok) {
       form.reset();

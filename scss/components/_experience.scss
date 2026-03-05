@@ -2,7 +2,7 @@
 @use "../abstracts/functions" as *;
 
 $dot-size-base: 10px;
-$dot-size-hover: 18px;
+$dot-size-hover: 15px;
 $offset-left: -35px;
 
 .experience-box {
@@ -27,7 +27,7 @@ $offset-left: -35px;
     top: 7px;
     width: $dot-size-base;
     height: $dot-size-base;
-    border-radius: 50%;
+    border-radius: radius(circle);
     background: clr(primary);
     box-shadow: 0 0 15px clr(primary);
     transition: all anim(fast) ease-out;
