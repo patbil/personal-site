@@ -38,7 +38,10 @@ function setupNavigationLinks() {
     if (!link) return;
     toggleMenu(false);
     const section = document.getElementById(link.dataset.section);
-    section.scrollIntoView({ behavior: "smooth" });
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: section.id !== "contact" ? "start" : "end",
+    });
   });
 }
 
@@ -53,7 +56,7 @@ function initSectionObserver() {
     },
     {
       rootMargin: "-25% 0px -25% 0px",
-      threshold: 0.1,
+      threshold: 0.2,
     },
   );
 

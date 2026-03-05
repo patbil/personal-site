@@ -1,0 +1,45 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+
+.resume {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 1000;
+  transition: gap anim(fast);
+
+  @include layout-flex($gap: size(xs));
+  @include text-style(
+    $color: text-secondary,
+    $transform: uppercase,
+    $weight: 600,
+    $size: lg,
+    $spacing: 2px,
+    $font: main
+  );
+
+  @include responsive(xxl) {
+    display: none;
+  }
+
+  span,
+  i {
+    display: inline-block;
+    transition:
+      transform anim(fast),
+      color anim(fast);
+  }
+
+  &:hover {
+    color: clr(primary);
+    gap: size(base);
+
+    span {
+      transform: scale(1.2);
+    }
+
+    i {
+      transform: rotate(360deg);
+    }
+  }
+}

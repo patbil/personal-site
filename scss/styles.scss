@@ -6,6 +6,7 @@
 @use "./components/loader" as *;
 @use "./components/header" as *;
 @use "./components/footer" as *;
+@use "./components/resume" as *;
 @use "./components/contact" as *;
 @use "./components/socials" as *;
 @use "./components/projects" as *;
@@ -21,5 +22,10 @@ body {
   background: clr(background-main);
   color: clr(text-primary);
   overflow-x: hidden;
+  user-select: none;
   -webkit-font-smoothing: antialiased;
+
+  &.loading {
+    overflow-y: hidden;
+  }
 }

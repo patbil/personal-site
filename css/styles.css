@@ -80,6 +80,10 @@ h6 {
   font-size: 1rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 p {
   margin: 0;
 }
@@ -349,6 +353,7 @@ header .header-row {
   height: 1px;
   background: rgb(212, 175, 112);
   transition: width 0.3s ease-out;
+  transition-delay: 200ms;
 }
 .nav-link:hover {
   color: rgb(232, 200, 111);
@@ -451,6 +456,48 @@ header .header-row {
     gap: 0.875rem;
     wrap: unset;
   }
+}
+
+.resume {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 1000;
+  transition: gap 0.3s;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  wrap: unset;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+  opacity: 1;
+  color: rgb(176, 184, 196);
+  font-size: 1.125rem;
+}
+@media (max-width: 1440px) {
+  .resume {
+    display: none;
+  }
+}
+.resume span,
+.resume i {
+  display: inline-block;
+  transition: transform 0.3s, color 0.3s;
+}
+.resume:hover {
+  color: rgb(212, 175, 112);
+  gap: 1rem;
+}
+.resume:hover span {
+  transform: scale(1.2);
+}
+.resume:hover i {
+  transform: rotate(360deg);
 }
 
 @keyframes spin {
@@ -929,5 +976,11 @@ body {
   background: rgb(5, 5, 5);
   color: rgb(240, 240, 240);
   overflow-x: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   -webkit-font-smoothing: antialiased;
+}
+body.loading {
+  overflow-y: hidden;
 }/*# sourceMappingURL=styles.css.map */

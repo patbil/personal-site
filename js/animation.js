@@ -1,12 +1,22 @@
+function setLoadingStatus(status, timeout = 0) {
+  setTimeout(() => document.body.classList.toggle("loading", status), timeout);
+}
+
 export function initAnimation() {
+  setLoadingStatus(true);
   gsap.registerPlugin(ScrollTrigger);
-  
+
   const revealElements = gsap.utils.toArray(".reveal");
   const mainTl = gsap.timeline();
 
   mainTl
     .to(".loader-progress", { width: "100%", duration: 0.8 })
-    .to(".loader", { yPercent: -100, duration: 0.6, ease: "expo.inOut" })
+    .to(".loader", {
+      yPercent: -100,
+      duration: 0.6,
+      ease: "expo.inOut",
+      toComplete: () => setLoadingStatus(false, 200),
+    })
     .from(
       ".hero h1",
       { y: 60, opacity: 0, duration: 1, ease: "power3.out" },
