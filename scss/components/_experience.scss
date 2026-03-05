@@ -1,14 +1,20 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/functions" as *;
 
+$dot-size-base: 10px;
+$dot-size-hover: 18px;
+$offset-left: -35px;
+
 .experience-box {
   max-width: 900px;
-  padding-left: 35px;
+  padding-left: 30px;
   border-left: 1px solid clr(border-subtle);
 }
 
 .exp-item {
-  margin-bottom: 60px;
+  position: relative;
+  margin-bottom: size(5xl);
+  transition: all anim(fast) ease-out;
 
   &:last-child {
     margin-bottom: 0;
@@ -17,20 +23,31 @@
   &::before {
     content: "";
     position: absolute;
-    left: -41.5px;
-    top: 6px;
-    width: 12px;
-    height: 12px;
+    left: $offset-left;
+    top: 7px;
+    width: $dot-size-base;
+    height: $dot-size-base;
     border-radius: 50%;
     background: clr(primary);
     box-shadow: 0 0 15px clr(primary);
+    transition: all anim(fast) ease-out;
+  }
+
+  &:hover {
+    padding-left: size(base);
+
+    &::before {
+      left: $offset-left - 3px;
+      width: $dot-size-hover;
+      height: $dot-size-hover;
+    }
   }
 
   &-date {
     @include text-style(
       $color: primary,
-      $size: base,
-      $spacing: 2px,
+      $size: sm,
+      $spacing: 1px,
       $transform: uppercase
     );
   }
@@ -38,16 +55,18 @@
   &-role {
     margin: size(sm) 0;
     font-weight: 600;
+    line-height: 1.2;
   }
 
   &-company {
     margin-bottom: 12px;
-    @include text-style($size: sm, $color: text-muted, $spacing: 0);
+    @include text-style($size: sm, $color: text-muted, $spacing: 0.5px);
   }
 
   &-desc {
-    color: clr(text-muted);
-    line-height: 1.6;
     max-width: 800px;
+    color: clr(text-muted);
+    text-align: justify;
+    line-height: 1.6;
   }
 }

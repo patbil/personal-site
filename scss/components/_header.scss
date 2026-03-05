@@ -68,7 +68,6 @@ header {
     position: relative;
     display: inline-block;
     margin-left: size(xl);
-    opacity: 0.6;
     cursor: pointer;
     transition: all anim(fast) ease-out;
     @include effect-hover-lift($opacity: 1);
@@ -76,7 +75,8 @@ header {
       $color: text-primary,
       $size: sm,
       $spacing: 0.5px,
-      $transform: uppercase
+      $transform: uppercase,
+      $opacity: 0.6
     );
 
     &::before {

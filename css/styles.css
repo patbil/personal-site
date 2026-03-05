@@ -132,6 +132,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1;
+  opacity: 1;
   color: rgb(212, 175, 112);
   font-size: 0.875rem;
 }
@@ -163,8 +164,10 @@ img {
   text-transform: none;
   letter-spacing: 0.2px;
   line-height: 1.8;
+  opacity: 1;
   color: rgb(156, 163, 175);
   font-size: 1.125rem;
+  text-align: justify;
 }
 
 .tech-grid {
@@ -195,7 +198,6 @@ img {
   will-change: transform;
 }
 .tech-card span {
-  opacity: 0.5;
   text-align: center;
   transition: color 0.5s, opacity 0.5s, letter-spacing 0.5s;
   font-family: "JetBrains Mono";
@@ -203,6 +205,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1;
+  opacity: 0.5;
   font-size: 0.625rem;
 }
 .tech-card:hover {
@@ -213,7 +216,7 @@ img {
 }
 .tech-card:hover i {
   color: rgb(232, 200, 111);
-  transform: scale(1.15);
+  transform: scale(1.15) translateY(-3px);
   filter: drop-shadow(rgba(212, 175, 112, 0.15));
 }
 .tech-card:hover span {
@@ -238,15 +241,16 @@ img {
   font-family: "JetBrains Mono";
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
   line-height: 1;
-  color: rgb(240, 240, 240);
-  font-size: 0.875rem;
+  opacity: 1;
+  color: rgb(176, 184, 196);
+  font-size: 1rem;
 }
 .loader-bar {
   width: 180px;
   height: 2px;
-  margin-top: 15px;
+  margin-top: 1rem;
   background: rgba(255, 255, 255, 0.1);
 }
 .loader-progress {
@@ -292,6 +296,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   line-height: 1;
+  opacity: 1;
   color: rgb(156, 163, 175);
   font-size: 0.75rem;
 }
@@ -325,7 +330,6 @@ header .header-row {
   position: relative;
   display: inline-block;
   margin-left: 1.25rem;
-  opacity: 0.6;
   cursor: pointer;
   transition: all 0.3s ease-out;
   transition: color 0.3s, transform 0.3s, opacity 0.3s;
@@ -340,6 +344,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1;
+  opacity: 0.6;
   color: rgb(240, 240, 240);
   font-size: 0.875rem;
 }
@@ -408,13 +413,13 @@ header .header-row {
 
 .footer {
   width: 100%;
-  padding: 40px 8%;
+  padding: 1.5rem 8%;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(20px);
 }
 @media (max-width: 768px) {
   .footer {
-    padding: 35px 6%;
+    padding: 1.25rem 6%;
   }
 }
 .footer-content {
@@ -438,6 +443,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1;
+  opacity: 1;
   color: rgb(156, 163, 175);
   font-size: 0.75rem;
 }
@@ -450,7 +456,7 @@ header .header-row {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1.125rem;
+    gap: 0.875rem;
     wrap: wrap;
   }
 }
@@ -489,6 +495,7 @@ header .header-row {
   text-transform: none;
   letter-spacing: 1px;
   line-height: 2;
+  opacity: 1;
   color: rgb(156, 163, 175);
 }
 .contact-info-link {
@@ -534,6 +541,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1;
+  opacity: 1;
   color: rgb(156, 163, 175);
   font-size: 0.75rem;
 }
@@ -593,6 +601,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1;
+  opacity: 1;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .submit-trigger:hover {
@@ -653,7 +662,7 @@ header .header-row {
 .side-socials {
   position: fixed;
   bottom: 0;
-  left: 40px;
+  left: 50px;
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -686,12 +695,12 @@ header .header-row {
 }
 
 .projects-container {
-  margin-top: 60px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 80px;
   wrap: wrap;
 }
 
@@ -699,7 +708,7 @@ header .header-row {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   align-items: center;
-  gap: 60px;
+  gap: 100px;
 }
 .project-row:nth-child(even) {
   direction: rtl;
@@ -728,6 +737,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1;
+  opacity: 1;
   color: rgb(212, 175, 112);
   font-size: 0.75rem;
 }
@@ -738,6 +748,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: -1px;
   line-height: 1;
+  opacity: 1;
 }
 .project-info p {
   margin: 0;
@@ -763,6 +774,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1;
+  opacity: 1;
   color: rgb(232, 200, 111);
   font-size: 0.625rem;
 }
@@ -780,6 +792,7 @@ header .header-row {
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1;
+  opacity: 1;
   color: rgb(212, 175, 112);
   font-size: 0.75rem;
 }
@@ -832,12 +845,14 @@ header .header-row {
 
 .experience-box {
   max-width: 900px;
-  padding-left: 35px;
+  padding-left: 30px;
   border-left: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .exp-item {
-  margin-bottom: 60px;
+  position: relative;
+  margin-bottom: 3rem;
+  transition: all 0.3s ease-out;
 }
 .exp-item:last-child {
   margin-bottom: 0;
@@ -845,41 +860,54 @@ header .header-row {
 .exp-item::before {
   content: "";
   position: absolute;
-  left: -41.5px;
-  top: 6px;
-  width: 12px;
-  height: 12px;
+  left: -35px;
+  top: 7px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: rgb(212, 175, 112);
   box-shadow: 0 0 15px rgb(212, 175, 112);
+  transition: all 0.3s ease-out;
+}
+.exp-item:hover {
+  padding-left: 1rem;
+}
+.exp-item:hover::before {
+  left: -38px;
+  width: 18px;
+  height: 18px;
 }
 .exp-item-date {
   font-family: "JetBrains Mono";
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   line-height: 1;
+  opacity: 1;
   color: rgb(212, 175, 112);
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 .exp-item-role {
   margin: 0.875rem 0;
   font-weight: 600;
+  line-height: 1.2;
 }
 .exp-item-company {
   margin-bottom: 12px;
   font-family: "JetBrains Mono";
   font-weight: 500;
   text-transform: none;
-  letter-spacing: 0;
+  letter-spacing: 0.5px;
   line-height: 1;
+  opacity: 1;
   color: rgb(156, 163, 175);
   font-size: 0.875rem;
 }
 .exp-item-desc {
-  color: rgb(156, 163, 175);
-  line-height: 1.6;
   max-width: 800px;
+  color: rgb(156, 163, 175);
+  text-align: justify;
+  line-height: 1.6;
 }
 
 html {

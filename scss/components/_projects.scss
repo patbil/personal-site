@@ -2,15 +2,15 @@
 @use "../abstracts/functions" as *;
 
 .projects-container {
-  margin-top: 60px;
-  @include layout-flex($dir: column, $gap: 100px);
+  margin-top: 40px;
+  @include layout-flex($dir: column, $gap: 80px);
 }
 
 .project-row {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   align-items: center;
-  gap: 60px;
+  gap: 100px;
 
   &:nth-child(even) {
     direction: rtl;

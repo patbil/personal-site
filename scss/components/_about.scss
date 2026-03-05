@@ -23,7 +23,8 @@
       $color: text-muted,
       $height: 1.8,
       $spacing: 0.2px,
-      $font: main
+      $font: main,
+      $align: justify
     );
   }
 }
@@ -55,13 +56,12 @@
   }
 
   span {
-    opacity: 0.5;
     text-align: center;
     transition:
       color anim(normal),
       opacity anim(normal),
       letter-spacing anim(normal);
-    @include text-style($size: xxs, $spacing: 2px, $transform: uppercase);
+    @include text-style($size: xxs, $spacing: 2px, $transform: uppercase, $opacity: 0.5);
   }
 
   &:hover {
@@ -72,7 +72,7 @@
 
     i {
       color: clr(primary-light);
-      transform: scale(1.15);
+      transform: scale(1.15) translateY(-3px);
       filter: drop-shadow(clr(primary-soft));
     }
 

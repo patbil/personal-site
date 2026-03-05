@@ -10,17 +10,17 @@
 
   &-text {
     @include text-style(
-      $size: sm,
-      $color: text-primary,
-      $spacing: 5px,
-      $transform: uppercase
+      $size: base,
+      $color: text-secondary,
+      $spacing: 2px,
+      $transform: uppercase,
     );
   }
 
   &-bar {
     width: 180px;
     height: 2px;
-    margin-top: 15px;
+    margin-top: size(base);
     background: clr(border-soft);
   }
 
