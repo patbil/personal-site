@@ -8,6 +8,7 @@ A modern, interactive personal portfolio website showcasing professional work an
 - **Responsive Design**: Mobile-first layout with adaptive element ordering
 - **Project Portfolio**: Professional project showcase with responsive grid
 - **Experience Timeline**: Visual professional experience section
+- **Resume Download**: Direct link to downloadable resume PDF
 - **Contact Form**: Form with validation and user feedback
 - **Social Integration**: Sidebar social links with hover effects
 - **Mouse Glow Effect**: Interactive cursor feedback
