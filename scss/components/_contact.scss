@@ -5,6 +5,10 @@
 .contact-section {
   padding: size(base) 0;
   @include layout-flex($dir: column, $align: unset);
+
+  @include responsive(md) {
+    padding: size(5xl) 0;
+  }
 }
 
 .contact-grid {
@@ -15,15 +19,23 @@
 
   @include responsive(lg) {
     grid-template-columns: 1fr;
-    gap: 20px;
+  }
+}
+
+.contact-title {
+  font-size: size(6xl);
+
+  @include responsive(lg) {
+    font-size: size(5xl);
+    margin-bottom: size(lg);
   }
 
-  .section-item-title {
-    font-size: size(6xl);
+  @include responsive(md) {
+    font-size: size(4xl);
+  }
 
-    span {
-      @include text-outline;
-    }
+  span {
+    @include text-outline;
   }
 }
 
@@ -70,8 +82,8 @@
   background: gradient(glass-overlay-subtle);
   box-shadow: shadow(primary-glow);
 
-  @include responsive(md) {
-    padding: size(2xl);
+  @include responsive(lg) {
+    padding: 30px;
   }
 
   &-field {
@@ -100,7 +112,7 @@
       &:valid ~ label {
         top: - size(base);
         color: clr(primary-light);
-        font-size: size(xxs);
+        font-size: size(2xs);
       }
 
       &:user-invalid {

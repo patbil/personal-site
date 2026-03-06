@@ -22,7 +22,12 @@
   }
 
   &-text {
-    @include text-style($size: xs, $color: text-muted, $transform: uppercase);
+    @include text-style(
+      $size: xs,
+      $color: text-muted,
+      $transform: uppercase,
+      $height: 1.5
+    );
   }
 
   &-socials {

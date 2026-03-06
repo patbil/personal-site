@@ -21,11 +21,11 @@ html {
 body {
   background: clr(background-main);
   color: clr(text-primary);
-  overflow-x: hidden;
+  overflow: hidden;
   user-select: none;
   -webkit-font-smoothing: antialiased;
 
-  &.loading {
-    overflow-y: hidden;
+  &.ready {
+    overflow-y: auto;
   }
 }

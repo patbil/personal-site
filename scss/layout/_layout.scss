@@ -23,6 +23,12 @@
   min-height: 100vh;
   padding: 30px 0;
 
+  &:first-child {
+    @include responsive(md) {
+      padding-top: 15px;
+    }
+  }
+
   &-title {
     margin-bottom: size(3xl);
     font-weight: 700;
@@ -31,7 +37,7 @@
 
   &-label {
     display: inline-block;
-    margin-bottom: size(sm);
+    margin-bottom: size(3xs);
     @include text-style(
       $size: sm,
       $spacing: 1px,

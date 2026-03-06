@@ -69,7 +69,7 @@ header {
     display: inline-block;
     margin-left: size(xl);
     cursor: pointer;
-    transition: all anim(fast) ease-out;
+    transition: color anim(fast) opacity anim(fast);
     @include effect-hover-lift($opacity: 1);
     @include text-style(
       $color: text-primary,
@@ -87,18 +87,13 @@ header {
       width: 0;
       height: 1px;
       background: clr(primary);
-      transition: width anim(fast) ease-out;
+      transition: width anim(fast);
       transition-delay: 200ms;
     }
 
-    &:hover {
-      color: clr(primary-light);
-      opacity: 1;
-      transform: scale(1.05);
-    }
-
+    &:hover,
     &.active {
-      color: clr(primary);
+      color: clr(primary-light);
       opacity: 1;
 
       &::before {

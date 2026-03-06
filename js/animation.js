@@ -1,9 +1,4 @@
-function setLoadingStatus(status, timeout = 0) {
-  setTimeout(() => document.body.classList.toggle("loading", status), timeout);
-}
-
 export function initAnimation() {
-  setLoadingStatus(true);
   gsap.registerPlugin(ScrollTrigger);
 
   const revealElements = gsap.utils.toArray(".reveal");
@@ -15,7 +10,7 @@ export function initAnimation() {
       yPercent: -100,
       duration: 0.6,
       ease: "expo.inOut",
-      toComplete: () => setLoadingStatus(false, 200),
+      toComplete: () => setTimeout(() => document.body.classList.add("ready"), 100),
     })
     .from(
       ".hero h1",

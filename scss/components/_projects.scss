@@ -52,16 +52,16 @@
 
 .project-tags {
   margin: size(lg) 0;
-  @include layout-flex($gap: size(xxs), $justify: unset);
+  @include layout-flex($gap: size(2xs), $justify: unset, $wrap: wrap);
 
   span {
-    padding: size(xxs) size(sm);
+    padding: size(2xs) size(sm);
     background: clr(primary-soft);
     border: 1px solid clr(border-subtle);
     border-radius: radius(button);
     @include text-style(
       $font: main,
-      $size: xxs,
+      $size: 2xs,
       $color: primary-light,
       $transform: uppercase,
       $spacing: 0.5px
@@ -104,7 +104,7 @@
     height: 250px;
     margin: 15px 0 25px;
 
-    &.desktop-only {
+    &:not(.mobile-only) {
       display: none;
     }
     &.mobile-only {
