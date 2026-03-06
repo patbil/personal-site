@@ -53,14 +53,20 @@ $offset-left: -35px;
   }
 
   &-role {
-    margin: size(sm) 0;
+    margin: size(2xs) 0;
     font-weight: 600;
     line-height: 1.2;
   }
 
   &-company {
+    display: inline-block;
     margin-bottom: 12px;
+    transition: color anim(fast);
     @include text-style($size: sm, $color: text-muted, $spacing: 0.5px);
+
+    &:hover {
+      color: clr(primary);
+    }
   }
 
   &-desc {

@@ -10,7 +10,7 @@ export function initAnimation() {
       yPercent: -100,
       duration: 0.6,
       ease: "expo.inOut",
-      toComplete: () => setTimeout(() => document.body.classList.add("ready"), 100),
+      toComplete: () => setTimeout(() => document.body.classList.add("ready"), 300),
     })
     .from(
       ".hero h1",
