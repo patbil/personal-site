@@ -3,6 +3,7 @@
 @use "./abstracts/mixins" as *;
 @use "./abstracts/functions" as *;
 @use "./layout/layout" as *;
+@use "./layout/scrollbar" as *;
 @use "./components/about" as *;
 @use "./components/loader" as *;
 @use "./components/header" as *;

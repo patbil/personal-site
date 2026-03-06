@@ -144,6 +144,28 @@ img {
   font-size: 0.875rem;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 112, 0.15) rgb(5, 5, 5);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(5, 5, 5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 112, 0.15);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(212, 175, 112);
+}
+
 .hero {
   max-width: 900px;
   margin-bottom: 2.25rem;

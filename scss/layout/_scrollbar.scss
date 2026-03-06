@@ -1,0 +1,24 @@
+@use "../abstracts/functions" as *;
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: clr(primary-soft) clr(background-main);
+}
+
+::-webkit-scrollbar {
+  width: get-scrollbar-width();
+}
+
+::-webkit-scrollbar-track {
+  background: clr(background-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: clr(primary-soft);
+  border-radius: 10px;
+  border: 1px solid clr(border-subtle);
+
+  &:hover {
+    background: clr(primary);
+  }
+}

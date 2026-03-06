@@ -17,6 +17,21 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://patrykbilski.pl" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" href="./assets/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon.svg" />
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://patrykbilski.pl" />
     <meta property="og:title" content="Patryk Bilski | Software Developer" />
@@ -43,11 +58,6 @@
       content="https://patrykbilski.pl/assets/img/social-preview.png"
     />
 
-    <link rel="icon" href="./assets/favicon.svg" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./css/styles.css" />
     <script
       defer
@@ -63,14 +73,14 @@
       class="resume"
       href="./assets/files/resume.pdf"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
     >
       <span>Resume</span>
       <i class="fa-solid fa-scroll" aria-hidden="true"></i>
     </a>
 
     <div class="loader">
-      <p class="loader-text">initilize</p>
+      <p class="loader-text">initialize</p>
       <div class="loader-bar">
         <div class="loader-progress"></div>
       </div>
@@ -81,22 +91,25 @@
         class="social-link"
         href="https://github.com/patbil"
         target="_blank"
+        rel="noopener noreferrer"
         aria-label="GitHub"
-        ><i class="fab fa-github"></i
+        ><i class="fab fa-github" aria-hidden="true"></i
       ></a>
       <a
         class="social-link"
         href="https://www.linkedin.com/in/patryk-bilski1/"
         target="_blank"
+        rel="noopener noreferrer"
         aria-label="LinkedIn"
-        ><i class="fab fa-linkedin-in"></i
+        ><i class="fab fa-linkedin-in" aria-hidden="true"></i
       ></a>
       <a
         class="social-link"
         href="https://www.instagram.com/tytus_wirazka"
         target="_blank"
+        rel="noopener noreferrer"
         aria-label="Instagram"
-        ><i class="fab fa-instagram"></i
+        ><i class="fab fa-instagram" aria-hidden="true"></i
       ></a>
     </div>
 
@@ -108,13 +121,13 @@
             <p class="role">software developer</p>
           </a>
 
-          <button class="hamburger">
+          <button class="hamburger" aria-label="Toggle navigation">
             <span></span>
             <span></span>
             <span></span>
           </button>
 
-          <nav class="nav">
+          <nav class="nav" aria-label="Main navigation">
             <a class="nav-link active" data-section="about">about</a>
             <a class="nav-link" data-section="experience">experience</a>
             <a class="nav-link" data-section="portfolio">work</a>
@@ -128,7 +141,9 @@
       <div class="container">
         <section class="section-item about-section" id="about">
           <div class="hero">
-            <span class="section-item-label accent"> // status: online </span>
+            <span class="section-item-label accent" aria-label="Status online"
+              >// status: online</span
+            >
             <h1 class="reveal hero-title">
               crafting<br /><span>flawless logic.</span>
             </h1>
@@ -145,49 +160,63 @@
           <h2 class="section-item-title tech-title reveal">technical stack</h2>
           <div class="tech-grid">
             <div class="tech-card reveal">
-              <i class="fab fa-angular"></i><span>angular</span>
+              <i class="fab fa-angular" aria-hidden="true"></i
+              ><span>angular</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fa-brands fa-typescript"></i><span>typescript</span>
+              <i class="fa-brands fa-typescript" aria-hidden="true"></i
+              ><span>typescript</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fab fa-js"></i><span>javascript</span>
+              <i class="fab fa-js" aria-hidden="true"></i
+              ><span>javascript</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fab fa-node-js"></i><span>node.js</span>
+              <i class="fab fa-node-js" aria-hidden="true"></i
+              ><span>node.js</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fa-brands fa-html5"></i><span>html5</span>
+              <i class="fa-brands fa-html5" aria-hidden="true"></i
+              ><span>html5</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fa-brands fa-css3-alt"></i><span>css3</span>
+              <i class="fa-brands fa-css3-alt" aria-hidden="true"></i
+              ><span>css3</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fa-brands fa-sass"></i><span>sass</span>
+              <i class="fa-brands fa-sass" aria-hidden="true"></i
+              ><span>sass</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fab fa-bootstrap"></i><span>bootstrap</span>
+              <i class="fab fa-bootstrap" aria-hidden="true"></i
+              ><span>bootstrap</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fab fa-tailwind-css"></i><span>tailwind</span>
+              <i class="fab fa-tailwind-css" aria-hidden="true"></i
+              ><span>tailwind</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fas fa-database"></i><span>sql</span>
+              <i class="fas fa-database" aria-hidden="true"></i><span>sql</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fa-brands fa-git-alt"></i><span>git</span>
+              <i class="fa-brands fa-git-alt" aria-hidden="true"></i
+              ><span>git</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fab fa-docker"></i><span>docker</span>
+              <i class="fab fa-docker" aria-hidden="true"></i
+              ><span>docker</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fas fa-terminal"></i><span>linux</span>
+              <i class="fas fa-terminal" aria-hidden="true"></i
+              ><span>linux</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fa-brands fa-raspberry-pi"></i><span>raspberry pi</span>
+              <i class="fa-brands fa-raspberry-pi" aria-hidden="true"></i
+              ><span>raspberry pi</span>
             </div>
             <div class="tech-card reveal">
-              <i class="fas fa-microchip"></i><span>c++</span>
+              <i class="fas fa-microchip" aria-hidden="true"></i
+              ><span>c++</span>
             </div>
           </div>
         </section>
@@ -199,41 +228,53 @@
             <div class="exp-item reveal">
               <span class="exp-item-date">2025 — PRESENT</span>
               <h3 class="exp-item-role">Software Developer</h3>
-              <a href="https://www.wasko.pl/" class="exp-item-company"
+              <a
+                href="https://www.wasko.pl/"
+                class="exp-item-company"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Wasko S.A</a
               >
               <p class="exp-item-desc">
                 My work involved developing medical software and co-creating a
                 user interface based on Angular for a gas storage management
-                system, with a focus on optimizing data loading and close
+                system, focusing on optimizing data loading and close
                 collaboration with back-end and UX/UI teams.
               </p>
             </div>
             <div class="exp-item reveal">
               <span class="exp-item-date">2022 — 2025</span>
               <h3 class="exp-item-role">Frontend Developer</h3>
-              <a href="https://gabos.com.pl/" class="exp-item-company"
+              <a
+                href="https://gabos.com.pl/"
+                class="exp-item-company"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Gabos Software Sp. z.o.o</a
               >
               <p class="exp-item-desc">
                 I co-created medical software for clinics and hospitals,
-                contributing to both backend and frontend components, as well as
-                a cross-platform mobile app. I worked closely with the team to
-                make sure the software was reliable, user-friendly, and
-                practical for healthcare professionals.
+                contributing to backend and frontend components, as well as a
+                cross-platform mobile app. I worked closely with the team to
+                ensure reliability, usability, and practicality for healthcare
+                professionals.
               </p>
             </div>
             <div class="exp-item reveal">
               <span class="exp-item-date">2020 — 2022</span>
               <h3 class="exp-item-role">Embedded Software Developer</h3>
-              <a href="https://ivm.pl/" class="exp-item-company"
+              <a
+                href="https://ivm.pl/"
+                class="exp-item-company"
+                target="_blank"
+                rel="noopener noreferrer"
                 >IVM Sp. z.o.o</a
               >
               <p class="exp-item-desc">
                 I co-developed software for a disinfecting robot and dosimeters.
-                Later, I contributed to a client-server application I developed
-                for a glass manufacturing company, which allowed teams to
-                monitor and analyze production statistics.
+                Later, I contributed to a client-server application for a glass
+                manufacturing company, enabling teams to monitor and analyze
+                production statistics.
               </p>
             </div>
           </div>
@@ -246,15 +287,14 @@
             <div class="project-row reveal project-smart-home">
               <div class="project-info">
                 <span class="project-label">deployment_01</span>
-                <h3 class="">smart home</h3>
+                <h3>smart home</h3>
                 <div class="project-image-wrapper mobile-only"></div>
                 <p>
-                  Developed as an Engineering Thesis, this project serves as a
-                  comprehensive integration of embedded systems, software
-                  engineering, and electronics. It features a fully automated
-                  smart home scale model, where custom-built hardware interfaces
-                  with a central control system to manage real-time
-                  environmental data and automation logic.
+                  Developed as an Engineering Thesis, this project integrates
+                  embedded systems, software engineering, and electronics. It
+                  features a fully automated smart home scale model, with
+                  hardware interfacing a central control system managing
+                  real-time environmental data and automation logic.
                 </p>
                 <div class="project-tags">
                   <span>angular</span> <span>nodeJS</span> <span>mySql</span>
@@ -263,9 +303,11 @@
                 <a
                   href="https://github.com/patbil/thesis-smart-home-backend"
                   target="_blank"
+                  rel="noopener noreferrer"
                   class="code-btn"
+                  title="Smart Home Backend Source Code"
                 >
-                  <i class="fab fa-github"></i> view_source
+                  <i class="fab fa-github" aria-hidden="true"></i> view_source
                 </a>
               </div>
               <div class="project-image-wrapper"></div>
@@ -274,14 +316,13 @@
             <div class="project-row reveal project-strapi-client">
               <div class="project-info">
                 <span class="project-label">deployment_02</span>
-                <h3 class="">strapi client</h3>
+                <h3>strapi client</h3>
                 <div class="project-image-wrapper mobile-only"></div>
                 <p>
                   A streamlined integration tool designed to interface with the
-                  Strapi Headless CMS ecosystem. It enables seamless management
-                  of content collections through a specialized REST API client,
-                  optimizing data fetching and state synchronization between the
-                  backend and client-side applications.
+                  Strapi Headless CMS. Enables seamless management of content
+                  collections via REST API, optimizing data fetching and state
+                  synchronization.
                 </p>
                 <div class="project-tags">
                   <span>angular</span> <span>jasmine</span>
@@ -289,9 +330,11 @@
                 <a
                   href="https://github.com/patbil/angular-strapi-client"
                   target="_blank"
+                  rel="noopener noreferrer"
                   class="code-btn"
+                  title="Strapi Client Source Code"
                 >
-                  <i class="fab fa-github"></i> view_source
+                  <i class="fab fa-github" aria-hidden="true"></i> view_source
                 </a>
               </div>
               <div class="project-image-wrapper"></div>
@@ -300,13 +343,12 @@
             <div class="project-row reveal project-snake-game">
               <div class="project-info">
                 <span class="project-label">deployment_03</span>
-                <h3 class="">snake game</h3>
+                <h3>snake game</h3>
                 <div class="project-image-wrapper mobile-only"></div>
                 <p>
-                  A functional recreation of the classic Snake arcade game. This
-                  project implements core mechanics such as grid-based movement,
-                  real-time collision detection, and score tracking, all built
-                  using vanilla JavaScript and HTML5 Canvas.
+                  A functional recreation of the classic Snake game. Implements
+                  grid-based movement, collision detection, and score tracking,
+                  built using vanilla JavaScript and HTML5 Canvas.
                 </p>
                 <div class="project-tags">
                   <span>javascript</span> <span>HTML5</span>
@@ -314,9 +356,12 @@
                 <a
                   href="https://github.com/patbil/snake"
                   target="_blank"
+                  rel="noopener noreferrer"
                   class="code-btn"
-                  ><i class="fab fa-github"></i> view_source</a
+                  title="Snake Game Source Code"
                 >
+                  <i class="fab fa-github" aria-hidden="true"></i> view_source
+                </a>
               </div>
               <div class="project-image-wrapper"></div>
             </div>
@@ -335,31 +380,43 @@
               <div class="contact-info reveal">
                 <a
                   class="contact-info-link"
-                  href="https://mail.google.com/mail/?view=cm&to=bilskipatryk.web@gmail.com"
-                  target="_blank"
+                  href="mailto:bilskipatryk.web@gmail.com"
                 >
-                  <i class="fas fa-envelope"></i>
+                  <i class="fas fa-envelope" aria-hidden="true"></i>
                   bilskipatryk.web@gmail.com
                 </a>
                 <a
                   class="contact-info-link"
                   href="https://maps.app.goo.gl/2FP1x6guyrKhjmGx9"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <i class="fas fa-location-dot"></i>
-                  Dobrut, PL
+                  <i class="fas fa-location-dot" aria-hidden="true"></i> Dobrut,
+                  PL
                 </a>
               </div>
             </div>
 
             <div class="contact-form reveal">
-              <form id="contact-form">
+              <form id="contact-form" novalidate>
                 <div class="contact-form-field">
-                  <input type="text" name="name" id="name" required />
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    required
+                    aria-required="true"
+                  />
                   <label for="name">name</label>
                 </div>
                 <div class="contact-form-field">
-                  <input type="email" name="email" id="email" required />
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    aria-required="true"
+                  />
                   <label for="email">email</label>
                 </div>
                 <div class="contact-form-field">
@@ -368,6 +425,7 @@
                     name="message"
                     rows="3"
                     required
+                    aria-required="true"
                   ></textarea>
                   <label for="message">message</label>
                 </div>
@@ -390,26 +448,26 @@
             class="social-link"
             href="https://github.com/patbil"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
+            ><i class="fab fa-github" aria-hidden="true"></i
+          ></a>
           <a
             class="social-link"
             href="https://www.linkedin.com/in/patryk-bilski1/"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin-in"></i>
-          </a>
+            ><i class="fab fa-linkedin-in" aria-hidden="true"></i
+          ></a>
           <a
             class="social-link"
             href="https://www.instagram.com/tytus_wirazka"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="Instagram"
-          >
-            <i class="fab fa-instagram"></i>
-          </a>
+            ><i class="fab fa-instagram" aria-hidden="true"></i
+          ></a>
         </div>
         <p class="footer-text">
           &copy; <span id="current-year"></span> Patryk Bilski. All rights
@@ -418,8 +476,14 @@
       </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script type="module" src="./js/index.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"
+    ></script>
+    <script type="module" defer src="./js/index.js"></script>
   </body>
 </html>

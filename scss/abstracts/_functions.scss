@@ -53,3 +53,7 @@
 @function get-projects() {
   @return $projects;
 }
+
+@function get-scrollbar-width() {
+  @return $scrollbar-width;
+}
