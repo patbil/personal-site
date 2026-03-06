@@ -119,6 +119,6 @@
 
 @each $name, $img in get-projects() {
   .project-#{$name} {
-    --project-img: url("../../assets/projects/#{$img}");
+    --project-img: url("../../assets/img/#{$img}");
   }
 }

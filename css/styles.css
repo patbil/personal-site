@@ -892,15 +892,15 @@ header .header-row {
 }
 
 .project-smart-home {
-  --project-img: url("../../assets/projects/smart-home.png");
+  --project-img: url("../../assets/img/smart-home.png");
 }
 
 .project-strapi-client {
-  --project-img: url("../../assets/projects/strapi-client.png");
+  --project-img: url("../../assets/img/strapi-client.png");
 }
 
 .project-snake-game {
-  --project-img: url("../../assets/projects/snake-game.png");
+  --project-img: url("../../assets/img/snake-game.png");
 }
 
 .experience-box {
