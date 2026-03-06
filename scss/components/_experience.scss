@@ -33,13 +33,15 @@ $offset-left: -35px;
     transition: all anim(fast) ease-out;
   }
 
-  &:hover {
-    padding-left: 3px;
+  &:hover::before {
+    left: $offset-left - 3px;
+    width: $dot-size-hover;
+    height: $dot-size-hover;
+  }
 
-    &::before {
-      left: $offset-left - 3px;
-      width: $dot-size-hover;
-      height: $dot-size-hover;
+  @include responsive(lg, min) {
+    &:hover {
+      padding-left: 3px;
     }
   }
 

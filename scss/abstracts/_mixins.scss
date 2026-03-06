@@ -129,9 +129,16 @@
 
 // =========== RESPONSIVE =========== //
 
-@mixin responsive($size) {
+@mixin responsive($size, $type: max) {
   $width: bp($size);
-  @media (max-width: $width) {
-    @content;
+
+  @if $type == min {
+    @media (min-width: $width) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $width) {
+      @content;
+    }
   }
 }

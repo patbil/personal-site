@@ -104,7 +104,7 @@ img {
 }
 
 .container {
-  width: min(100% - 32px, 1440px);
+  width: min(100% - 64px, 1440px);
   margin-inline: auto;
 }
 
@@ -369,7 +369,7 @@ header .header-row {
 }
 @media (max-width: 768px) {
   .nav-link {
-    margin: 20px 0;
+    margin: 15px 0;
     font-size: 1.125rem;
   }
 }
@@ -479,7 +479,7 @@ header .header-row {
   color: rgb(176, 184, 196);
   font-size: 1.125rem;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1280px) {
   .resume {
     display: none;
   }
@@ -929,13 +929,15 @@ header .header-row {
   box-shadow: 0 0 15px rgb(212, 175, 112);
   transition: all 0.3s ease-out;
 }
-.exp-item:hover {
-  padding-left: 3px;
-}
 .exp-item:hover::before {
   left: -38px;
   width: 15px;
   height: 15px;
+}
+@media (min-width: 1024px) {
+  .exp-item:hover {
+    padding-left: 3px;
+  }
 }
 .exp-item-date {
   font-family: "JetBrains Mono";
