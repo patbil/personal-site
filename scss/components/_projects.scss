@@ -4,6 +4,10 @@
 .projects-container {
   margin-top: 40px;
   @include layout-flex($dir: column, $gap: 80px);
+
+  @include responsive(lg) {
+    gap: 60px;
+  }
 }
 
 .project-row {

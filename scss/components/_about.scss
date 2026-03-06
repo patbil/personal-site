@@ -3,7 +3,7 @@
 
 .hero {
   max-width: 900px;
-  margin-bottom: size(3xl);
+  margin-bottom: size(4xl);
   margin-top: size(base);
 
   &-title {
@@ -26,10 +26,6 @@
       $font: main,
       $align: justify
     );
-
-    @include responsive(md) {
-      font-size: size(base);
-    }
   }
 }
 
@@ -57,10 +53,6 @@
       transform anim(normal) ease-out,
       color anim(normal);
     will-change: transform;
-
-    @include responsive(lg) {
-      font-size: size(3xl);
-    }
   }
 
   span {

@@ -3,12 +3,7 @@
 @use "../abstracts/animations" as *;
 
 .contact-section {
-  padding: size(base) 0;
   @include layout-flex($dir: column, $align: unset);
-
-  @include responsive(md) {
-    padding: size(5xl) 0;
-  }
 }
 
 .contact-grid {
@@ -23,17 +18,7 @@
 }
 
 .contact-title {
-  font-size: size(6xl);
-
-  @include responsive(lg) {
-    font-size: size(5xl);
-    margin-bottom: size(lg);
-  }
-
-  @include responsive(md) {
-    font-size: size(4xl);
-  }
-
+  font-size: clamp(3rem, 4vw + 1rem, 4rem);
   span {
     @include text-outline;
   }
