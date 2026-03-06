@@ -104,7 +104,7 @@ img {
 }
 
 .container {
-  width: min(100% - 64px, 1440px);
+  width: min(100% - 48px, 1440px);
   margin-inline: auto;
 }
 
