@@ -11,6 +11,15 @@
     line-height: 0.9;
     letter-spacing: -0.06em;
     text-transform: uppercase;
+    background: linear-gradient(
+      135deg,
+      clr(text-primary) 0%,
+      clr(primary) 50%,
+      clr(primary-light) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 
     span {
       @include text-outline;
@@ -26,6 +35,11 @@
       $font: main,
       $align: justify
     );
+    transition: color anim(normal);
+
+    &:hover {
+      color: clr(text-secondary);
+    }
   }
 }
 
@@ -33,6 +47,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: size(base);
+  margin-top: size(5xl);
 }
 
 .tech-card {
@@ -43,15 +58,16 @@
     background-color anim(normal),
     border-color anim(normal),
     box-shadow anim(normal);
-  @include effect-glass;
+  @include effect-glass-refined;
   @include layout-flex($dir: column, $gap: 15px);
 
   i {
     font-size: size(4xl);
-    color: clr(text-muted);
+    color: clr(primary);
     transition:
       transform anim(normal) ease-out,
-      color anim(normal);
+      color anim(normal),
+      filter anim(normal);
     will-change: transform;
   }
 
@@ -61,25 +77,30 @@
       color anim(normal),
       opacity anim(normal),
       letter-spacing anim(normal);
-    @include text-style($size: 2xs, $spacing: 2px, $transform: uppercase, $opacity: 0.5);
+    @include text-style(
+      $size: 2xs,
+      $spacing: 2px,
+      $transform: uppercase,
+      $opacity: 0.6
+    );
   }
 
   &:hover {
-    border-color: clr(primary-soft);
-    background-color: clr(background-card);
+    border-color: clr(border-accent);
+    background: gradient(glass-refined);
     box-shadow: shadow(primary-glow);
-    transform: translateY(-20px);
+    transform: translateY(-16px);
 
     i {
       color: clr(primary-light);
-      transform: scale(1.15) translateY(-3px);
-      filter: drop-shadow(clr(primary-soft));
+      transform: scale(1.2) translateY(-4px);
+      filter: drop-shadow(0 0 8px clr(primary));
     }
 
     span {
-      color: clr(primary);
+      color: clr(primary-light);
       opacity: 1;
-      letter-spacing: 3px;
+      letter-spacing: 1px;
     }
   }
 }

@@ -59,44 +59,78 @@ $sizes: (
 
 $shadows: (
   primary-glow: (
-    0 15px 35px rgba(0, 0, 0, 0.2),
-    0 8px 25px rgba(212, 175, 112, 0.1),
+    0 20px 40px rgba(212, 175, 112, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
   ),
-  error: 0 5px 20px rgba(224, 11, 4, 0.5),
-  success: 0 5px 20px rgba(40, 167, 69, 0.5),
+  cyan-glow: (
+    0 15px 35px rgba(100, 200, 220, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.25),
+  ),
+  soft-glow: (
+    0 10px 25px rgba(0, 0, 0, 0.2),
+    0 4px 10px rgba(212, 175, 112, 0.05),
+  ),
+  elevation-sm: (
+    0 4px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+  ),
+  elevation-md: (
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+  ),
+  error: 0 5px 20px rgba(255, 110, 110, 0.4),
+  success: 0 5px 20px rgba(50, 180, 100, 0.4),
 );
 
 $colors: (
   primary: rgba(212, 175, 112, 1),
-  primary-light: rgba(232, 200, 111, 1),
-  primary-soft: rgba(212, 175, 112, 0.15),
-  background-main: rgba(5, 5, 5, 1),
-  background-card: rgba(212, 175, 112, 0.03),
-  border-subtle: rgba(255, 255, 255, 0.12),
-  border-soft: rgba(255, 255, 255, 0.1),
-  text-primary: rgba(240, 240, 240, 1),
-  text-secondary: rgba(176, 184, 196, 1),
-  text-muted: rgba(156, 163, 175, 1),
-  state-error: rgba(255, 107, 107, 1),
-  state-success: rgba(40, 167, 69, 1),
+  primary-light: rgba(238, 215, 160, 1),
+  primary-soft: rgba(212, 175, 112, 0.12),
+  accent-cyan: rgba(100, 200, 220, 1),
+  accent-cyan-soft: rgba(100, 200, 220, 0.08),
+  accent-emerald: rgba(110, 190, 160, 1),
+  accent-emerald-soft: rgba(110, 190, 160, 0.08),
+  background-main: rgba(2, 6, 12, 1),
+  background-card: rgba(212, 175, 112, 0.04),
+  background-elevated: rgba(20, 28, 40, 1),
+  border-subtle: rgba(255, 255, 255, 0.08),
+  border-soft: rgba(255, 255, 255, 0.06),
+  border-accent: rgba(100, 200, 220, 0.15),
+  text-primary: rgba(248, 249, 250, 1),
+  text-secondary: rgba(190, 200, 220, 1),
+  text-muted: rgba(135, 145, 165, 1),
+  state-error: rgba(255, 110, 110, 1),
+  state-success: rgba(50, 180, 100, 1),
 );
 
 $gradients: (
-  primary: linear-gradient(135deg, #d4af70, #e8c86f),
+  primary: linear-gradient(135deg, #d4af70 0%, #efd7a0 100%),
+  primary-accent: linear-gradient(135deg, #d4af70 0%, #64c8dc 100%),
   glass-surface: linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.01) 100%
+    ),
+  glass-refined: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
       rgba(255, 255, 255, 0) 100%
     ),
   mouse-glow: radial-gradient(
       circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(232, 200, 111, 0.08) 0%,
-      rgba(212, 175, 112, 0.03) 30%,
-      transparent 70%
+      rgba(232, 200, 111, 0.1) 0%,
+      rgba(212, 175, 112, 0.04) 25%,
+      transparent 65%
     ),
   glass-overlay-subtle: linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.025) 0%,
+      rgba(255, 255, 255, 0.03) 0%,
       rgba(255, 255, 255, 0) 100%
+    ),
+  dark-edge: radial-gradient(
+      circle at center,
+      transparent 0%,
+      rgba(0, 0, 0, 0.2) 100%
     ),
 );

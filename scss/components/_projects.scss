@@ -61,8 +61,13 @@
   span {
     padding: size(2xs) size(sm);
     background: clr(primary-soft);
-    border: 1px solid clr(border-subtle);
+    border: 1px solid clr(border-accent);
     border-radius: radius(button);
+    transition:
+      background-color anim(fast),
+      border-color anim(fast),
+      transform anim(fast),
+      box-shadow anim(fast);
     @include text-style(
       $font: main,
       $size: 2xs,
@@ -70,6 +75,13 @@
       $transform: uppercase,
       $spacing: 0.5px
     );
+
+    &:hover {
+      background: gradient(primary);
+      border-color: clr(primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(212, 175, 112, 0.15);
+    }
   }
 }
 
@@ -81,18 +93,42 @@
   gap: size(sm);
   border: 1px solid clr(primary);
   border-radius: radius(button);
-  transition: all anim(fast);
+  background: transparent;
+  transition:
+    all anim(fast),
+    box-shadow anim(fast),
+    transform anim(fast);
   @include text-style($color: primary, $size: xs, $transform: uppercase);
 
   &:hover {
-    background: clr(primary);
+    background: gradient(primary);
     color: clr(background-main);
     box-shadow: shadow(primary-glow);
+    transform: translateY(-2px);
+    border-color: clr(primary-light);
   }
 }
 
 .project-image-wrapper {
   height: 380px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    filter anim(normal),
+    box-shadow anim(normal);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: gradient(glass-overlay-subtle);
+    pointer-events: none;
+  }
+
+  &:hover {
+    filter: brightness(0.95) saturate(1.15);
+    box-shadow: shadow(elevation-md);
+  }
   background-image: var(--project-img);
   background-position: center;
   background-size: cover;

@@ -1,20 +1,29 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/functions" as *;
 
-$dot-size-base: 10px;
-$dot-size-hover: 15px;
-$offset-left: -35px;
+$dot-size-base: 14px;
+$dot-size-hover: 20px;
+$offset-left: -37px;
 
 .experience-box {
   max-width: 900px;
   padding-left: 30px;
-  border-left: 1px solid clr(border-subtle);
+  border-left: 2px solid clr(primary);
+  border-image: linear-gradient(
+      to bottom,
+      clr(primary),
+      clr(primary-light),
+      clr(primary)
+    )
+    1;
+  transition: border-color anim(normal);
 }
 
 .exp-item {
   position: relative;
   margin-bottom: size(5xl);
   transition: all anim(fast) ease-out;
+  padding: size(lg) 0;
 
   &:last-child {
     margin-bottom: 0;
@@ -24,19 +33,23 @@ $offset-left: -35px;
     content: "";
     position: absolute;
     left: $offset-left;
-    top: 7px;
+    top: 8px;
     width: $dot-size-base;
     height: $dot-size-base;
     border-radius: radius(circle);
     background: clr(primary);
-    box-shadow: 0 0 15px clr(primary);
+    box-shadow: 0 0 20px clr(primary);
     transition: all anim(fast) ease-out;
+    z-index: 1;
   }
 
   &:hover::before {
-    left: $offset-left - 3px;
+    left: $offset-left - 4px;
     width: $dot-size-hover;
     height: $dot-size-hover;
+    box-shadow:
+      0 0 30px clr(primary),
+      0 0 50px rgba(212, 175, 112, 0.3);
   }
 
   @include responsive(lg, min) {
@@ -63,11 +76,14 @@ $offset-left: -35px;
   &-company {
     display: inline-block;
     margin-bottom: 12px;
-    transition: color anim(fast);
+    transition:
+      color anim(fast),
+      text-shadow anim(fast);
     @include text-style($size: sm, $color: text-muted, $spacing: 0.5px);
 
     &:hover {
-      color: clr(primary);
+      color: clr(primary-light);
+      text-shadow: 0 0 10px clr(primary);
     }
   }
 
@@ -76,5 +92,10 @@ $offset-left: -35px;
     color: clr(text-muted);
     text-align: justify;
     line-height: 1.6;
+    transition: color anim(fast);
+
+    &:hover {
+      color: clr(text-secondary);
+    }
   }
 }

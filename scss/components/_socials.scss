@@ -16,9 +16,14 @@
   &::after {
     content: "";
     width: 1px;
-    height: 100px;
+    height: 120px;
     margin: 0 auto;
-    background: linear-gradient(to bottom, clr(primary), transparent);
+    background: linear-gradient(
+      to bottom,
+      clr(primary),
+      rgba(212, 175, 112, 0.3),
+      transparent
+    );
   }
 }
 
@@ -27,10 +32,29 @@
   font-size: size(xl);
   transition:
     color anim(fast),
-    transform anim(fast);
+    transform anim(fast),
+    text-shadow anim(fast),
+    filter anim(fast);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 112, 0.08), transparent);
+    opacity: 0;
+    transition: opacity anim(fast);
+  }
 
   &:hover {
-    color: clr(primary);
-    transform: translateY(-5px);
+    color: clr(primary-light);
+    transform: translateY(-6px) scale(1.1);
+    text-shadow: 0 0 12px clr(primary);
+    filter: drop-shadow(0 0 8px clr(primary));
+
+    &::before {
+      opacity: 1;
+    }
   }
 }

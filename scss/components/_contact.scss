@@ -35,7 +35,10 @@
     color: clr(text-muted);
     transition:
       color anim(fast),
-      transform anim(fast);
+      transform anim(fast),
+      letter-spacing anim(fast);
+    display: inline-flex;
+    align-items: center;
 
     i {
       margin-right: size(sm);
@@ -49,12 +52,13 @@
 
     &:hover {
       color: clr(primary-light);
-      transform: translateX(4px);
+      transform: translateX(6px);
+      letter-spacing: 0.5px;
 
       i {
         color: clr(primary-light);
-        transform: scale(1.1);
-        filter: drop-shadow(shadow(primary-glow));
+        transform: scale(1.15) rotate(5deg);
+        filter: drop-shadow(0 0 8px clr(primary));
       }
     }
   }
@@ -64,11 +68,27 @@
   padding: 50px 50px 30px;
   border-radius: radius(form);
   border: 1px solid clr(border-subtle);
-  background: gradient(glass-overlay-subtle);
-  box-shadow: shadow(primary-glow);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(20px);
+  box-shadow:
+    shadow(elevation-md),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition:
+    box-shadow anim(normal),
+    border-color anim(normal),
+    background anim(normal);
 
   @include responsive(lg) {
     padding: 30px;
+  }
+
+  &:focus-within {
+    border-color: clr(border-accent);
+    box-shadow: shadow(primary-glow);
   }
 
   &-field {
@@ -92,6 +112,14 @@
     input,
     textarea {
       @include field-input-base;
+      transition:
+        border-color anim(fast),
+        background anim(fast);
+      background: rgba(255, 255, 255, 0.02);
+
+      &:focus {
+        background: rgba(255, 255, 255, 0.04);
+      }
 
       &:focus ~ label,
       &:valid ~ label {
@@ -119,7 +147,7 @@
   margin: 0 auto;
   padding: size(lg);
   color: clr(background-main);
-  background: clr(primary);
+  background: gradient(primary);
   border: none;
   border-radius: radius(button);
   cursor: pointer;
@@ -131,8 +159,8 @@
     box-shadow anim(fast) ease;
 
   &:hover {
-    background: clr(primary-light);
-    transform: translateY(-2px);
+    background: gradient(primary);
+    transform: translateY(-4px);
     box-shadow: shadow(primary-glow);
   }
 

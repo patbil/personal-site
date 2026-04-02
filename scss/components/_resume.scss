@@ -6,20 +6,31 @@
   right: 50px;
   bottom: 50px;
   z-index: 1000;
-  transition: gap anim(fast);
-
+  padding: 12px 20px;
+  background: rgba(212, 175, 112, 0.08);
+  border: 1px solid clr(border-accent);
+  border-radius: 25px;
+  transition:
+    gap anim(fast),
+    background anim(fast),
+    border-color anim(fast),
+    box-shadow anim(fast),
+    transform anim(fast);
   @include layout-flex($gap: size(xs));
   @include text-style(
     $color: text-secondary,
     $transform: uppercase,
     $weight: 600,
-    $size: lg,
-    $spacing: 2px,
-    $font: main
+    $size: sm,
+    $spacing: 1.5px,
+    $font: mono
   );
 
-  @include responsive(xl) {
-    display: none;
+  @include responsive(md) {
+    right: 20px;
+    bottom: 20px;
+    padding: 10px 16px;
+    font-size: size(xs);
   }
 
   span,
@@ -31,15 +42,21 @@
   }
 
   &:hover {
-    color: clr(primary);
+    color: clr(primary-light);
     gap: size(base);
+    background: rgba(212, 175, 112, 0.15);
+    border-color: clr(primary-light);
+    box-shadow:
+      0 12px 32px rgba(212, 175, 112, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
 
     span {
-      transform: scale(1.2);
+      transform: scale(1.1) translateX(2px);
     }
 
     i {
-      transform: rotate(360deg);
+      transform: translateY(-3px) scale(1.1);
     }
   }
 }
