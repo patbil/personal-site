@@ -1,9 +1,9 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/functions" as *;
 
-$dot-size-base: 12px;
+$dot-size-base: 15px;
 $dot-size-hover: 16px;
-$offset-left: -31px;
+$offset-left: -37px;
 
 .experience-box {
   max-width: 900px;

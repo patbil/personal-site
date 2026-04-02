@@ -421,7 +421,7 @@ header .header-row {
 .nav-link {
   position: relative;
   display: inline-block;
-  margin-left: 1.125rem;
+  margin-left: 0.5rem;
   padding: 4px 12px;
   border-radius: 20px;
   cursor: pointer;
@@ -511,7 +511,7 @@ header .header-row {
   padding: 1.5rem 8%;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
-  background: linear-gradient(to bottom, rgba(2, 6, 12, 0.9), rgba(2, 6, 12, 0.95));
+  background: linear-gradient(to bottom, rgba(2, 6, 12, 0.92), rgba(2, 6, 12, 0.96));
 }
 @media (max-width: 768px) {
   .footer {
@@ -567,9 +567,10 @@ header .header-row {
   bottom: 50px;
   z-index: 1000;
   padding: 12px 20px;
-  background: rgba(212, 175, 112, 0.08);
-  border: 1px solid rgba(100, 200, 220, 0.15);
+  background: rgba(180, 150, 90, 0.08);
+  border: 1px solid rgba(180, 150, 90, 0.25);
   border-radius: 25px;
+  backdrop-filter: blur(15px);
   transition: gap 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
   display: flex;
   flex-direction: row;
@@ -578,7 +579,7 @@ header .header-row {
   gap: 0.75rem;
   flex-wrap: unset;
   font-family: "JetBrains Mono";
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   line-height: 1;
@@ -602,9 +603,9 @@ header .header-row {
 .resume:hover {
   color: rgb(210, 180, 120);
   gap: 1rem;
-  background: rgba(212, 175, 112, 0.15);
+  background: rgba(180, 150, 90, 0.15);
   border-color: rgb(210, 180, 120);
-  box-shadow: 0 12px 32px rgba(212, 175, 112, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 32px rgba(180, 150, 90, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transform: translateY(-3px);
 }
 .resume:hover span {
@@ -620,58 +621,6 @@ header .header-row {
   }
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-@keyframes glow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(212, 175, 112, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(212, 175, 112, 0.8);
-  }
-}
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 .contact-section {
@@ -1141,10 +1090,10 @@ header .header-row {
 .exp-item::before {
   content: "";
   position: absolute;
-  left: -31px;
+  left: -37px;
   top: 5px;
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background: rgb(180, 150, 90);
   box-shadow: 0 0 15px rgb(180, 150, 90), inset 0 1px 2px rgba(255, 255, 255, 0.3);
@@ -1153,10 +1102,10 @@ header .header-row {
   border: 2px solid rgb(2, 6, 12);
 }
 .exp-item:hover::before {
-  left: -35px;
+  left: -41px;
   width: 16px;
   height: 16px;
-  box-shadow: 0 0 30px rgb(180, 150, 90), 0 0 50px rgba(212, 175, 112, 0.3);
+  box-shadow: 0 0 30px rgb(180, 150, 90), 0 0 50px rgba(180, 150, 90, 0.25);
 }
 @media (min-width: 1024px) {
   .exp-item:hover {
@@ -1174,13 +1123,15 @@ header .header-row {
   font-size: 0.875rem;
 }
 .exp-item-role {
-  margin: 0.625rem 0;
+  margin: 0.875rem 0 0.75rem 0;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.3;
+  font-size: 1.125rem;
+  color: rgb(248, 249, 250);
 }
 .exp-item-company {
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
   transition: color 0.3s, text-shadow 0.3s;
   font-family: "JetBrains Mono";
   font-weight: 500;
@@ -1188,19 +1139,21 @@ header .header-row {
   letter-spacing: 0.5px;
   line-height: 1;
   opacity: 1;
-  color: rgb(135, 145, 165);
+  color: rgb(190, 200, 220);
   font-size: 0.875rem;
+  font-weight: 500;
 }
 .exp-item-company:hover {
   color: rgb(210, 180, 120);
-  text-shadow: 0 0 10px rgb(180, 150, 90);
+  text-shadow: 0 0 10px rgba(180, 150, 90, 0.3);
 }
 .exp-item-desc {
   max-width: 800px;
   color: rgb(135, 145, 165);
   text-align: justify;
-  line-height: 1.6;
+  line-height: 1.7;
   transition: color 0.3s;
+  margin-top: 0.875rem;
 }
 .exp-item-desc:hover {
   color: rgb(190, 200, 220);

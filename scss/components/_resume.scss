@@ -21,7 +21,6 @@
   @include text-style(
     $color: text-secondary,
     $transform: uppercase,
-    $weight: 600,
     $size: sm,
     $spacing: 1.5px,
     $font: mono
@@ -49,8 +48,6 @@
     border-color: clr(primary-light);
     box-shadow:
       0 12px 32px rgba(180, 150, 90, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transform: translateY(-3px);
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
     transform: translateY(-3px);
 
