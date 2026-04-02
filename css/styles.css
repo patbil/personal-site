@@ -121,6 +121,14 @@ img {
   min-height: 100vh;
   padding: 20px 0;
   position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  transition: border-color 0.5s;
+}
+.section-item:first-child {
+  border-top: none;
+}
+.section-item:hover {
+  border-color: rgba(255, 255, 255, 0.08);
 }
 @media (max-width: 1024px) {
   .section-item {
@@ -171,13 +179,13 @@ img {
   letter-spacing: 1px;
   line-height: 1;
   opacity: 1;
-  color: rgb(212, 175, 112);
+  color: rgb(180, 150, 90);
   font-size: 0.875rem;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgb(212, 175, 112) rgb(2, 6, 12);
+  scrollbar-color: rgb(180, 150, 90) rgb(2, 6, 12);
 }
 
 ::-webkit-scrollbar {
@@ -189,7 +197,7 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, rgb(238, 215, 160), rgb(212, 175, 112));
+  background: linear-gradient(to bottom, rgb(210, 180, 120), rgb(180, 150, 90));
   border-radius: 10px;
   border: 1px solid rgba(100, 200, 220, 0.15);
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -197,8 +205,8 @@ img {
   transition: background 0.3s;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, rgb(238, 215, 160), rgb(238, 215, 160));
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3), 0 0 12px rgb(212, 175, 112);
+  background: linear-gradient(to bottom, rgb(210, 180, 120), rgb(210, 180, 120));
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3), 0 0 12px rgb(180, 150, 90);
 }
 
 .hero {
@@ -211,14 +219,14 @@ img {
   line-height: 0.9;
   letter-spacing: -0.06em;
   text-transform: uppercase;
-  background: linear-gradient(135deg, rgb(248, 249, 250) 0%, rgb(212, 175, 112) 50%, rgb(238, 215, 160) 100%);
+  background: linear-gradient(135deg, rgb(248, 249, 250) 0%, rgb(180, 150, 90) 50%, rgb(210, 180, 120) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .hero-title span {
   color: transparent;
-  -webkit-text-stroke: 1px rgb(212, 175, 112);
+  -webkit-text-stroke: 1px rgb(180, 150, 90);
 }
 .hero-text {
   font-family: "Plus Jakarta Sans";
@@ -246,12 +254,12 @@ img {
 .tech-card {
   position: relative;
   padding: 1.5rem 1rem;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.5s, border-color 0.5s, box-shadow 0.5s;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.5s, border-color 0.5s, box-shadow 0.5s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -261,7 +269,7 @@ img {
 }
 .tech-card i {
   font-size: 2.25rem;
-  color: rgb(212, 175, 112);
+  color: rgb(180, 150, 90);
   transition: transform 0.5s ease-out, color 0.5s, filter 0.5s;
   will-change: transform;
 }
@@ -277,18 +285,18 @@ img {
   font-size: 0.625rem;
 }
 .tech-card:hover {
-  border-color: rgba(100, 200, 220, 0.15);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
-  box-shadow: 0 20px 40px rgba(212, 175, 112, 0.12), 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  transform: translateY(-16px);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-12px);
 }
 .tech-card:hover i {
-  color: rgb(238, 215, 160);
-  transform: scale(1.2) translateY(-4px);
-  filter: drop-shadow(0 0 8px rgb(212, 175, 112));
+  color: rgb(210, 180, 120);
+  transform: scale(1.15) translateY(-3px);
+  filter: drop-shadow(0 0 10px rgba(180, 150, 90, 0.4));
 }
 .tech-card:hover span {
-  color: rgb(238, 215, 160);
+  color: rgb(210, 180, 120);
   opacity: 1;
   letter-spacing: 1px;
 }
@@ -328,7 +336,7 @@ img {
   height: 100%;
   width: 0;
   background: linear-gradient(135deg, #d4af70 0%, #efd7a0 100%);
-  box-shadow: 0 0 20px rgb(212, 175, 112);
+  box-shadow: 0 0 20px rgb(180, 150, 90);
   border-radius: 1px;
 }
 
@@ -360,7 +368,7 @@ header .header-row {
   text-transform: uppercase;
 }
 .logo .name span {
-  color: rgb(212, 175, 112);
+  color: rgb(180, 150, 90);
   transition: color 0.3s, text-shadow 0.3s;
 }
 .logo .role {
@@ -375,8 +383,8 @@ header .header-row {
   font-size: 0.75rem;
 }
 .logo:hover .name span {
-  color: rgb(238, 215, 160);
-  text-shadow: 0 20px 40px rgba(212, 175, 112, 0.12), 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  color: rgb(210, 180, 120);
+  text-shadow: 0 20px 40px rgba(180, 150, 90, 0.1), 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 768px) {
@@ -413,7 +421,7 @@ header .header-row {
 .nav-link {
   position: relative;
   display: inline-block;
-  margin-left: 1.5rem;
+  margin-left: 1.125rem;
   padding: 4px 12px;
   border-radius: 20px;
   cursor: pointer;
@@ -421,7 +429,7 @@ header .header-row {
   transition: color 0.3s, transform 0.3s, opacity 0.3s, box-shadow 0.3s;
 }
 .nav-link:hover {
-  color: rgb(238, 215, 160);
+  color: rgb(210, 180, 120);
   opacity: 1;
   transform: translateY(-8px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
@@ -444,13 +452,13 @@ header .header-row {
   right: 12px;
   width: auto;
   height: 1px;
-  background: rgb(212, 175, 112);
+  background: rgb(180, 150, 90);
   transform: scaleX(0);
   transition: transform 0.3s;
   transition-delay: 200ms;
 }
 .nav-link:hover, .nav-link.active {
-  color: rgb(238, 215, 160);
+  color: rgb(210, 180, 120);
   opacity: 1;
 }
 .nav-link:hover::before, .nav-link.active::before {
@@ -486,7 +494,7 @@ header .header-row {
   transition: transform 0.3s, opacity 0.3s, background 0.3s;
 }
 .hamburger:hover span {
-  background: rgb(212, 175, 112);
+  background: rgb(180, 150, 90);
 }
 .hamburger.active span:nth-child(1) {
   transform: rotate(-45deg) translate(-4px, 6px);
@@ -592,10 +600,10 @@ header .header-row {
   transition: transform 0.3s, color 0.3s;
 }
 .resume:hover {
-  color: rgb(238, 215, 160);
+  color: rgb(210, 180, 120);
   gap: 1rem;
   background: rgba(212, 175, 112, 0.15);
-  border-color: rgb(238, 215, 160);
+  border-color: rgb(210, 180, 120);
   box-shadow: 0 12px 32px rgba(212, 175, 112, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transform: translateY(-3px);
 }
@@ -692,7 +700,7 @@ header .header-row {
 }
 .contact-title span {
   color: transparent;
-  -webkit-text-stroke: 1px rgb(212, 175, 112);
+  -webkit-text-stroke: 1px rgb(180, 150, 90);
 }
 
 .contact-info {
@@ -716,28 +724,28 @@ header .header-row {
 }
 .contact-info-link i {
   margin-right: 0.875rem;
-  color: rgb(212, 175, 112);
+  color: rgb(180, 150, 90);
   font-size: 1.125rem;
   transition: color 0.3s, transform 0.3s, filter 0.3s;
 }
 .contact-info-link:hover {
-  color: rgb(238, 215, 160);
+  color: rgb(210, 180, 120);
   transform: translateX(6px);
   letter-spacing: 0.5px;
 }
 .contact-info-link:hover i {
-  color: rgb(238, 215, 160);
+  color: rgb(210, 180, 120);
   transform: scale(1.15) rotate(5deg);
-  filter: drop-shadow(0 0 8px rgb(212, 175, 112));
+  filter: drop-shadow(0 0 8px rgb(180, 150, 90));
 }
 
 .contact-form {
   padding: 50px 50px 30px;
   border-radius: 35px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: box-shadow 0.5s, border-color 0.5s, background 0.5s;
 }
 @media (max-width: 1024px) {
@@ -747,7 +755,7 @@ header .header-row {
 }
 .contact-form:focus-within {
   border-color: rgba(100, 200, 220, 0.15);
-  box-shadow: 0 20px 40px rgba(212, 175, 112, 0.12), 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(180, 150, 90, 0.1), 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 .contact-form-field {
   position: relative;
@@ -787,7 +795,7 @@ header .header-row {
 .contact-form-field input:focus,
 .contact-form-field textarea:focus {
   outline: none;
-  border-bottom-color: rgb(212, 175, 112);
+  border-bottom-color: rgb(180, 150, 90);
 }
 .contact-form-field input,
 .contact-form-field textarea {
@@ -802,7 +810,7 @@ header .header-row {
 .contact-form-field textarea:focus ~ label,
 .contact-form-field textarea:valid ~ label {
   top: -1rem;
-  color: rgb(238, 215, 160);
+  color: rgb(210, 180, 120);
   font-size: 0.625rem;
 }
 .contact-form-field input:user-invalid,
@@ -839,7 +847,7 @@ header .header-row {
 .submit-trigger:hover {
   background: linear-gradient(135deg, #d4af70 0%, #efd7a0 100%);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(212, 175, 112, 0.12), 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(180, 150, 90, 0.1), 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 .submit-trigger.loading {
   cursor: wait;
@@ -913,7 +921,7 @@ header .header-row {
   width: 1px;
   height: 120px;
   margin: 0 auto;
-  background: linear-gradient(to bottom, rgb(212, 175, 112), rgba(212, 175, 112, 0.3), transparent);
+  background: linear-gradient(to bottom, rgb(180, 150, 90), rgba(212, 175, 112, 0.3), transparent);
 }
 
 .social-link {
@@ -932,10 +940,10 @@ header .header-row {
   transition: opacity 0.3s;
 }
 .social-link:hover {
-  color: rgb(238, 215, 160);
+  color: rgb(210, 180, 120);
   transform: translateY(-6px) scale(1.1);
-  text-shadow: 0 0 12px rgb(212, 175, 112);
-  filter: drop-shadow(0 0 8px rgb(212, 175, 112));
+  text-shadow: 0 0 12px rgb(180, 150, 90);
+  filter: drop-shadow(0 0 8px rgb(180, 150, 90));
 }
 .social-link:hover::before {
   opacity: 1;
@@ -990,7 +998,7 @@ header .header-row {
   letter-spacing: 1px;
   line-height: 1;
   opacity: 1;
-  color: rgb(212, 175, 112);
+  color: rgb(180, 150, 90);
   font-size: 0.75rem;
 }
 .project-info h3 {
@@ -1020,24 +1028,17 @@ header .header-row {
 }
 .project-tags span {
   padding: 0.625rem 0.875rem;
-  background: rgba(212, 175, 112, 0.12);
-  border: 1px solid rgba(100, 200, 220, 0.15);
+  background: rgba(180, 150, 90, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
-  transition: background-color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
   font-family: "Plus Jakarta Sans";
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1;
   opacity: 1;
-  color: rgb(238, 215, 160);
+  color: rgb(180, 150, 90);
   font-size: 0.625rem;
-}
-.project-tags span:hover {
-  background: linear-gradient(135deg, #d4af70 0%, #efd7a0 100%);
-  border-color: rgb(238, 215, 160);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(212, 175, 112, 0.15);
 }
 
 .code-btn {
@@ -1046,25 +1047,24 @@ header .header-row {
   align-self: flex-start;
   padding: 0.875rem 1.125rem;
   gap: 0.875rem;
-  border: 1px solid rgb(212, 175, 112);
+  border: 1px solid rgb(180, 150, 90);
   border-radius: 8px;
   background: transparent;
-  transition: all 0.3s, box-shadow 0.3s, transform 0.3s;
+  transition: color 0.3s, border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
   font-family: "JetBrains Mono";
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1;
   opacity: 1;
-  color: rgb(212, 175, 112);
+  color: rgb(180, 150, 90);
   font-size: 0.75rem;
 }
 .code-btn:hover {
-  background: linear-gradient(135deg, #d4af70 0%, #efd7a0 100%);
-  color: rgb(2, 6, 12);
-  box-shadow: 0 20px 40px rgba(212, 175, 112, 0.12), 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  transform: translateY(-2px);
-  border-color: rgb(238, 215, 160);
+  background-color: rgba(180, 150, 90, 0.08);
+  border-color: rgb(210, 180, 120);
+  color: rgb(210, 180, 120);
+  box-shadow: 0 6px 20px rgba(180, 150, 90, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .project-image-wrapper {
@@ -1123,9 +1123,9 @@ header .header-row {
 .experience-box {
   max-width: 900px;
   padding-left: 30px;
-  border-left: 2px solid rgb(212, 175, 112);
-  -o-border-image: linear-gradient(to bottom, rgb(212, 175, 112), rgb(238, 215, 160), rgb(212, 175, 112)) 1;
-     border-image: linear-gradient(to bottom, rgb(212, 175, 112), rgb(238, 215, 160), rgb(212, 175, 112)) 1;
+  border-left: 2px solid rgb(180, 150, 90);
+  -o-border-image: linear-gradient(to bottom, rgb(180, 150, 90), rgb(210, 180, 120), rgb(180, 150, 90)) 1;
+     border-image: linear-gradient(to bottom, rgb(180, 150, 90), rgb(210, 180, 120), rgb(180, 150, 90)) 1;
   transition: border-color 0.5s;
 }
 
@@ -1141,21 +1141,22 @@ header .header-row {
 .exp-item::before {
   content: "";
   position: absolute;
-  left: -37px;
-  top: 8px;
-  width: 14px;
-  height: 14px;
+  left: -31px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: rgb(212, 175, 112);
-  box-shadow: 0 0 20px rgb(212, 175, 112);
+  background: rgb(180, 150, 90);
+  box-shadow: 0 0 15px rgb(180, 150, 90), inset 0 1px 2px rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease-out;
   z-index: 1;
+  border: 2px solid rgb(2, 6, 12);
 }
 .exp-item:hover::before {
-  left: -41px;
-  width: 20px;
-  height: 20px;
-  box-shadow: 0 0 30px rgb(212, 175, 112), 0 0 50px rgba(212, 175, 112, 0.3);
+  left: -35px;
+  width: 16px;
+  height: 16px;
+  box-shadow: 0 0 30px rgb(180, 150, 90), 0 0 50px rgba(212, 175, 112, 0.3);
 }
 @media (min-width: 1024px) {
   .exp-item:hover {
@@ -1169,7 +1170,7 @@ header .header-row {
   letter-spacing: 1px;
   line-height: 1;
   opacity: 1;
-  color: rgb(212, 175, 112);
+  color: rgb(180, 150, 90);
   font-size: 0.875rem;
 }
 .exp-item-role {
@@ -1191,8 +1192,8 @@ header .header-row {
   font-size: 0.875rem;
 }
 .exp-item-company:hover {
-  color: rgb(238, 215, 160);
-  text-shadow: 0 0 10px rgb(212, 175, 112);
+  color: rgb(210, 180, 120);
+  text-shadow: 0 0 10px rgb(180, 150, 90);
 }
 .exp-item-desc {
   max-width: 800px;

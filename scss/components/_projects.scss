@@ -61,27 +61,15 @@
   span {
     padding: size(2xs) size(sm);
     background: clr(primary-soft);
-    border: 1px solid clr(border-accent);
+    border: 1px solid clr(border-subtle);
     border-radius: radius(button);
-    transition:
-      background-color anim(fast),
-      border-color anim(fast),
-      transform anim(fast),
-      box-shadow anim(fast);
     @include text-style(
       $font: main,
       $size: 2xs,
-      $color: primary-light,
+      $color: primary,
       $transform: uppercase,
       $spacing: 0.5px
     );
-
-    &:hover {
-      background: gradient(primary);
-      border-color: clr(primary-light);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(212, 175, 112, 0.15);
-    }
   }
 }
 
@@ -95,17 +83,19 @@
   border-radius: radius(button);
   background: transparent;
   transition:
-    all anim(fast),
+    color anim(fast),
+    border-color anim(fast),
     box-shadow anim(fast),
-    transform anim(fast);
+    background-color anim(fast);
   @include text-style($color: primary, $size: xs, $transform: uppercase);
 
   &:hover {
-    background: gradient(primary);
-    color: clr(background-main);
-    box-shadow: shadow(primary-glow);
-    transform: translateY(-2px);
+    background-color: rgba(180, 150, 90, 0.08);
     border-color: clr(primary-light);
+    color: clr(primary-light);
+    box-shadow:
+      0 6px 20px rgba(180, 150, 90, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 }
 

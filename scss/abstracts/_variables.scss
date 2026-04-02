@@ -59,7 +59,7 @@ $sizes: (
 
 $shadows: (
   primary-glow: (
-    0 20px 40px rgba(212, 175, 112, 0.12),
+    0 20px 40px rgba(180, 150, 90, 0.1),
     0 8px 20px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
   ),
@@ -69,7 +69,7 @@ $shadows: (
   ),
   soft-glow: (
     0 10px 25px rgba(0, 0, 0, 0.2),
-    0 4px 10px rgba(212, 175, 112, 0.05),
+    0 4px 10px rgba(180, 150, 90, 0.05),
   ),
   elevation-sm: (
     0 4px 12px rgba(0, 0, 0, 0.35),
@@ -84,9 +84,9 @@ $shadows: (
 );
 
 $colors: (
-  primary: rgba(212, 175, 112, 1),
-  primary-light: rgba(238, 215, 160, 1),
-  primary-soft: rgba(212, 175, 112, 0.12),
+  primary: rgba(180, 150, 90, 1),
+  primary-light: rgba(210, 180, 120, 1),
+  primary-soft: rgba(180, 150, 90, 0.1),
   accent-cyan: rgba(100, 200, 220, 1),
   accent-cyan-soft: rgba(100, 200, 220, 0.08),
   accent-emerald: rgba(110, 190, 160, 1),

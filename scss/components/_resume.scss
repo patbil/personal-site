@@ -7,9 +7,10 @@
   bottom: 50px;
   z-index: 1000;
   padding: 12px 20px;
-  background: rgba(212, 175, 112, 0.08);
-  border: 1px solid clr(border-accent);
+  background: rgba(180, 150, 90, 0.08);
+  border: 1px solid rgba(180, 150, 90, 0.25);
   border-radius: 25px;
+  backdrop-filter: blur(15px);
   transition:
     gap anim(fast),
     background anim(fast),
@@ -44,10 +45,12 @@
   &:hover {
     color: clr(primary-light);
     gap: size(base);
-    background: rgba(212, 175, 112, 0.15);
+    background: rgba(180, 150, 90, 0.15);
     border-color: clr(primary-light);
     box-shadow:
-      0 12px 32px rgba(212, 175, 112, 0.2),
+      0 12px 32px rgba(180, 150, 90, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
     transform: translateY(-3px);
 

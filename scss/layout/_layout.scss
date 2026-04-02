@@ -44,6 +44,16 @@
   min-height: 100vh;
   padding: 20px 0;
   position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  transition: border-color anim(normal);
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
 
   @include responsive(lg) {
     min-height: auto;

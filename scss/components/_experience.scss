@@ -1,9 +1,9 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/functions" as *;
 
-$dot-size-base: 14px;
-$dot-size-hover: 20px;
-$offset-left: -37px;
+$dot-size-base: 12px;
+$dot-size-hover: 16px;
+$offset-left: -31px;
 
 .experience-box {
   max-width: 900px;
@@ -33,14 +33,17 @@ $offset-left: -37px;
     content: "";
     position: absolute;
     left: $offset-left;
-    top: 8px;
+    top: 5px;
     width: $dot-size-base;
     height: $dot-size-base;
     border-radius: radius(circle);
     background: clr(primary);
-    box-shadow: 0 0 20px clr(primary);
+    box-shadow:
+      0 0 15px clr(primary),
+      inset 0 1px 2px rgba(255, 255, 255, 0.3);
     transition: all anim(fast) ease-out;
     z-index: 1;
+    border: 2px solid clr(background-main);
   }
 
   &:hover::before {
@@ -49,7 +52,7 @@ $offset-left: -37px;
     height: $dot-size-hover;
     box-shadow:
       0 0 30px clr(primary),
-      0 0 50px rgba(212, 175, 112, 0.3);
+      0 0 50px rgba(180, 150, 90, 0.25);
   }
 
   @include responsive(lg, min) {
@@ -68,22 +71,25 @@ $offset-left: -37px;
   }
 
   &-role {
-    margin: size(2xs) 0;
+    margin: size(sm) 0 size(xs) 0;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.3;
+    font-size: size(lg);
+    color: clr(text-primary);
   }
 
   &-company {
     display: inline-block;
-    margin-bottom: 12px;
+    margin-bottom: size(base);
     transition:
       color anim(fast),
       text-shadow anim(fast);
-    @include text-style($size: sm, $color: text-muted, $spacing: 0.5px);
+    @include text-style($size: sm, $color: text-secondary, $spacing: 0.5px);
+    font-weight: 500;
 
     &:hover {
       color: clr(primary-light);
-      text-shadow: 0 0 10px clr(primary);
+      text-shadow: 0 0 10px rgba(180, 150, 90, 0.3);
     }
   }
 
@@ -91,8 +97,9 @@ $offset-left: -37px;
     max-width: 800px;
     color: clr(text-muted);
     text-align: justify;
-    line-height: 1.6;
+    line-height: 1.7;
     transition: color anim(fast);
+    margin-top: size(sm);
 
     &:hover {
       color: clr(text-secondary);
