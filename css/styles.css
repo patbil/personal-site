@@ -973,13 +973,28 @@ header .header-row {
 .project-smart-home {
   --project-img: url("../../assets/img/smart-home.webp");
 }
+@media (max-width: 768px) {
+  .project-smart-home {
+    --project-img: url("../../assets/img/smart-home-sm.webp");
+  }
+}
 
 .project-strapi-client {
   --project-img: url("../../assets/img/strapi-client.webp");
 }
+@media (max-width: 768px) {
+  .project-strapi-client {
+    --project-img: url("../../assets/img/strapi-client-sm.webp");
+  }
+}
 
 .project-snake-game {
   --project-img: url("../../assets/img/snake-game.webp");
+}
+@media (max-width: 768px) {
+  .project-snake-game {
+    --project-img: url("../../assets/img/snake-game-sm.webp");
+  }
 }
 
 .experience-box {

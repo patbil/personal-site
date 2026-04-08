@@ -9,11 +9,7 @@ $fonts: (
   mono: "JetBrains Mono",
 );
 
-$projects: (
-  smart-home: "smart-home.webp",
-  strapi-client: "strapi-client.webp",
-  snake-game: "snake-game.webp",
-);
+$projects: smart-home, strapi-client, snake-game;
 
 $radius: (
   circle: 50%,

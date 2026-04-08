@@ -132,8 +132,12 @@
   }
 }
 
-@each $name, $img in get-projects() {
+@each $name in get-projects() {
   .project-#{$name} {
-    --project-img: url("../../assets/img/#{$img}");
+    --project-img: url("../../assets/img/#{$name}.webp");
+
+    @include responsive(md) {
+      --project-img: url("../../assets/img/#{$name}-sm.webp");
+    }
   }
 }
