@@ -1,20 +1,27 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/functions" as *;
 
-$dot-size-base: 10px;
-$dot-size-hover: 15px;
-$offset-left: -35px;
+$dot-size: 13px;
+$offset-left: -38px;
 
 .experience-box {
-  max-width: 900px;
-  padding-left: 30px;
-  border-left: 1px solid clr(border-subtle);
+  max-width: 860px;
+  padding-left: 32px;
+  border-left: 1px solid clr(primary);
+  border-image: linear-gradient(
+      to bottom,
+      transparent,
+      clr(primary) 15%,
+      clr(primary) 85%,
+      transparent
+    )
+    1;
 }
 
 .exp-item {
   position: relative;
-  margin-bottom: size(5xl);
-  transition: all anim(fast) ease-out;
+  margin-bottom: size(4xl);
+  padding: size(base) 0;
 
   &:last-child {
     margin-bottom: 0;
@@ -24,57 +31,58 @@ $offset-left: -35px;
     content: "";
     position: absolute;
     left: $offset-left;
-    top: 7px;
-    width: $dot-size-base;
-    height: $dot-size-base;
+    top: 22px;
+    width: $dot-size;
+    height: $dot-size;
     border-radius: radius(circle);
     background: clr(primary);
-    box-shadow: 0 0 15px clr(primary);
-    transition: all anim(fast) ease-out;
+    box-shadow: 0 0 12px rgba(196, 168, 100, 0.4);
+    border: 2px solid clr(background-main);
+    z-index: 1;
+    transition: box-shadow anim(fast);
   }
 
   &:hover::before {
-    left: $offset-left - 3px;
-    width: $dot-size-hover;
-    height: $dot-size-hover;
-  }
-
-  @include responsive(lg, min) {
-    &:hover {
-      padding-left: 3px;
-    }
+    box-shadow:
+      0 0 16px rgba(196, 168, 100, 0.5),
+      0 0 32px rgba(196, 168, 100, 0.15);
   }
 
   &-date {
     @include text-style(
       $color: primary,
-      $size: sm,
-      $spacing: 1px,
+      $size: xs,
+      $spacing: 1.5px,
       $transform: uppercase
     );
   }
 
   &-role {
-    margin: size(2xs) 0;
+    margin: size(xs) 0 size(3xs) 0;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.3;
+    font-size: size(xl);
+    color: clr(text-primary);
   }
 
   &-company {
     display: inline-block;
-    margin-bottom: 12px;
+    margin-bottom: size(sm);
     transition: color anim(fast);
-    @include text-style($size: sm, $color: text-muted, $spacing: 0.5px);
+    @include text-style($size: sm, $color: text-secondary, $spacing: 0.3px);
+    font-weight: 500;
 
     &:hover {
-      color: clr(primary);
+      color: clr(primary-light);
     }
   }
 
   &-desc {
-    max-width: 800px;
+    max-width: 720px;
     color: clr(text-muted);
-    text-align: justify;
-    line-height: 1.6;
+    font-family: font(main);
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: size(base);
   }
 }

@@ -84,26 +84,39 @@
 
 // =========== EFFECTS =========== //
 
-@mixin effect-glass($bg: glass-surface, $radius: radius(card)) {
+@mixin effect-glass($bg: glass-surface, $radius: radius(card), $shadow: true) {
   background: gradient($bg);
   border: 1px solid clr(border-subtle);
   border-radius: $radius;
+
+  @if $shadow {
+    box-shadow: shadow(elevation-sm);
+  }
 
   @if $bg == glass-surface or $bg == glass-overlay-subtle {
     backdrop-filter: effect(glass-blur);
   }
 }
 
+@mixin effect-glass-refined($radius: radius(card)) {
+  background: gradient(glass-refined);
+  border: 1px solid clr(border-subtle);
+  border-radius: $radius;
+  backdrop-filter: effect(glass-blur);
+  box-shadow: shadow(elevation-sm);
+}
+
 @mixin effect-hover-lift(
   $hover-color: primary-light,
   $opacity: null,
-  $y: null,
+  $y: -8px,
   $scale: null
 ) {
   transition:
     color anim(fast),
     transform anim(fast),
-    opacity anim(fast);
+    opacity anim(fast),
+    box-shadow anim(fast);
 
   &:hover {
     @if $hover-color {
@@ -124,6 +137,8 @@
     @if list.length($transforms) > 0 {
       transform: $transforms;
     }
+
+    box-shadow: shadow(elevation-md);
   }
 }
 

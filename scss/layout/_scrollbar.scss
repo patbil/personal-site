@@ -2,7 +2,7 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: clr(primary-soft) clr(background-main);
+  scrollbar-color: clr(primary) clr(background-main);
 }
 
 ::-webkit-scrollbar {
@@ -14,11 +14,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: clr(primary-soft);
+  background: clr(primary);
   border-radius: 10px;
-  border: 1px solid clr(border-subtle);
 
   &:hover {
-    background: clr(primary);
+    background: clr(primary-light);
   }
 }

@@ -10,65 +10,78 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 40px;
+  gap: 56px;
 
   @include responsive(lg) {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 }
 
 .contact-title {
-  font-size: clamp(3rem, 4vw + 1rem, 4rem);
+  font-size: clamp(2.75rem, 4vw + 1rem, 4rem);
   span {
     @include text-outline;
   }
+}
+
+.contact-subtitle {
+  margin-top: size(base);
+  color: clr(text-muted);
+  font-family: font(main);
+  font-size: size(base);
+  line-height: 1.6;
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 20px;
-  @include text-style($font: main, $color: text-muted, $height: 2);
+  gap: size(xs);
+  margin-top: size(xl);
 
   &-link {
     color: clr(text-muted);
-    transition:
-      color anim(fast),
-      transform anim(fast);
+    font-family: font(main);
+    font-size: size(sm);
+    transition: color anim(fast);
+    display: inline-flex;
+    align-items: center;
 
     i {
       margin-right: size(sm);
       color: clr(primary);
       font-size: size(lg);
-      transition:
-        color anim(fast),
-        transform anim(fast),
-        filter anim(fast);
+      transition: color anim(fast);
     }
 
     &:hover {
       color: clr(primary-light);
-      transform: translateX(4px);
 
       i {
         color: clr(primary-light);
-        transform: scale(1.1);
-        filter: drop-shadow(shadow(primary-glow));
       }
     }
   }
 }
 
 .contact-form {
-  padding: 50px 50px 30px;
+  padding: 40px 40px 28px;
   border-radius: radius(form);
-  border: 1px solid clr(border-subtle);
-  background: gradient(glass-overlay-subtle);
-  box-shadow: shadow(primary-glow);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(20px);
+  transition:
+    border-color anim(normal),
+    box-shadow anim(normal);
 
   @include responsive(lg) {
-    padding: 30px;
+    padding: 28px;
+  }
+
+  &:focus-within {
+    border-color: rgba(196, 168, 100, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   }
 
   &-field {
@@ -115,25 +128,28 @@
   position: relative;
   display: block;
   width: 100%;
-  max-width: 250px;
+  max-width: 220px;
   margin: 0 auto;
-  padding: size(lg);
+  padding: size(base) size(xl);
   color: clr(background-main);
-  background: clr(primary);
+  background: gradient(primary);
   border: none;
   border-radius: radius(button);
   cursor: pointer;
   overflow: hidden;
-  @include text-style($weight: 800, $transform: uppercase, $spacing: 2px);
+  @include text-style($weight: 700, $transform: uppercase, $spacing: 2px, $size: sm);
   transition:
-    background anim(fast) ease,
-    transform anim(fast) ease,
-    box-shadow anim(fast) ease;
+    transform anim(fast),
+    box-shadow anim(fast),
+    opacity anim(fast);
 
   &:hover {
-    background: clr(primary-light);
     transform: translateY(-2px);
-    box-shadow: shadow(primary-glow);
+    box-shadow: 0 8px 24px rgba(196, 168, 100, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   &.loading {

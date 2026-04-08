@@ -2,15 +2,24 @@
 @use "../abstracts/functions" as *;
 
 .hero {
-  max-width: 900px;
-  margin-bottom: size(4xl);
-  margin-top: size(base);
+  max-width: 820px;
+  margin-bottom: size(5xl);
+  margin-top: size(lg);
 
   &-title {
     font-weight: 800;
     line-height: 0.9;
-    letter-spacing: -0.06em;
+    letter-spacing: -0.05em;
     text-transform: uppercase;
+    background: linear-gradient(
+      135deg,
+      clr(text-primary) 0%,
+      clr(primary) 50%,
+      clr(primary-light) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 
     span {
       @include text-outline;
@@ -18,68 +27,73 @@
   }
 
   &-text {
-    @include text-style(
-      $size: lg,
-      $color: text-muted,
-      $height: 1.8,
-      $spacing: 0.2px,
-      $font: main,
-      $align: justify
-    );
+    max-width: 700px;
+    font-family: font(main);
+    font-size: size(lg);
+    font-weight: 400;
+    color: clr(text-muted);
+    line-height: 1.75;
+    letter-spacing: 0.01em;
   }
+}
+
+.tech-title {
+  margin-bottom: size(xl);
 }
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: size(base);
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: size(sm);
+
+  @include responsive(sm) {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: size(xs);
+  }
 }
 
 .tech-card {
   position: relative;
-  padding: size(2xl) size(base);
+  padding: size(xl) size(sm);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: radius(card);
   transition:
-    transform anim(normal) cubic-bezier(0.2, 0.8, 0.2, 1),
-    background-color anim(normal),
-    border-color anim(normal),
-    box-shadow anim(normal);
-  @include effect-glass;
-  @include layout-flex($dir: column, $gap: 15px);
+    border-color anim(fast),
+    background anim(fast);
+  @include layout-flex($dir: column, $gap: 12px);
 
   i {
-    font-size: size(4xl);
-    color: clr(text-muted);
+    font-size: size(3xl);
+    color: clr(primary);
     transition:
-      transform anim(normal) ease-out,
-      color anim(normal);
+      color anim(fast),
+      transform anim(normal) cubic-bezier(0.2, 0.8, 0.2, 1);
     will-change: transform;
   }
 
   span {
     text-align: center;
-    transition:
-      color anim(normal),
-      opacity anim(normal),
-      letter-spacing anim(normal);
-    @include text-style($size: 2xs, $spacing: 2px, $transform: uppercase, $opacity: 0.5);
+    @include text-style(
+      $size: 2xs,
+      $spacing: 1.5px,
+      $transform: uppercase,
+      $opacity: 0.5
+    );
+    transition: opacity anim(fast);
   }
 
   &:hover {
-    border-color: clr(primary-soft);
-    background-color: clr(background-card);
-    box-shadow: shadow(primary-glow);
-    transform: translateY(-20px);
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
 
     i {
       color: clr(primary-light);
-      transform: scale(1.15) translateY(-3px);
-      filter: drop-shadow(clr(primary-soft));
+      transform: translateY(-4px);
     }
 
     span {
-      color: clr(primary);
-      opacity: 1;
-      letter-spacing: 3px;
+      opacity: 0.8;
     }
   }
 }

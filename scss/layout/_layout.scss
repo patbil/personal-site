@@ -7,6 +7,7 @@
   z-index: -1;
   pointer-events: none;
   background: gradient(mouse-glow);
+  opacity: 0.6;
 }
 
 .page {
@@ -17,25 +18,47 @@
 .container {
   width: min(100% - 48px, bp(xxl));
   margin-inline: auto;
+
+  @include responsive(sm) {
+    width: min(100% - 32px, bp(xxl));
+  }
 }
 
 .section-item {
   min-height: 100vh;
-  padding: 20px 0;
+  padding: 100px 0;
+  position: relative;
+
+  &:first-child {
+    padding-top: 40px;
+  }
 
   @include responsive(lg) {
     min-height: auto;
-    padding: 40px 0;
+    padding: 72px 0;
 
     &:first-child {
-      padding-top: 20px;
+      padding-top: 24px;
     }
+  }
+
+  @include responsive(sm) {
+    padding: 56px 0;
   }
 
   &-title {
     margin-bottom: size(3xl);
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: linear-gradient(
+      135deg,
+      clr(text-primary) 0%,
+      clr(text-secondary) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 
     @include responsive(lg) {
       margin-bottom: size(2xl);
@@ -44,10 +67,10 @@
 
   &-label {
     display: inline-block;
-    margin-bottom: size(3xs);
+    margin-bottom: size(xs);
     @include text-style(
       $size: sm,
-      $spacing: 1px,
+      $spacing: 1.5px,
       $color: primary,
       $transform: uppercase
     );
