@@ -10,15 +10,15 @@ $fonts: (
 );
 
 $projects: (
-  smart-home: "smart-home.png",
-  strapi-client: "strapi-client.png",
-  snake-game: "snake-game.png",
+  smart-home: "smart-home.webp",
+  strapi-client: "strapi-client.webp",
+  snake-game: "snake-game.webp",
 );
 
 $radius: (
   circle: 50%,
-  form: 35px,
-  card: 20px,
+  form: 20px,
+  card: 16px,
   button: 8px,
 );
 
@@ -84,29 +84,29 @@ $shadows: (
 );
 
 $colors: (
-  primary: rgba(180, 150, 90, 1),
-  primary-light: rgba(210, 180, 120, 1),
-  primary-soft: rgba(180, 150, 90, 0.1),
+  primary: rgba(196, 168, 100, 1),
+  primary-light: rgba(220, 195, 130, 1),
+  primary-soft: rgba(196, 168, 100, 0.08),
   accent-cyan: rgba(100, 200, 220, 1),
   accent-cyan-soft: rgba(100, 200, 220, 0.08),
   accent-emerald: rgba(110, 190, 160, 1),
   accent-emerald-soft: rgba(110, 190, 160, 0.08),
-  background-main: rgba(2, 6, 12, 1),
-  background-card: rgba(212, 175, 112, 0.04),
-  background-elevated: rgba(20, 28, 40, 1),
-  border-subtle: rgba(255, 255, 255, 0.08),
-  border-soft: rgba(255, 255, 255, 0.06),
-  border-accent: rgba(100, 200, 220, 0.15),
-  text-primary: rgba(248, 249, 250, 1),
-  text-secondary: rgba(190, 200, 220, 1),
-  text-muted: rgba(135, 145, 165, 1),
+  background-main: rgba(8, 8, 10, 1),
+  background-card: rgba(196, 168, 100, 0.03),
+  background-elevated: rgba(18, 18, 22, 1),
+  border-subtle: rgba(255, 255, 255, 0.07),
+  border-soft: rgba(255, 255, 255, 0.05),
+  border-accent: rgba(196, 168, 100, 0.2),
+  text-primary: rgba(240, 240, 245, 1),
+  text-secondary: rgba(180, 185, 200, 1),
+  text-muted: rgba(150, 155, 170, 1),
   state-error: rgba(255, 110, 110, 1),
   state-success: rgba(50, 180, 100, 1),
 );
 
 $gradients: (
-  primary: linear-gradient(135deg, #d4af70 0%, #efd7a0 100%),
-  primary-accent: linear-gradient(135deg, #d4af70 0%, #64c8dc 100%),
+  primary: linear-gradient(135deg, #c4a864 0%, #dcc382 100%),
+  primary-accent: linear-gradient(135deg, #c4a864 0%, #64c8dc 100%),
   glass-surface: linear-gradient(
       145deg,
       rgba(255, 255, 255, 0.06) 0%,
@@ -119,8 +119,8 @@ $gradients: (
     ),
   mouse-glow: radial-gradient(
       circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(232, 200, 111, 0.1) 0%,
-      rgba(212, 175, 112, 0.04) 25%,
+      rgba(196, 168, 100, 0.07) 0%,
+      rgba(196, 168, 100, 0.025) 25%,
       transparent 65%
     ),
   glass-overlay-subtle: linear-gradient(

@@ -3,17 +3,11 @@
 
 .footer {
   width: 100%;
-  padding: size(2xl) 8%;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  background: linear-gradient(
-    to bottom,
-    rgba(2, 6, 12, 0.92),
-    rgba(2, 6, 12, 0.96)
-  );
+  padding: size(2xl) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 
   @include responsive(md) {
-    padding: size(xl) 6%;
+    padding: size(xl) 0;
   }
 
   &-content {
@@ -33,11 +27,6 @@
       $transform: uppercase,
       $height: 1.5
     );
-    transition: color anim(fast);
-
-    &:hover {
-      color: clr(text-secondary);
-    }
   }
 
   &-socials {

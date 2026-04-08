@@ -7,91 +7,50 @@
   z-index: -1;
   pointer-events: none;
   background: gradient(mouse-glow);
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .page {
   position: relative;
   margin-top: 90px;
-  background: linear-gradient(
-    to bottom,
-    rgba(2, 6, 12, 0.4),
-    transparent 15%,
-    transparent 85%,
-    rgba(2, 6, 12, 0.35)
-  );
-
-  &::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(
-      circle at center,
-      transparent 0%,
-      rgba(0, 0, 0, 0.3) 100%
-    );
-    pointer-events: none;
-    z-index: -1;
-  }
 }
 
 .container {
   width: min(100% - 48px, bp(xxl));
   margin-inline: auto;
+
+  @include responsive(sm) {
+    width: min(100% - 32px, bp(xxl));
+  }
 }
 
 .section-item {
   min-height: 100vh;
-  padding: 20px 0;
+  padding: 100px 0;
   position: relative;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  transition: border-color anim(normal);
 
   &:first-child {
-    border-top: none;
-  }
-
-  &:hover {
-    border-color: rgba(255, 255, 255, 0.08);
+    padding-top: 40px;
   }
 
   @include responsive(lg) {
     min-height: auto;
-    padding: 40px 0;
+    padding: 72px 0;
 
     &:first-child {
-      padding-top: 20px;
+      padding-top: 24px;
     }
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1px;
-    height: 100%;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      clr(border-subtle) 50%,
-      transparent 100%
-    );
-    opacity: 0.3;
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  > * {
-    position: relative;
-    z-index: 3;
+  @include responsive(sm) {
+    padding: 56px 0;
   }
 
   &-title {
     margin-bottom: size(3xl);
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
     background: linear-gradient(
       135deg,
       clr(text-primary) 0%,
@@ -108,10 +67,10 @@
 
   &-label {
     display: inline-block;
-    margin-bottom: size(3xs);
+    margin-bottom: size(xs);
     @include text-style(
       $size: sm,
-      $spacing: 1px,
+      $spacing: 1.5px,
       $color: primary,
       $transform: uppercase
     );

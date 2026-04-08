@@ -14,20 +14,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, clr(primary-light), clr(primary));
+  background: clr(primary);
   border-radius: 10px;
-  border: 1px solid clr(border-accent);
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  transition: background anim(fast);
 
   &:hover {
-    background: linear-gradient(
-      to bottom,
-      clr(primary-light),
-      clr(primary-light)
-    );
-    box-shadow:
-      inset 0 0 6px rgba(0, 0, 0, 0.3),
-      0 0 12px clr(primary);
+    background: clr(primary-light);
   }
 }

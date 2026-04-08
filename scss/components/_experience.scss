@@ -1,29 +1,27 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/functions" as *;
 
-$dot-size-base: 15px;
-$dot-size-hover: 16px;
-$offset-left: -37px;
+$dot-size: 13px;
+$offset-left: -38px;
 
 .experience-box {
-  max-width: 900px;
-  padding-left: 30px;
-  border-left: 2px solid clr(primary);
+  max-width: 860px;
+  padding-left: 32px;
+  border-left: 1px solid clr(primary);
   border-image: linear-gradient(
       to bottom,
-      clr(primary),
-      clr(primary-light),
-      clr(primary)
+      transparent,
+      clr(primary) 15%,
+      clr(primary) 85%,
+      transparent
     )
     1;
-  transition: border-color anim(normal);
 }
 
 .exp-item {
   position: relative;
-  margin-bottom: size(5xl);
-  transition: all anim(fast) ease-out;
-  padding: size(lg) 0;
+  margin-bottom: size(4xl);
+  padding: size(base) 0;
 
   &:last-child {
     margin-bottom: 0;
@@ -33,76 +31,58 @@ $offset-left: -37px;
     content: "";
     position: absolute;
     left: $offset-left;
-    top: 5px;
-    width: $dot-size-base;
-    height: $dot-size-base;
+    top: 22px;
+    width: $dot-size;
+    height: $dot-size;
     border-radius: radius(circle);
     background: clr(primary);
-    box-shadow:
-      0 0 15px clr(primary),
-      inset 0 1px 2px rgba(255, 255, 255, 0.3);
-    transition: all anim(fast) ease-out;
-    z-index: 1;
+    box-shadow: 0 0 12px rgba(196, 168, 100, 0.4);
     border: 2px solid clr(background-main);
+    z-index: 1;
+    transition: box-shadow anim(fast);
   }
 
   &:hover::before {
-    left: $offset-left - 4px;
-    width: $dot-size-hover;
-    height: $dot-size-hover;
     box-shadow:
-      0 0 30px clr(primary),
-      0 0 50px rgba(180, 150, 90, 0.25);
-  }
-
-  @include responsive(lg, min) {
-    &:hover {
-      padding-left: 3px;
-    }
+      0 0 16px rgba(196, 168, 100, 0.5),
+      0 0 32px rgba(196, 168, 100, 0.15);
   }
 
   &-date {
     @include text-style(
       $color: primary,
-      $size: sm,
-      $spacing: 1px,
+      $size: xs,
+      $spacing: 1.5px,
       $transform: uppercase
     );
   }
 
   &-role {
-    margin: size(sm) 0 size(xs) 0;
+    margin: size(xs) 0 size(3xs) 0;
     font-weight: 600;
     line-height: 1.3;
-    font-size: size(lg);
+    font-size: size(xl);
     color: clr(text-primary);
   }
 
   &-company {
     display: inline-block;
-    margin-bottom: size(base);
-    transition:
-      color anim(fast),
-      text-shadow anim(fast);
-    @include text-style($size: sm, $color: text-secondary, $spacing: 0.5px);
+    margin-bottom: size(sm);
+    transition: color anim(fast);
+    @include text-style($size: sm, $color: text-secondary, $spacing: 0.3px);
     font-weight: 500;
 
     &:hover {
       color: clr(primary-light);
-      text-shadow: 0 0 10px rgba(180, 150, 90, 0.3);
     }
   }
 
   &-desc {
-    max-width: 800px;
+    max-width: 720px;
     color: clr(text-muted);
-    text-align: justify;
+    font-family: font(main);
+    font-weight: 400;
     line-height: 1.7;
-    transition: color anim(fast);
-    margin-top: size(sm);
-
-    &:hover {
-      color: clr(text-secondary);
-    }
+    font-size: size(base);
   }
 }
