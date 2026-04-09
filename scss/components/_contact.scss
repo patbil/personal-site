@@ -20,6 +20,12 @@
 
 .contact-title {
   font-size: clamp(2.75rem, 4vw + 1rem, 4rem);
+  font-weight: 800;
+  background: gradient(heading);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
   span {
     @include text-outline;
   }
@@ -68,7 +74,7 @@
 .contact-form {
   padding: 40px 40px 28px;
   border-radius: radius(form);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid clr(border-subtle);
   background: rgba(255, 255, 255, 0.025);
   backdrop-filter: blur(20px);
   transition:
@@ -80,7 +86,7 @@
   }
 
   &:focus-within {
-    border-color: rgba(196, 168, 100, 0.2);
+    border-color: clr(primary-muted);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   }
 

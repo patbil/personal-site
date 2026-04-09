@@ -1,4 +1,3 @@
-@use "sass:list";
 @use "./functions" as *;
 
 // =========== TYPOGRAPHY =========== //
@@ -79,66 +78,6 @@
   &:focus {
     outline: none;
     border-bottom-color: clr(primary);
-  }
-}
-
-// =========== EFFECTS =========== //
-
-@mixin effect-glass($bg: glass-surface, $radius: radius(card), $shadow: true) {
-  background: gradient($bg);
-  border: 1px solid clr(border-subtle);
-  border-radius: $radius;
-
-  @if $shadow {
-    box-shadow: shadow(elevation-sm);
-  }
-
-  @if $bg == glass-surface or $bg == glass-overlay-subtle {
-    backdrop-filter: effect(glass-blur);
-  }
-}
-
-@mixin effect-glass-refined($radius: radius(card)) {
-  background: gradient(glass-refined);
-  border: 1px solid clr(border-subtle);
-  border-radius: $radius;
-  backdrop-filter: effect(glass-blur);
-  box-shadow: shadow(elevation-sm);
-}
-
-@mixin effect-hover-lift(
-  $hover-color: primary-light,
-  $opacity: null,
-  $y: -8px,
-  $scale: null
-) {
-  transition:
-    color anim(fast),
-    transform anim(fast),
-    opacity anim(fast),
-    box-shadow anim(fast);
-
-  &:hover {
-    @if $hover-color {
-      color: clr($hover-color);
-    }
-    @if $opacity {
-      opacity: $opacity;
-    }
-
-    $transforms: ();
-    @if $y {
-      $transforms: append($transforms, translateY($y));
-    }
-    @if $scale {
-      $transforms: append($transforms, scale($scale));
-    }
-
-    @if list.length($transforms) > 0 {
-      transform: $transforms;
-    }
-
-    box-shadow: shadow(elevation-md);
   }
 }
 

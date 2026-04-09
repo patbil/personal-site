@@ -21,7 +21,7 @@
     background: linear-gradient(
       to bottom,
       clr(primary),
-      rgba(196, 168, 100, 0.2),
+      clr(primary-muted),
       transparent
     );
   }

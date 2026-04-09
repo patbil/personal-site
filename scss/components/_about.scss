@@ -11,12 +11,7 @@
     line-height: 0.9;
     letter-spacing: -0.05em;
     text-transform: uppercase;
-    background: linear-gradient(
-      135deg,
-      clr(text-primary) 0%,
-      clr(primary) 50%,
-      clr(primary-light) 100%
-    );
+    background: gradient(heading);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -38,12 +33,12 @@
 }
 
 .tech-title {
-  margin-bottom: size(xl);
+  margin-bottom: size(3xl);
 }
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: size(sm);
 
   @include responsive(sm) {
@@ -89,7 +84,7 @@
 
     i {
       color: clr(primary-light);
-      transform: translateY(-4px);
+      transform: translateY(-4px) scale(1.1);
     }
 
     span {
