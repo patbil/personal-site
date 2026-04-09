@@ -100,7 +100,7 @@ p {
 
 .section-item {
   min-height: 100vh;
-  padding: 70px 5px;
+  padding: 70px 0;
   position: relative;
 }
 .section-item:first-child {
@@ -109,7 +109,7 @@ p {
 @media (max-width: 1024px) {
   .section-item {
     min-height: auto;
-    padding: 72px 5px;
+    padding: 72px 0;
   }
   .section-item:first-child {
     padding-top: 24px;
@@ -117,7 +117,7 @@ p {
 }
 @media (max-width: 576px) {
   .section-item {
-    padding: 56px 3px;
+    padding: 56px 0;
   }
 }
 .section-item-title {
@@ -1199,9 +1199,4 @@ body.ready {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-#experience,
-#portfolio {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 800px;
 }/*# sourceMappingURL=styles.css.map */
