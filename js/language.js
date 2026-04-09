@@ -1,15 +1,7 @@
+let translations = {};
+let switcher, currentBtn;
+
 // --- HELPERS ---
-function setResumeLink(lang) {
-  const resume = document.querySelector(".resume");
-  if (resume) resume.href = `../assets/files/resume-${lang}.pdf`;
-}
-
-function detectLanguage() {
-  const saved = localStorage.getItem("lang");
-  if (saved) return saved;
-
-  return (navigator.language || "en").startsWith("pl") ? "pl" : "en";
-}
 
 function resolve(obj, path) {
   return path
@@ -21,9 +13,16 @@ function resolve(obj, path) {
     );
 }
 
-async function fetchTranslation(lang) {
+function detectLanguage() {
+  return (
+    localStorage.getItem("lang") ||
+    ((navigator.language || "en").startsWith("pl") ? "pl" : "en")
+  );
+}
+
+async function fetchTranslations(lang) {
   try {
-    const res = await fetch(`../i18n/${lang}.json`);
+    const res = await fetch(`./i18n/${lang}.json`);
     if (!res.ok) throw new Error(`Failed to load: ${lang}.json`);
     return await res.json();
   } catch (e) {
@@ -32,52 +31,88 @@ async function fetchTranslation(lang) {
   }
 }
 
-// --- LANGUAGE SWITCHING ---
-async function setLanguage(lang) {
-  const data = await fetchTranslation(lang);
-  updateTextContent(data);
-  updateLanguageUI(lang);
-  setResumeLink(lang);
-}
+// --- DOM UPDATES ---
 
-function updateLanguageUI(lang) {
-  document.documentElement.lang = lang;
-  localStorage.setItem("lang", lang);
-  document.getElementById("lang-current").textContent = lang;
-}
-
-function updateTextContent(data) {
+function applyTranslations(data) {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const value = resolve(data, el.getAttribute("data-i18n"));
     if (value) el.textContent = value;
   });
 }
 
-// --- LISTENERS ---
-function langSwitcherListener() {
-  const switcher = document.querySelector(".lang-switcher");
+function applyMeta(data) {
+  const title = resolve(data, "meta.title");
+  const desc = resolve(data, "meta.description");
 
-  document.querySelector("#lang-current").addEventListener("click", (e) => {
-    e.stopPropagation();
-    switcher.classList.toggle("open");
-  });
-
-  document.addEventListener("click", () => switcher.classList.remove("open"));
+  if (desc) {
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", desc);
+  }
 }
 
-function langButtonsListener() {
+function applyActiveState(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem("lang", lang);
+  currentBtn.textContent = lang;
+
+  const resume = document.querySelector(".resume");
+  if (resume) resume.href = `./assets/files/resume-${lang}.pdf`;
+
   document.querySelectorAll(".lang-btn").forEach((btn) => {
-    btn.addEventListener("click", () =>
-      setLanguage(btn.getAttribute("data-lang")),
-    );
+    btn.classList.toggle("active", btn.dataset.lang === lang);
   });
 }
 
-// --- MAIN ---
-export function initLanguage() {
-  langSwitcherListener();
-  langButtonsListener();
+// --- LANGUAGE ---
 
-  const browserLanguage = detectLanguage();
-  setLanguage(browserLanguage);
+async function setLanguage(lang) {
+  translations = await fetchTranslations(lang);
+  applyTranslations(translations);
+  applyMeta(translations);
+  applyActiveState(lang);
+}
+
+// --- SWITCHER ---
+
+function toggleSwitcher(open) {
+  switcher.classList.toggle("open", open);
+  currentBtn.setAttribute("aria-expanded", open);
+}
+
+function initSwitcher() {
+  switcher = document.querySelector(".lang-switcher");
+  currentBtn = document.getElementById("lang-current");
+
+  currentBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleSwitcher(!switcher.classList.contains("open"));
+  });
+
+  switcher.addEventListener("click", (e) => {
+    const btn = e.target.closest(".lang-btn");
+    if (!btn) return;
+    setLanguage(btn.dataset.lang);
+    toggleSwitcher(false);
+  });
+
+  document.addEventListener("click", () => toggleSwitcher(false));
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && switcher.classList.contains("open")) {
+      toggleSwitcher(false);
+      currentBtn.focus();
+    }
+  });
+}
+
+// --- PUBLIC ---
+
+export function getTranslation(key) {
+  return resolve(translations, key);
+}
+
+export function initLanguage() {
+  initSwitcher();
+  setLanguage(detectLanguage());
 }

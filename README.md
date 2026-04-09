@@ -4,12 +4,13 @@ A modern, interactive personal portfolio website showcasing professional work an
 
 ## Features
 
+- **Bilingual (PL/EN)**: Automatic language detection based on browser settings with manual switcher
 - **Interactive Animations**: Scroll-triggered animations using GSAP and ScrollTrigger
 - **Responsive Design**: Mobile-first layout with adaptive element ordering
 - **Project Portfolio**: Professional project showcase with responsive grid
 - **Experience Timeline**: Visual professional experience section
-- **Resume Download**: Direct link to downloadable resume PDF
-- **Contact Form**: Form with validation and user feedback
+- **Resume Download**: Language-specific downloadable resume PDF
+- **Contact Form**: Formspree-powered form with validation, feedback, and i18n support
 - **Social Integration**: Sidebar social links with hover effects
 - **Mouse Glow Effect**: Interactive cursor feedback
 
@@ -20,14 +21,21 @@ personal-site/
 ├── index.html
 ├── CNAME
 ├── assets/
-│   └── projects/
+│   ├── files/
+│   │   ├── resume-pl.pdf
+│   │   └── resume-en.pdf
+│   └── img/
 ├── css/
 │   └── styles.css
+├── i18n/
+│   ├── pl.json
+│   └── en.json
 ├── js/
 │   ├── index.js
 │   ├── animation.js
 │   ├── form.js
 │   ├── footer.js
+│   ├── language.js
 │   ├── mouse.js
 │   └── navigation.js
 └── scss/
@@ -40,11 +48,11 @@ personal-site/
 
 ## Technologies Used
 
-- **HTML5**: Semantic markup and canvas element for animations
-- **SCSS**: Organized stylesheet architecture with variables, mixins, and modular structure
-- **JavaScript**: Vanilla JS for interactivity and particle animations
-- **GSAP**: GSAP library for advanced animations and scroll triggers
-- **Font Awesome**: Icon library for social media links
+- **HTML5**: Semantic markup with ARIA accessibility attributes
+- **SCSS**: 7-1 pattern architecture with variables, mixins, and modular components
+- **JavaScript**: Vanilla ES modules for interactivity and i18n
+- **GSAP**: Animation library for scroll-triggered reveals and page transitions
+- **Font Awesome**: Icon library for social media and UI elements
 
 ## Getting Started
 
@@ -59,44 +67,22 @@ personal-site/
 
 2. **Open in browser**
    - Simply open `index.html` in your web browser
-   - No build process or npm installation required - the site works out of the box
+   - No build process or npm installation required — the site works out of the box
 
 ## Development
-
-### Project Organization
-
-The codebase follows a clean architecture:
-
-- SCSS files use the 7-1 pattern with modular components
-- JavaScript remains lightweight and framework-free
-- Single compiled CSS file for optimal performance
 
 ### Modifying Styles
 
 Edit SCSS files in the `scss/` directory and compile:
 
 ```bash
-npx sass scss:css --no-source-map
+npx sass scss/styles.scss css/styles.css --no-source-map
 ```
 
-Or use npm script if configured:
+### Adding Translations
 
-```bash
-npm run sass
-```
+Edit `i18n/pl.json` and `i18n/en.json`. Use `data-i18n` attributes in HTML to bind elements to translation keys. Nested keys and arrays are supported (e.g. `exp.items[0].role`).
 
 ## Deployment
 
-Deployed via GitHub Pages with custom domain.
-
-### Automatic Deployment
-
-Simply push to `main` branch:
-
-```bash
-git add .
-git commit -m "Update: description"
-git push origin main
-```
-
-GitHub Pages rebuilds the site automatically. The CNAME file ensures the custom domain is preserved.
+Deployed via GitHub Pages with custom domain. Push to `main` branch — GitHub Pages rebuilds automatically. The CNAME file ensures the custom domain is preserved.

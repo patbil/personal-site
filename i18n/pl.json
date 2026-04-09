@@ -45,7 +45,15 @@
   "footer": {
     "rights": "Wszelkie prawa zastrzeżone."
   },
+  "form": {
+    "error": "Coś poszło nie tak!",
+    "sent": "Wysłano",
+    "success": "Wiadomość została wysłana!"
+  },
   "loader": "ładowanie",
+  "meta": {
+    "description": "Programista specjalizujący się w Angular i Node.js. Tworzę skalowalne rozwiązania dla sektora medycznego i przemysłowego."
+  },
   "nav": {
     "about": "o mnie",
     "contact": "kontakt",
