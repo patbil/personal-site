@@ -1,0 +1,77 @@
+{
+  "about": {
+    "hero": {
+      "headline": "tworzę",
+      "status": "status: online",
+      "subheadline": "bezbłędną logikę.",
+      "text": "Jestem programistą kierującym się ciekawością i ciągłym rozwojem. Przekształcam wymagania w wysokiej jakości doświadczenia cyfrowe, dbając o solidne fundamenty w rzemiośle programowania. Moim długoterminowym celem jest zagłębienie się w świat cyberbezpieczeństwa i osiągnięcie w nim wysokiego poziomu kompetencji, pozostając jednocześnie otwartym na różnorodne obszary świata cyfrowego."
+    },
+    "stack": "technologie"
+  },
+  "contact": {
+    "email": "email",
+    "label": "nawiążmy połączenie",
+    "message": "wiadomość",
+    "name": "imię",
+    "send": "Wyślij",
+    "subtitle": "technologię jutra.",
+    "text": "Masz pomysł do omówienia, projekt do realizacji lub szukasz zaangażowanego developera — śmiało napisz.",
+    "title": "budujmy"
+  },
+  "exp": {
+    "items": [
+      {
+        "company": "Wasko S.A",
+        "date": "2025 — AKTUALNIE",
+        "desc": "Pracowałem nad oprogramowaniem medycznym oraz współtworzyłem interfejs użytkownika w Angularze dla systemu zarządzania magazynem gazu. Skupiałem się na optymalizacji ładowania danych i ścisłej współpracy z zespołami backend oraz UX/UI.",
+        "role": "Programista"
+      },
+      {
+        "company": "Gabos Software Sp. z.o.o",
+        "date": "2022 — 2025",
+        "desc": "Współtworzyłem oprogramowanie medyczne dla klinik i szpitali — zarówno backend, frontend, jak i aplikację mobilną cross-platformową. Dbałem o niezawodność, użyteczność i dopasowanie do realnych potrzeb personelu medycznego.",
+        "role": "Frontend Developer"
+      },
+      {
+        "company": "IVM Sp. z.o.o",
+        "date": "2020 — 2022",
+        "desc": "Współtworzyłem oprogramowanie dla robota dezynfekującego oraz dozymetrów. Następnie pracowałem nad aplikacją klient–serwer dla firmy z branży szklarskiej, wspierającą monitorowanie i analizę danych produkcyjnych.",
+        "role": "Programista systemów wbudowanych"
+      }
+    ],
+    "label": "logi",
+    "title": "doświadczenie"
+  },
+  "footer": {
+    "rights": "Wszelkie prawa zastrzeżone."
+  },
+  "loader": "ładowanie",
+  "nav": {
+    "about": "o mnie",
+    "contact": "kontakt",
+    "experience": "doświadczenie",
+    "portfolio": "projekty"
+  },
+  "portfolio": {
+    "items": [
+      {
+        "desc": "Projekt realizowany jako praca inżynierska, łączący systemy wbudowane, programowanie i elektronikę. Powstał w pełni zautomatyzowany model inteligentnego domu, w którym sprzęt współpracuje z centralnym systemem sterowania, zarządzając danymi środowiskowymi w czasie rzeczywistym i logiką automatyzacji.",
+        "label": "deployment_01",
+        "title": "inteligentny dom"
+      },
+      {
+        "desc": "Narzędzie do integracji z Strapi Headless CMS. Umożliwia sprawne zarządzanie kolekcjami treści przez REST API, optymalizując pobieranie danych i synchronizację stanu aplikacji.",
+        "label": "deployment_02",
+        "title": "strapi client"
+      },
+      {
+        "desc": "Funkcjonalna wersja klasycznej gry Snake. Zawiera ruch po siatce, wykrywanie kolizji i liczenie punktów, stworzona przy użyciu vanilla JavaScript i HTML5 Canvas.",
+        "label": "deployment_03",
+        "title": "snake game"
+      }
+    ],
+    "label": "repozytoria",
+    "title": "moje projekty"
+  },
+  "resume": "CV"
+}

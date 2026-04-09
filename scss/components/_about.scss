@@ -2,11 +2,13 @@
 @use "../abstracts/functions" as *;
 
 .hero {
-  max-width: 820px;
+  max-width: 860px;
   margin-bottom: size(5xl);
   margin-top: size(lg);
 
   &-title {
+    margin-bottom: 0.2em;
+    padding-bottom: 0.2em;
     font-weight: 800;
     line-height: 0.9;
     letter-spacing: -0.05em;
