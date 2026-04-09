@@ -45,6 +45,11 @@
   "footer": {
     "rights": "Wszelkie prawa zastrzeżone."
   },
+  "form": {
+    "error": "Coś poszło nie tak!",
+    "sent": "Wysłano",
+    "success": "Wiadomość została wysłana!"
+  },
   "loader": "ładowanie",
   "nav": {
     "about": "o mnie",

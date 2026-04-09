@@ -1,3 +1,5 @@
+import { getTranslation } from "./language.js";
+
 const form = document.getElementById("contact-form");
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -40,7 +42,7 @@ function showFeedback(status, message, buttonText) {
   if (message) setMessageState(status, message);
 
   setTimeout(() => {
-    setButtonState(null, "Send");
+    setButtonState(null, getTranslation("contact.send"));
     setMessageState(false);
   }, 3000);
 }
@@ -50,15 +52,23 @@ export function initForm() {
     event.preventDefault();
     setButtonState("loading");
 
-    const data = new FormData(form);
-    const response = await sendMessage(data);
-    await sleep(500);
+    try {
+      const data = new FormData(form);
+      const response = await sendMessage(data);
+      await sleep(500);
 
-    if (response.ok) {
-      form.reset();
-      showFeedback("success", "Your message has been sent!", "Sent");
-    } else {
-      showFeedback("error", "Something goes wrong!");
+      if (response.ok) {
+        form.reset();
+        showFeedback(
+          "success",
+          getTranslation("form.success"),
+          getTranslation("form.sent"),
+        );
+      } else {
+        showFeedback("error", getTranslation("form.error"));
+      }
+    } catch {
+      showFeedback("error", getTranslation("form.error"));
     }
   });
 }

@@ -36,6 +36,7 @@ function setupNavigationLinks() {
   navigation.addEventListener("click", (e) => {
     const link = e.target.closest(".nav-link");
     if (!link) return;
+    e.preventDefault();
     toggleMenu(false);
     const section = document.getElementById(link.dataset.section);
     section.scrollIntoView({

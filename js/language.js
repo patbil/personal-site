@@ -1,7 +1,7 @@
 // --- HELPERS ---
 function setResumeLink(lang) {
   const resume = document.querySelector(".resume");
-  if (resume) resume.href = `../assets/files/resume-${lang}.pdf`;
+  if (resume) resume.href = `./assets/files/resume-${lang}.pdf`;
 }
 
 function detectLanguage() {
@@ -23,7 +23,7 @@ function resolve(obj, path) {
 
 async function fetchTranslation(lang) {
   try {
-    const res = await fetch(`../i18n/${lang}.json`);
+    const res = await fetch(`./i18n/${lang}.json`);
     if (!res.ok) throw new Error(`Failed to load: ${lang}.json`);
     return await res.json();
   } catch (e) {
@@ -33,8 +33,11 @@ async function fetchTranslation(lang) {
 }
 
 // --- LANGUAGE SWITCHING ---
+let currentTranslations = {};
+
 async function setLanguage(lang) {
   const data = await fetchTranslation(lang);
+  currentTranslations = data;
   updateTextContent(data);
   updateLanguageUI(lang);
   setResumeLink(lang);
@@ -43,7 +46,11 @@ async function setLanguage(lang) {
 function updateLanguageUI(lang) {
   document.documentElement.lang = lang;
   localStorage.setItem("lang", lang);
+
   document.getElementById("lang-current").textContent = lang;
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+  });
 }
 
 function updateTextContent(data) {
@@ -74,6 +81,10 @@ function langButtonsListener() {
 }
 
 // --- MAIN ---
+export function getTranslation(key) {
+  return resolve(currentTranslations, key);
+}
+
 export function initLanguage() {
   langSwitcherListener();
   langButtonsListener();

@@ -45,6 +45,11 @@
   "footer": {
     "rights": "All rights reserved."
   },
+  "form": {
+    "error": "Something went wrong!",
+    "sent": "Sent",
+    "success": "Your message has been sent!"
+  },
   "loader": "initialize",
   "nav": {
     "about": "about",
