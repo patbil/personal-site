@@ -26,7 +26,7 @@
 
 .section-item {
   min-height: 100vh;
-  padding: 70px 5px;
+  padding: 70px 0;
   position: relative;
 
   &:first-child {
@@ -35,7 +35,7 @@
 
   @include responsive(lg) {
     min-height: auto;
-    padding: 72px 5px;
+    padding: 72px 0;
 
     &:first-child {
       padding-top: 24px;
@@ -43,7 +43,7 @@
   }
 
   @include responsive(sm) {
-    padding: 56px 3px;
+    padding: 56px 0;
   }
 
   &-title {
