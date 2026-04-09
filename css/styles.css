@@ -100,7 +100,7 @@ p {
 
 .section-item {
   min-height: 100vh;
-  padding: 70px 0;
+  padding: 70px 5px;
   position: relative;
 }
 .section-item:first-child {
@@ -109,7 +109,7 @@ p {
 @media (max-width: 1024px) {
   .section-item {
     min-height: auto;
-    padding: 72px 0;
+    padding: 72px 5px;
   }
   .section-item:first-child {
     padding-top: 24px;
@@ -117,7 +117,7 @@ p {
 }
 @media (max-width: 576px) {
   .section-item {
-    padding: 56px 0;
+    padding: 56px 3px;
   }
 }
 .section-item-title {
@@ -1090,7 +1090,8 @@ header .header-row {
   max-width: 860px;
   padding-left: 32px;
   border-left: 1px solid rgb(196, 168, 100);
-  border-image: linear-gradient(to bottom, transparent, rgb(196, 168, 100) 15%, rgb(196, 168, 100) 85%, transparent) 1;
+  -o-border-image: linear-gradient(to bottom, transparent, rgb(196, 168, 100) 15%, rgb(196, 168, 100) 85%, transparent) 1;
+     border-image: linear-gradient(to bottom, transparent, rgb(196, 168, 100) 15%, rgb(196, 168, 100) 85%, transparent) 1;
 }
 
 .exp-item {
@@ -1203,4 +1204,4 @@ body.ready {
 #portfolio {
   content-visibility: auto;
   contain-intrinsic-size: auto 800px;
-}
+}/*# sourceMappingURL=styles.css.map */
