@@ -124,11 +124,11 @@
           </a>
 
           <div class="header-actions">
-            <div class="lang-switcher">
-              <button class="lang-current" id="lang-current">PL</button>
-              <div class="lang-dropdown">
-                <button class="lang-btn" data-lang="pl">PL</button>
-                <button class="lang-btn" data-lang="en">EN</button>
+            <div class="lang-switcher" role="listbox" aria-label="Language">
+              <button class="lang-current" id="lang-current" aria-haspopup="listbox" aria-expanded="false">PL</button>
+              <div class="lang-dropdown" role="presentation">
+                <button class="lang-btn" data-lang="pl" role="option">PL</button>
+                <button class="lang-btn" data-lang="en" role="option">EN</button>
               </div>
             </div>
 

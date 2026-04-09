@@ -67,7 +67,8 @@ export function initForm() {
       } else {
         showFeedback("error", getTranslation("form.error"));
       }
-    } catch {
+    } catch (err) {
+      console.error("Form submission failed:", err);
       showFeedback("error", getTranslation("form.error"));
     }
   });

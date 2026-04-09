@@ -51,6 +51,9 @@
     "success": "Your message has been sent!"
   },
   "loader": "initialize",
+  "meta": {
+    "description": "Software Developer specializing in Angular and Node.js. I build scalable solutions for the medical and industrial sectors."
+  },
   "nav": {
     "about": "about",
     "contact": "contact",

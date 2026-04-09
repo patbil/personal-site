@@ -1,10 +1,6 @@
-const logo = document.querySelector(".logo");
-const navigation = document.querySelector("nav");
-const sections = document.querySelectorAll("section");
-const hamburger = document.querySelector(".hamburger");
-const navItems = document.querySelectorAll(".nav-link");
-
 // --- STATE ---
+
+let logo, navigation, sections, hamburger, navItems;
 
 function updateItemState(id) {
   navItems.forEach((item) =>
@@ -39,6 +35,7 @@ function setupNavigationLinks() {
     e.preventDefault();
     toggleMenu(false);
     const section = document.getElementById(link.dataset.section);
+    if (!section) return;
     section.scrollIntoView({
       behavior: "smooth",
       block: section.id !== "contact" ? "start" : "end",
@@ -65,6 +62,14 @@ function initSectionObserver() {
 }
 
 export function initNavigation() {
+  logo = document.querySelector(".logo");
+  navigation = document.querySelector("nav");
+  sections = document.querySelectorAll("section");
+  hamburger = document.querySelector(".hamburger");
+  navItems = document.querySelectorAll(".nav-link");
+
+  if (!logo || !navigation || !hamburger) return;
+
   setupMobileMenu();
   setupLogoScroll();
   setupNavigationLinks();
