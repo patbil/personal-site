@@ -5,17 +5,22 @@ export function initAnimation() {
   const mainTl = gsap.timeline();
 
   mainTl
-    .to(".loader-progress", { width: "100%", duration: 0.8 })
+    .to(".loader-progress", {
+      width: "100%",
+      duration: 1.2,
+      ease: "power2.inOut",
+    })
     .to(".loader", {
       yPercent: -100,
-      duration: 0.6,
+      duration: 0.8,
       ease: "expo.inOut",
-      onComplete: () => document.body.classList.add("ready"),
+      onStart: () =>
+        setTimeout(() => document.body.classList.add("ready"), 100),
     })
     .from(
       ".hero h1",
-      { y: 60, opacity: 0, duration: 1, ease: "power3.out" },
-      "-=0.2",
+      { y: 100, opacity: 0, duration: 1.2, ease: "power3.out" },
+      "-=0.6",
     );
 
   revealElements.forEach((el) => {
