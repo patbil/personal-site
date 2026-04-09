@@ -38,7 +38,7 @@
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   gap: size(sm);
 
   @include responsive(sm) {
