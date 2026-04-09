@@ -9,7 +9,7 @@
 
   @include layout-flex($dir: column, $gap: 20px);
 
-  @include responsive(xxl) {
+  @include responsive(xl) {
     display: none;
   }
 

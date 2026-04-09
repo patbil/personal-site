@@ -34,8 +34,8 @@
 }
 
 @mixin text-outline($stroke-width: 1px) {
-  color: transparent;
   -webkit-text-stroke: $stroke-width clr(primary);
+  paint-order: stroke fill;
 }
 
 // =========== LAYOUTS =========== //
