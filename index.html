@@ -41,7 +41,7 @@
     />
     <meta
       property="og:image"
-      content="https://patrykbilski.pl/assets/img/og-image.png"
+      content="https://patrykbilski.pl/assets/img/og.webp"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -57,7 +57,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://patrykbilski.pl/assets/img/og-image.png"
+      content="https://patrykbilski.pl/assets/img/og.webp"
     />
 
     <link rel="stylesheet" href="./css/styles.css" />
@@ -77,12 +77,12 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span>Resume</span>
+      <span data-i18n="resume"></span>
       <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
     </a>
 
     <div class="loader">
-      <p class="loader-text">initialize</p>
+      <p class="loader-text" data-i18n="loader"></p>
       <div class="loader-bar">
         <div class="loader-progress"></div>
       </div>
@@ -123,17 +123,48 @@
             <p class="role">software developer</p>
           </a>
 
-          <button class="hamburger" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          <div class="header-actions">
+            <div class="lang-switcher" role="listbox" aria-label="Language">
+              <button class="lang-current" id="lang-current" aria-haspopup="listbox" aria-expanded="false">PL</button>
+              <div class="lang-dropdown" role="presentation">
+                <button class="lang-btn" data-lang="pl" role="option">PL</button>
+                <button class="lang-btn" data-lang="en" role="option">EN</button>
+              </div>
+            </div>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
 
           <nav class="nav" aria-label="Main navigation">
-            <a class="nav-link active" data-section="about">about</a>
-            <a class="nav-link" data-section="experience">experience</a>
-            <a class="nav-link" data-section="portfolio">work</a>
-            <a class="nav-link" data-section="contact">contact</a>
+            <a
+              class="nav-link active"
+              href="#about"
+              data-section="about"
+              data-i18n="nav.about"
+            ></a>
+            <a
+              class="nav-link"
+              href="#experience"
+              data-section="experience"
+              data-i18n="nav.experience"
+            ></a>
+            <a
+              class="nav-link"
+              href="#portfolio"
+              data-section="portfolio"
+              data-i18n="nav.portfolio"
+            ></a>
+            <a
+              class="nav-link"
+              href="#contact"
+              data-section="contact"
+              data-i18n="nav.contact"
+            ></a>
+
             <div class="nav-socials">
               <a
                 class="social-link"
@@ -141,24 +172,27 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                ><i class="fab fa-github" aria-hidden="true"></i
-              ></a>
+              >
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
               <a
                 class="social-link"
                 href="https://www.linkedin.com/in/patryk-bilski1/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                ><i class="fab fa-linkedin-in" aria-hidden="true"></i
-              ></a>
+              >
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+              </a>
               <a
                 class="social-link"
                 href="https://www.instagram.com/tytus_wirazka"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                ><i class="fab fa-instagram" aria-hidden="true"></i
-              ></a>
+              >
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
             </div>
           </nav>
         </div>
@@ -169,23 +203,23 @@
       <div class="container">
         <section class="section-item" id="about">
           <div class="hero">
-            <span class="section-item-label" aria-label="Status online"
-              >// status: online</span
-            >
+            <span
+              class="section-item-label"
+              aria-label="Status online"
+              data-i18n="about.hero.status"
+            ></span>
             <h1 class="reveal hero-title">
-              crafting<br /><span>flawless logic.</span>
+              <span data-i18n="about.hero.headline"></span><br /><span
+                data-i18n="about.hero.subheadline"
+              ></span>
             </h1>
-            <p class="hero-text">
-              I am a programmer driven by curiosity and continuous growth. I
-              transform requirements into high-quality digital experiences,
-              while ensuring solid foundations in the craft of programming. My
-              long-term goal is to immerse myself in the world of cybersecurity
-              and achieve expertise in this field, while remaining open to
-              diverse areas of the digital world.
-            </p>
+            <p class="hero-text" data-i18n="about.hero.text"></p>
           </div>
 
-          <h2 class="section-item-title tech-title reveal">technical stack</h2>
+          <h2
+            class="section-item-title tech-title reveal"
+            data-i18n="about.stack"
+          ></h2>
           <div class="tech-grid">
             <div class="tech-card reveal">
               <i class="fab fa-angular" aria-hidden="true"></i
@@ -250,80 +284,64 @@
         </section>
 
         <section class="section-item" id="experience">
-          <span class="section-item-label">// execution_history </span>
-          <h2 class="section-item-title reveal">professional path</h2>
+          <span class="section-item-label" data-i18n="exp.label"></span>
+          <h2 class="section-item-title reveal" data-i18n="exp.title"></h2>
           <div class="experience-box">
             <div class="exp-item reveal">
-              <span class="exp-item-date">2025 — PRESENT</span>
-              <h3 class="exp-item-role">Software Developer</h3>
+              <span class="exp-item-date" data-i18n="exp.items[0].date"></span>
+              <h3 class="exp-item-role" data-i18n="exp.items[0].role"></h3>
               <a
                 href="https://www.wasko.pl/"
                 class="exp-item-company"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Wasko S.A</a
-              >
-              <p class="exp-item-desc">
-                My work involved developing medical software and co-creating a
-                user interface based on Angular for a gas storage management
-                system, focusing on optimizing data loading and close
-                collaboration with back-end and UX/UI teams.
-              </p>
+                data-i18n="exp.items[0].company"
+              ></a>
+              <p class="exp-item-desc" data-i18n="exp.items[0].desc"></p>
             </div>
             <div class="exp-item reveal">
-              <span class="exp-item-date">2022 — 2025</span>
-              <h3 class="exp-item-role">Frontend Developer</h3>
+              <span class="exp-item-date" data-i18n="exp.items[1].date"></span>
+              <h3 class="exp-item-role" data-i18n="exp.items[1].role"></h3>
               <a
                 href="https://gabos.com.pl/"
                 class="exp-item-company"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Gabos Software Sp. z.o.o</a
-              >
-              <p class="exp-item-desc">
-                I co-created medical software for clinics and hospitals,
-                contributing to backend and frontend components, as well as a
-                cross-platform mobile app. I worked closely with the team to
-                ensure reliability, usability, and practicality for healthcare
-                professionals.
-              </p>
+                data-i18n="exp.items[1].company"
+              ></a>
+              <p class="exp-item-desc" data-i18n="exp.items[1].desc"></p>
             </div>
             <div class="exp-item reveal">
-              <span class="exp-item-date">2020 — 2022</span>
-              <h3 class="exp-item-role">Embedded Software Developer</h3>
+              <span class="exp-item-date" data-i18n="exp.items[2].date"></span>
+              <h3 class="exp-item-role" data-i18n="exp.items[2].role"></h3>
               <a
                 href="https://ivm.pl/"
                 class="exp-item-company"
                 target="_blank"
                 rel="noopener noreferrer"
-                >IVM Sp. z.o.o</a
-              >
-              <p class="exp-item-desc">
-                I co-developed software for a disinfecting robot and dosimeters.
-                Later, I contributed to a client-server application for a glass
-                manufacturing company, enabling teams to monitor and analyze
-                production statistics.
-              </p>
+                data-i18n="exp.items[2].company"
+              ></a>
+              <p class="exp-item-desc" data-i18n="exp.items[2].desc"></p>
             </div>
           </div>
         </section>
 
         <section class="section-item" id="portfolio">
-          <span class="section-item-label">// build_logs</span>
-          <h2 class="reveal section-item-title">my works</h2>
+          <span class="section-item-label" data-i18n="portfolio.label"></span>
+          <h2
+            class="reveal section-item-title"
+            data-i18n="portfolio.title"
+          ></h2>
           <div class="projects-container">
             <div class="project-row reveal project-smart-home">
               <div class="project-info">
-                <span class="project-label">deployment_01</span>
-                <h3>smart home</h3>
+                <span
+                  class="project-label"
+                  data-i18n="portfolio.items[0].label"
+                ></span>
+                <h3 data-i18n="portfolio.items[0].title"></h3>
                 <div class="project-image-wrapper mobile-only"></div>
-                <p>
-                  Developed as an Engineering Thesis, this project integrates
-                  embedded systems, software engineering, and electronics. It
-                  features a fully automated smart home scale model, with
-                  hardware interfacing a central control system managing
-                  real-time environmental data and automation logic.
-                </p>
+                <p data-i18n="portfolio.items[0].desc"></p>
                 <div class="project-tags">
                   <span>angular</span> <span>nodeJS</span> <span>mySql</span>
                   <span>raspberry pi</span> <span>linux</span>
@@ -343,15 +361,13 @@
 
             <div class="project-row reveal project-strapi-client">
               <div class="project-info">
-                <span class="project-label">deployment_02</span>
-                <h3>strapi client</h3>
+                <span
+                  class="project-label"
+                  data-i18n="portfolio.items[1].label"
+                ></span>
+                <h3 data-i18n="portfolio.items[1].title"></h3>
                 <div class="project-image-wrapper mobile-only"></div>
-                <p>
-                  A streamlined integration tool designed to interface with the
-                  Strapi Headless CMS. Enables seamless management of content
-                  collections via REST API, optimizing data fetching and state
-                  synchronization.
-                </p>
+                <p data-i18n="portfolio.items[1].desc"></p>
                 <div class="project-tags">
                   <span>angular</span> <span>jasmine</span>
                 </div>
@@ -370,14 +386,13 @@
 
             <div class="project-row reveal project-snake-game">
               <div class="project-info">
-                <span class="project-label">deployment_03</span>
-                <h3>snake game</h3>
+                <span
+                  class="project-label"
+                  data-i18n="portfolio.items[2].label"
+                ></span>
+                <h3 data-i18n="portfolio.items[2].title"></h3>
                 <div class="project-image-wrapper mobile-only"></div>
-                <p>
-                  A functional recreation of the classic Snake game. Implements
-                  grid-based movement, collision detection, and score tracking,
-                  built using vanilla JavaScript and HTML5 Canvas.
-                </p>
+                <p data-i18n="portfolio.items[2].desc"></p>
                 <div class="project-tags">
                   <span>javascript</span> <span>HTML5</span>
                 </div>
@@ -399,17 +414,13 @@
         <section class="section-item contact-section" id="contact">
           <div class="contact-grid">
             <div>
-              <span class="section-item-label"
-                >// establish_connection</span
-              >
+              <span class="section-item-label" data-i18n="contact.label"></span>
               <h2 class="reveal section-item-title contact-title">
-                let's build<br /><span>future tech.</span>
+                <span data-i18n="contact.title"></span><br /><span
+                  data-i18n="contact.subtitle"
+                ></span>
               </h2>
-              <p class="contact-subtitle reveal">
-                Whether you have an idea to discuss, a project that needs
-                development, or a team looking for a dedicated developer — feel
-                free to reach out.
-              </p>
+              <p class="contact-text reveal" data-i18n="contact.text"></p>
               <div class="contact-info reveal">
                 <a
                   class="contact-info-link"
@@ -440,7 +451,7 @@
                     required
                     aria-required="true"
                   />
-                  <label for="name">name</label>
+                  <label for="name" data-i18n="contact.name"></label>
                 </div>
                 <div class="contact-form-field">
                   <input
@@ -450,7 +461,7 @@
                     required
                     aria-required="true"
                   />
-                  <label for="email">email</label>
+                  <label for="email" data-i18n="contact.email"></label>
                 </div>
                 <div class="contact-form-field">
                   <textarea
@@ -460,10 +471,12 @@
                     required
                     aria-required="true"
                   ></textarea>
-                  <label for="message">message</label>
+                  <label for="message" data-i18n="contact.message"
+                    >message</label
+                  >
                 </div>
                 <button type="submit" class="submit-trigger">
-                  <span class="btn-text">Send</span>
+                  <span class="btn-text" data-i18n="contact.send"></span>
                   <span class="spinner"></span>
                 </button>
                 <span class="submit-message" aria-live="polite"></span>
@@ -477,8 +490,8 @@
     <footer class="footer">
       <div class="container footer-content">
         <p class="footer-text">
-          &copy; <span id="current-year"></span> Patryk Bilski. All rights
-          reserved.
+          &copy; <span id="current-year"></span> Patryk Bilski.
+          <span data-i18n="footer.rights"></span>
         </p>
       </div>
     </footer>

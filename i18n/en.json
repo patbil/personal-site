@@ -1,0 +1,85 @@
+{
+  "about": {
+    "hero": {
+      "headline": "crafting",
+      "status": "status: online",
+      "subheadline": "flawless logic.",
+      "text": "I am a programmer driven by curiosity and continuous growth. I transform requirements into high-quality digital experiences, while ensuring solid foundations in the craft of programming. My long-term goal is to immerse myself in the world of cybersecurity and achieve expertise in this field, while remaining open to diverse areas of the digital world."
+    },
+    "stack": "technical stack"
+  },
+  "contact": {
+    "email": "email",
+    "label": "establish_connection",
+    "message": "message",
+    "name": "name",
+    "send": "Send",
+    "subtitle": "future tech.",
+    "text": "Whether you have an idea to discuss, a project that needs development, or a team looking for a dedicated developer — feel free to reach out.",
+    "title": "let's build"
+  },
+  "exp": {
+    "items": [
+      {
+        "company": "Wasko S.A",
+        "date": "2025 — PRESENT",
+        "desc": "My work involved developing medical software and co-creating a user interface based on Angular for a gas storage management system, focusing on optimizing data loading and close collaboration with back-end and UX/UI teams.",
+        "role": "Software Developer"
+      },
+      {
+        "company": "Gabos Software Sp. z.o.o",
+        "date": "2022 — 2025",
+        "desc": "I co-created medical software for clinics and hospitals, contributing to backend and frontend components, as well as a cross-platform mobile app. I worked closely with the team to ensure reliability, usability, and practicality for healthcare professionals.",
+        "role": "Frontend Developer"
+      },
+      {
+        "company": "IVM Sp. z.o.o",
+        "date": "2020 — 2022",
+        "desc": "I co-developed software for a disinfecting robot and dosimeters. Later, I contributed to a client-server application for a glass manufacturing company, enabling teams to monitor and analyze production statistics.",
+        "role": "Embedded Software Developer"
+      }
+    ],
+    "label": "execution_history",
+    "title": "professional path"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "form": {
+    "error": "Something went wrong!",
+    "sent": "Sent",
+    "success": "Your message has been sent!"
+  },
+  "loader": "initialize",
+  "meta": {
+    "description": "Software Developer specializing in Angular and Node.js. I build scalable solutions for the medical and industrial sectors."
+  },
+  "nav": {
+    "about": "about",
+    "contact": "contact",
+    "experience": "experience",
+    "portfolio": "work"
+  },
+  "portfolio": {
+    "items": [
+      {
+        "desc": "Developed as an Engineering Thesis, this project integrates embedded systems, software engineering, and electronics. It features a fully automated smart home scale model, with hardware interfacing a central control system managing real-time environmental data and automation logic.",
+        "label": "deployment_01",
+        "title": "smart home"
+      },
+      {
+        "desc": "A streamlined integration tool designed to interface with the Strapi Headless CMS. Enables seamless management of content collections via REST API, optimizing data fetching and state synchronization.",
+        "label": "deployment_02",
+        "title": "strapi client"
+      },
+      {
+        "desc": "A functional recreation of the classic Snake game. Implements grid-based movement, collision detection, and score tracking, built using vanilla JavaScript and HTML5 Canvas.",
+        "label": "deployment_03",
+        "title": "snake game"
+      }
+    ],
+    "label": "build_logs",
+    "title": "my works"
+  },
+  "resume": "Resume"
+}
