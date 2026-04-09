@@ -45,6 +45,18 @@ header {
   }
 }
 
+// Groups lang-switcher + hamburger on the right side
+.header-actions {
+  @include layout-flex($justify: center);
+  gap: size(sm);
+  margin-left: auto;
+
+  @include responsive(md) {
+    // on mobile hamburger is always visible, lang-switcher too
+    order: 2;
+  }
+}
+
 .nav {
   @include responsive(md) {
     position: fixed;
@@ -163,5 +175,109 @@ header {
     span:nth-child(3) {
       transform: rotate(45deg) translate(-4px, -5px);
     }
+  }
+}
+
+.lang-switcher {
+  position: relative;
+}
+
+.lang-current {
+  @include layout-flex($justify: center);
+  gap: 6px;
+  padding: 5px 12px;
+  background: none;
+  border: 1px solid clr(border-subtle);
+  border-radius: 20px;
+  cursor: pointer;
+  transition:
+    border-color anim(fast),
+    color anim(fast),
+    opacity anim(fast);
+  @include text-style(
+    $color: text-primary,
+    $size: 2xs,
+    $spacing: 1px,
+    $transform: uppercase,
+    $opacity: 0.6
+  );
+
+  &::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-right: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform anim(fast);
+  }
+
+  &:hover {
+    border-color: clr(primary);
+    color: clr(primary-light);
+    opacity: 1;
+  }
+
+  .lang-switcher.open & {
+    border-color: clr(primary);
+    color: clr(primary-light);
+    opacity: 1;
+
+    &::after {
+      transform: rotate(-135deg) translateY(-2px);
+    }
+  }
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 100%;
+  background: clr(background-main);
+  border: 1px solid clr(border-subtle);
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition:
+    opacity anim(fast),
+    transform anim(fast);
+
+  .lang-switcher.open & {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+}
+
+.lang-btn {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    background anim(fast),
+    color anim(fast),
+    opacity anim(fast);
+  @include text-style(
+    $color: text-primary,
+    $size: 2xs,
+    $spacing: 1px,
+    $transform: uppercase,
+    $opacity: 0.5
+  );
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    opacity: 0.9;
+  }
+
+  &.active {
+    color: clr(primary-light);
+    opacity: 1;
   }
 }

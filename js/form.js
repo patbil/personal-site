@@ -2,7 +2,6 @@ const form = document.getElementById("contact-form");
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // --- STATE ---
-
 function changeElementState(element, classList, { state, text }) {
   element.classList.remove(...classList);
   if (state) element.classList.add(state);
@@ -23,7 +22,6 @@ function setMessageState(state, text) {
 }
 
 // --- HTTP ---
-
 async function sendMessage(data) {
   const response = await fetch("https://formspree.io/f/mojnyyzz", {
     method: "POST",
@@ -37,7 +35,6 @@ async function sendMessage(data) {
 }
 
 // --- HELPERS ---
-
 function showFeedback(status, message, buttonText) {
   setButtonState(status, buttonText);
   if (message) setMessageState(status, message);
