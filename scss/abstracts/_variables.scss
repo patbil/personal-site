@@ -1,9 +1,5 @@
 $scrollbar-width: 6px;
 
-$effects: (
-  glass-blur: blur(20px),
-);
-
 $fonts: (
   main: "Plus Jakarta Sans",
   mono: "JetBrains Mono",
@@ -19,15 +15,11 @@ $radius: (
 );
 
 $animation-time: (
-  ultra: 0.1s,
   fast: 0.3s,
   normal: 0.5s,
-  slow: 0.8s,
-  luxury: 1.2s,
 );
 
 $breakpoints: (
-  xs: 375px,
   sm: 576px,
   md: 768px,
   lg: 1024px,
@@ -47,53 +39,17 @@ $sizes: (
   3xl: 1.875rem,
   4xl: 2.25rem,
   5xl: 3rem,
-  6xl: 3.75rem,
-  7xl: 4.5rem,
-  8xl: 6rem,
-  9xl: 8rem,
-);
-
-$shadows: (
-  primary-glow: (
-    0 20px 40px rgba(180, 150, 90, 0.1),
-    0 8px 20px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-  ),
-  cyan-glow: (
-    0 15px 35px rgba(100, 200, 220, 0.1),
-    0 5px 15px rgba(0, 0, 0, 0.25),
-  ),
-  soft-glow: (
-    0 10px 25px rgba(0, 0, 0, 0.2),
-    0 4px 10px rgba(180, 150, 90, 0.05),
-  ),
-  elevation-sm: (
-    0 4px 12px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-  ),
-  elevation-md: (
-    0 10px 30px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-  ),
-  error: 0 5px 20px rgba(255, 110, 110, 0.4),
-  success: 0 5px 20px rgba(50, 180, 100, 0.4),
 );
 
 $colors: (
   primary: rgba(196, 168, 100, 1),
   primary-light: rgba(220, 195, 130, 1),
   primary-soft: rgba(196, 168, 100, 0.08),
-  accent-cyan: rgba(100, 200, 220, 1),
-  accent-cyan-soft: rgba(100, 200, 220, 0.08),
-  accent-emerald: rgba(110, 190, 160, 1),
-  accent-emerald-soft: rgba(110, 190, 160, 0.08),
+  primary-muted: rgba(196, 168, 100, 0.2),
   background-main: rgba(8, 8, 10, 1),
-  background-card: rgba(196, 168, 100, 0.03),
-  background-elevated: rgba(18, 18, 22, 1),
-  border-subtle: rgba(255, 255, 255, 0.07),
+  border-subtle: rgba(255, 255, 255, 0.06),
   border-soft: rgba(255, 255, 255, 0.05),
-  border-accent: rgba(196, 168, 100, 0.2),
-  text-primary: rgba(240, 240, 245, 1),
+  text-primary: rgba(225, 225, 232, 1),
   text-secondary: rgba(180, 185, 200, 1),
   text-muted: rgba(150, 155, 170, 1),
   state-error: rgba(255, 110, 110, 1),
@@ -102,31 +58,16 @@ $colors: (
 
 $gradients: (
   primary: linear-gradient(135deg, #c4a864 0%, #dcc382 100%),
-  primary-accent: linear-gradient(135deg, #c4a864 0%, #64c8dc 100%),
-  glass-surface: linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.06) 0%,
-      rgba(255, 255, 255, 0.01) 100%
-    ),
-  glass-refined: linear-gradient(
+  heading: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(255, 255, 255, 0) 100%
+      rgba(160, 160, 170, 1) 0%,
+      rgba(196, 168, 100, 1) 50%,
+      rgba(220, 195, 130, 1) 100%
     ),
   mouse-glow: radial-gradient(
       circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
       rgba(196, 168, 100, 0.07) 0%,
       rgba(196, 168, 100, 0.025) 25%,
       transparent 65%
-    ),
-  glass-overlay-subtle: linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.03) 0%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-  dark-edge: radial-gradient(
-      circle at center,
-      transparent 0%,
-      rgba(0, 0, 0, 0.2) 100%
     ),
 );

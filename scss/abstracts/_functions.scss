@@ -18,10 +18,6 @@
   @return _check-map($colors, $key, "$colors");
 }
 
-@function effect($key) {
-  @return _check-map($effects, $key, "$effects");
-}
-
 @function font($key) {
   @return _check-map($fonts, $key, "$fonts");
 }
@@ -40,10 +36,6 @@
 
 @function size($key) {
   @return _check-map($sizes, $key, "$sizes");
-}
-
-@function shadow($key) {
-  @return _check-map($shadows, $key, "$shadows");
 }
 
 @function gradient($key) {

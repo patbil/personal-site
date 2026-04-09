@@ -62,7 +62,7 @@
   span {
     padding: size(3xs) size(sm);
     background: clr(primary-soft);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid clr(border-soft);
     border-radius: radius(button);
     @include text-style(
       $font: main,
@@ -80,7 +80,7 @@
   align-self: flex-start;
   padding: size(sm) size(xl);
   gap: size(sm);
-  border: 1px solid rgba(196, 168, 100, 0.4);
+  border: 1px solid clr(primary-muted);
   border-radius: radius(button);
   background: transparent;
   transition:
@@ -90,7 +90,7 @@
   @include text-style($color: primary, $size: xs, $transform: uppercase);
 
   &:hover {
-    background-color: rgba(196, 168, 100, 0.08);
+    background-color: clr(primary-soft);
     border-color: clr(primary-light);
     color: clr(primary-light);
   }
@@ -103,7 +103,7 @@
   background-image: var(--project-img);
   background-position: center;
   background-size: cover;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid clr(border-subtle);
   border-radius: radius(card);
   filter: brightness(0.85) saturate(1.05);
   transition:
