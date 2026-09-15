@@ -109,10 +109,11 @@
   transition:
     filter anim(normal),
     border-color anim(normal);
+  @include spotlight($radius: 300px, $strength: 0.1);
 
   &:hover {
     filter: brightness(0.92) saturate(1.1);
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: clr(border-strong);
   }
 
   &.mobile-only {

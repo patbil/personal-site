@@ -42,10 +42,22 @@
   @return _check-map($gradients, $key, "$gradients");
 }
 
+@function z($key) {
+  @return _check-map($z-layers, $key, "$z-layers");
+}
+
 @function get-projects() {
   @return $projects;
 }
 
 @function get-scrollbar-width() {
   @return $scrollbar-width;
+}
+
+@function get-header-height() {
+  @return $header-height;
+}
+
+@function get-rail-clearance() {
+  @return $rail-clearance;
 }

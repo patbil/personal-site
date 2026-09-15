@@ -1,77 +1,91 @@
+import { $, $$ } from "./dom.js";
+import { MEDIA, SECTION_OBSERVER } from "./config.js";
+
+const mobile = window.matchMedia(MEDIA.mobile);
+
+let nav, logo, hamburger, navLinks;
+
 // --- STATE ---
 
-let logo, navigation, sections, hamburger, navItems;
+const isOpen = () => nav.classList.contains("active");
 
-function updateItemState(id) {
-  navItems.forEach((item) =>
-    item.classList.toggle("active", item.dataset.section === id),
-  );
+function syncInertState() {
+  nav.inert = mobile.matches && !isOpen();
 }
 
-function toggleMenu(state) {
-  const isOpen = state ?? !hamburger.classList.contains("active");
-  hamburger.classList.toggle("active", isOpen);
-  navigation.classList.toggle("active", isOpen);
-  hamburger.setAttribute("aria-expanded", isOpen);
+function toggleMenu(force) {
+  const open = force ?? !isOpen();
+
+  nav.classList.toggle("active", open);
+  hamburger.classList.toggle("active", open);
+  hamburger.setAttribute("aria-expanded", String(open));
+  document.body.classList.toggle("menu-open", open);
+
+  syncInertState();
+  if (open) $(".nav-link", nav)?.focus();
 }
 
-// --- HANDLERS ---
+function scrollToSection(id) {
+  const section = document.getElementById(id);
+  if (!section) return;
 
-function setupMobileMenu() {
-  hamburger.addEventListener("click", () => toggleMenu());
-}
-
-function setupLogoScroll() {
-  logo.addEventListener("click", (e) => {
-    e.preventDefault();
-    document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+  section.scrollIntoView({
+    behavior: "smooth",
+    block: id === "contact" ? "end" : "start",
   });
 }
 
-function setupNavigationLinks() {
-  navigation.addEventListener("click", (e) => {
-    const link = e.target.closest(".nav-link");
-    if (!link) return;
-    e.preventDefault();
-    toggleMenu(false);
-    const section = document.getElementById(link.dataset.section);
-    if (!section) return;
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: section.id !== "contact" ? "start" : "end",
+function setActiveLink(id) {
+  navLinks.forEach((link) =>
+    link.classList.toggle("active", link.dataset.section === id),
+  );
+}
+
+// --- WIRING ---
+
+function watchSections() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) setActiveLink(entry.target.id);
     });
-  });
-}
+  }, SECTION_OBSERVER);
 
-// --- OBSERVER ---
-
-function initSectionObserver() {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) updateItemState(entry.target.id);
-      });
-    },
-    {
-      rootMargin: "-25% 0px -25% 0px",
-      threshold: 0.2,
-    },
-  );
-
-  sections.forEach((section) => observer.observe(section));
+  $$("section").forEach((section) => observer.observe(section));
 }
 
 export function initNavigation() {
-  logo = document.querySelector(".logo");
-  navigation = document.querySelector("nav");
-  sections = document.querySelectorAll("section");
-  hamburger = document.querySelector(".hamburger");
-  navItems = document.querySelectorAll(".nav-link");
+  nav = $(".nav");
+  logo = $(".logo");
+  hamburger = $(".hamburger");
+  navLinks = $$(".nav-link");
 
-  if (!logo || !navigation || !hamburger) return;
+  if (!nav || !logo || !hamburger) return;
 
-  setupMobileMenu();
-  setupLogoScroll();
-  setupNavigationLinks();
-  initSectionObserver();
+  hamburger.addEventListener("click", () => toggleMenu());
+
+  logo.addEventListener("click", (event) => {
+    event.preventDefault();
+    scrollToSection("about");
+  });
+
+  nav.addEventListener("click", (event) => {
+    const link = event.target.closest(".nav-link");
+    if (!link) return;
+
+    event.preventDefault();
+    toggleMenu(false);
+    scrollToSection(link.dataset.section);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !isOpen()) return;
+    toggleMenu(false);
+    hamburger.focus();
+  });
+
+  // Resizing past the breakpoint with the menu open would strand it.
+  mobile.addEventListener("change", () => toggleMenu(false));
+
+  syncInertState();
+  watchSections();
 }

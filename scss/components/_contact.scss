@@ -21,6 +21,9 @@
 .contact-title {
   font-size: clamp(2.75rem, 4vw + 1rem, 4rem);
   font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  word-spacing: 0.06em;
   background: gradient(heading);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -71,15 +74,33 @@
   }
 }
 
+// Honeypot: reachable for bots, removed from sight and from assistive tech.
+.hp-field {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .contact-form {
   padding: 40px 40px 28px;
   border-radius: radius(form);
   border: 1px solid clr(border-subtle);
   background: rgba(255, 255, 255, 0.025);
   backdrop-filter: blur(20px);
+  overflow: hidden;
   transition:
     border-color anim(normal),
     box-shadow anim(normal);
+  @include spotlight($radius: 320px, $strength: 0.07);
+
+  // Keep the fields above the spotlight layer.
+  form {
+    position: relative;
+    z-index: 1;
+  }
 
   @include responsive(lg) {
     padding: 28px;

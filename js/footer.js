@@ -1,4 +1,4 @@
 export function setFooterDate() {
-  const footerYear = document.getElementById("current-year");
-  footerYear.textContent = new Date().getFullYear();
+  const year = document.getElementById("current-year");
+  if (year) year.textContent = new Date().getFullYear();
 }

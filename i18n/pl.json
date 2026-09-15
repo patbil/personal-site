@@ -48,7 +48,8 @@
   "form": {
     "error": "Coś poszło nie tak!",
     "sent": "Wysłano",
-    "success": "Wiadomość została wysłana!"
+    "success": "Wiadomość została wysłana!",
+    "invalid": "Uzupełnij poprawnie wszystkie pola."
   },
   "loader": "ładowanie",
   "meta": {

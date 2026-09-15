@@ -48,7 +48,8 @@
   "form": {
     "error": "Something went wrong!",
     "sent": "Sent",
-    "success": "Your message has been sent!"
+    "success": "Your message has been sent!",
+    "invalid": "Please fill in all fields correctly."
   },
   "loader": "initialize",
   "meta": {

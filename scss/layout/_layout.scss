@@ -4,7 +4,7 @@
 .mouse-glow {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: z(glow);
   pointer-events: none;
   background: gradient(mouse-glow);
   opacity: 0.6;
@@ -12,7 +12,7 @@
 
 .page {
   position: relative;
-  margin-top: 90px;
+  margin-top: get-header-height();
 }
 
 .container {
@@ -25,7 +25,7 @@
 }
 
 .section-item {
-  min-height: 100vh;
+  min-height: 100svh;
   padding: 70px 0;
   position: relative;
 

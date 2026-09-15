@@ -21,6 +21,17 @@ a {
 
 img {
   height: auto;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(196, 168, 100, 1);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 input,

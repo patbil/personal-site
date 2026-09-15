@@ -13,9 +13,26 @@
       content="Patryk Bilski, Software Developer, Angular, Node.js, TypeScript, Programmer, Portfolio, Cybersecurity"
     />
     <meta name="author" content="Patryk Bilski" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#08080a" />
     <meta name="robots" content="index, follow" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="canonical" href="https://patrykbilski.pl" />
+
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'none';
+        script-src 'self' https://cdn.jsdelivr.net https://kit.fontawesome.com https://ka-f.fontawesome.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com;
+        img-src 'self' data:;
+        connect-src 'self' https://formspree.io https://ka-f.fontawesome.com;
+        form-action https://formspree.io;
+        base-uri 'self';
+        object-src 'none';
+        manifest-src 'self'
+      "
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -70,10 +87,9 @@
 
   <body>
     <div class="mouse-glow"></div>
-
     <a
       class="resume"
-      href="./assets/files/resume.pdf"
+      href="./assets/files/resume-pl.pdf"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -124,15 +140,48 @@
           </a>
 
           <div class="header-actions">
-            <div class="lang-switcher" role="listbox" aria-label="Language">
-              <button class="lang-current" id="lang-current" aria-haspopup="listbox" aria-expanded="false">PL</button>
-              <div class="lang-dropdown" role="presentation">
-                <button class="lang-btn" data-lang="pl" role="option">PL</button>
-                <button class="lang-btn" data-lang="en" role="option">EN</button>
+            <!--
+              A listbox may only contain options, so buttons with role="option"
+              were invalid; a menu with radio items models "pick one" correctly.
+            -->
+            <div class="lang-switcher" aria-label="Language">
+              <button
+                class="lang-current"
+                id="lang-current"
+                type="button"
+                aria-haspopup="menu"
+                aria-controls="lang-menu"
+                aria-expanded="false"
+              >
+                PL
+              </button>
+              <div class="lang-dropdown" id="lang-menu" role="menu">
+                <button
+                  class="lang-btn"
+                  type="button"
+                  data-lang="pl"
+                  role="menuitemradio"
+                  aria-checked="true"
+                >
+                  PL
+                </button>
+                <button
+                  class="lang-btn"
+                  type="button"
+                  data-lang="en"
+                  role="menuitemradio"
+                  aria-checked="false"
+                >
+                  EN
+                </button>
               </div>
             </div>
 
-            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <button
+              class="hamburger"
+              aria-label="Toggle navigation"
+              aria-expanded="false"
+            >
               <span></span>
               <span></span>
               <span></span>
@@ -443,12 +492,32 @@
 
             <div class="contact-form reveal">
               <form id="contact-form" novalidate>
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="patrykbilski.pl — new message"
+                />
+
+                <!-- Spam trap: hidden from users, irresistible to bots. -->
+                <div class="hp-field" aria-hidden="true">
+                  <label for="company">Leave this field empty</label>
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    id="company"
+                    tabindex="-1"
+                    autocomplete="off"
+                  />
+                </div>
+
                 <div class="contact-form-field">
                   <input
                     type="text"
                     name="name"
                     id="name"
                     required
+                    maxlength="80"
+                    autocomplete="name"
                     aria-required="true"
                   />
                   <label for="name" data-i18n="contact.name"></label>
@@ -459,6 +528,8 @@
                     name="email"
                     id="email"
                     required
+                    maxlength="120"
+                    autocomplete="email"
                     aria-required="true"
                   />
                   <label for="email" data-i18n="contact.email"></label>
@@ -469,6 +540,7 @@
                     name="message"
                     rows="3"
                     required
+                    maxlength="2000"
                     aria-required="true"
                   ></textarea>
                   <label for="message" data-i18n="contact.message"
@@ -499,11 +571,17 @@
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"
+      integrity="sha384-UoFnwgbUNlK0Rwou15cSoyrXQvKrOUxV8AkCoGKSSd0sxVeJ95ARU8uGMkMZhzpB"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"
+      integrity="sha384-s2VjM2y83PpWd6b7vX27Pt3ZhwavFDwKXFvapmlQrOzBo9vX990dSgHdpqPgOfF0"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
-    <script type="module" defer src="./js/index.js"></script>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>

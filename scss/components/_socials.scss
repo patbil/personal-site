@@ -5,12 +5,19 @@
   position: fixed;
   bottom: 0;
   left: 48px;
-  z-index: 100;
+  z-index: z(rail);
 
   @include layout-flex($dir: column, $gap: 20px);
 
-  @include responsive(xl) {
-    display: none;
+  // Hiding below xl was not enough: the rail is fixed while .container is
+  // centered, so between 1280px and (container + clearance) the icons sat on
+  // top of the content. Only show it once there is genuinely room.
+  display: none;
+
+  // Resolved by Sass at build time — calc() in a media query is unsupported
+  // on Safari before 16.4.
+  @media (min-width: #{bp(xxl) + get-rail-clearance() * 2}) {
+    display: flex;
   }
 
   &::after {

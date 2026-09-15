@@ -2,7 +2,7 @@
 @use "../abstracts/functions" as *;
 
 .hero {
-  max-width: 860px;
+  max-width: 1020px;
   margin-bottom: size(5xl);
   margin-top: size(lg);
 
@@ -10,8 +10,9 @@
     margin-bottom: 0.2em;
     padding-bottom: 0.2em;
     font-weight: 800;
-    line-height: 0.9;
-    letter-spacing: -0.05em;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    word-spacing: 0.06em;
     text-transform: uppercase;
     background: gradient(heading);
     -webkit-background-clip: text;
@@ -50,15 +51,23 @@
 }
 
 .tech-card {
-  position: relative;
   padding: size(xl) size(sm);
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid clr(border-subtle);
   border-radius: radius(card);
+  overflow: hidden;
   transition:
     border-color anim(fast),
     background anim(fast);
   @include layout-flex($dir: column, $gap: 12px);
+  @include spotlight($radius: 120px);
+
+  // Lift the contents above the spotlight layer.
+  i,
+  span {
+    position: relative;
+    z-index: 1;
+  }
 
   i {
     font-size: size(3xl);
@@ -81,7 +90,7 @@
   }
 
   &:hover {
-    border-color: rgba(255, 255, 255, 0.12);
+    border-color: clr(border-strong);
     background: rgba(255, 255, 255, 0.05);
 
     i {

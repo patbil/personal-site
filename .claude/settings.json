@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -f js/language.js)",
+      "Bash(node -e ' *)",
+      "Bash(./node_modules/.bin/sass scss/styles.scss css/styles.css --no-source-map)",
+      "Bash(node run.js \"C:/Users/patry/AppData/Local/Temp/claude/d--Projekty-archiwum-personal-site/bc3e31c2-7d1b-448d-9d80-92a7a12755c6/scratchpad/verify2.js\")",
+      "Bash(node run.js ' *)",
+      "Bash(rm -f css/styles.css.map)"
+    ]
+  }
+}

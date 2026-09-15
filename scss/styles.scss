@@ -17,7 +17,7 @@
 html {
   font-family: font(main);
   font-size: 16px;
-  scroll-padding-top: 90px;
+  scroll-padding-top: get-header-height();
 
   @include responsive(lg) {
     font-size: 15px;
@@ -38,6 +38,10 @@ body {
 
   &.ready {
     overflow-y: auto;
+  }
+
+  &.menu-open {
+    overflow-y: hidden;
   }
 }
 
