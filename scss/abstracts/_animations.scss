@@ -6,3 +6,24 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+
+@keyframes status-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(50, 180, 100, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(50, 180, 100, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(50, 180, 100, 0);
+  }
+}
+
+@keyframes heading-sheen {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: 100% center;
+  }
+}

@@ -24,10 +24,7 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   word-spacing: 0.06em;
-  background: gradient(heading);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  @include gradient-text($sheen: 9s);
 
   span {
     @include text-outline;

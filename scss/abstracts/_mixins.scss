@@ -38,6 +38,23 @@
   paint-order: stroke fill;
 }
 
+@mixin gradient-text($name: heading, $sheen: null) {
+  background: gradient($name);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  @if $sheen {
+    background-size: 130% auto;
+    animation: heading-sheen $sheen ease-in-out infinite alternate;
+
+    @media (prefers-reduced-motion: reduce) {
+      background-size: 100% auto;
+      animation: none;
+    }
+  }
+}
+
 // =========== LAYOUTS =========== //
 
 @mixin layout-flex(
