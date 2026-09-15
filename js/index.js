@@ -5,11 +5,10 @@ import { setFooterDate } from "./footer.js";
 import { initAnimation } from "./animation.js";
 import { initSpotlight } from "./spotlight.js";
 import { initNavigation } from "./navigation.js";
+import { initScrollProgress } from "./scroll-progress.js";
 import { initLanguageSwitcher } from "./language-switcher.js";
 
-// Composition root: the only place that knows the full feature list.
 const FEATURES = [
-  // Runs first — it is what unlocks the page from behind the loader.
   ["animation", initAnimation],
   ["i18n", initI18n],
   ["language-switcher", initLanguageSwitcher],
@@ -17,10 +16,10 @@ const FEATURES = [
   ["form", initForm],
   ["mouse", initMouse],
   ["spotlight", initSpotlight],
+  ["scroll-progress", initScrollProgress],
   ["footer", setFooterDate],
 ];
 
-// One failing feature must not abort the rest of the boot sequence.
 function boot() {
   FEATURES.forEach(([name, init]) => {
     try {

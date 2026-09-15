@@ -1,10 +1,26 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/functions" as *;
+@use "../abstracts/animations" as *;
 
 .hero {
   max-width: 1020px;
   margin-bottom: size(5xl);
   margin-top: size(lg);
+
+  .section-item-label {
+    display: inline-flex;
+    align-items: center;
+    gap: size(3xs);
+
+    &::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: radius(circle);
+      background: clr(state-success);
+      animation: status-pulse 2.6s ease-out infinite;
+    }
+  }
 
   &-title {
     margin-bottom: 0.2em;
@@ -14,10 +30,7 @@
     letter-spacing: -0.02em;
     word-spacing: 0.06em;
     text-transform: uppercase;
-    background: gradient(heading);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    @include gradient-text($sheen: 9s);
 
     span {
       @include text-outline;

@@ -54,6 +54,27 @@ function revealOnScroll() {
   });
 }
 
+function parallaxProjectImages() {
+  if (!window.ScrollTrigger) return;
+
+  $$(".project-image-wrapper").forEach((element) => {
+    gsap.fromTo(
+      element,
+      { backgroundPosition: "center 42%" },
+      {
+        backgroundPosition: "center 58%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: element,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 0.6,
+        },
+      },
+    );
+  });
+}
+
 export function initAnimation() {
   const watchdog = setTimeout(releasePage, LOADER.watchdogMs);
   const stop = () => {
@@ -68,4 +89,5 @@ export function initAnimation() {
 
   playIntro(stop);
   revealOnScroll();
+  parallaxProjectImages();
 }
