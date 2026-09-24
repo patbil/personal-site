@@ -4,6 +4,15 @@ export const LANGUAGE = {
   storageKey: "lang",
 };
 
+export const RESUME = {
+  driveIds: {
+    pl: "1Bil74dFtPYr_odtiNjqiNR206CwzmV9u",
+    en: "1yrXPh_yrHY5kP2Y4bPMn3i1EC-kyTv1v",
+  },
+  mode: "view",
+  bundled: "./assets/files/resume-{lang}.pdf",
+};
+
 export const FORM = {
   endpoint: "https://formspree.io/f/mojnyyzz",
   feedbackMs: 3000,
