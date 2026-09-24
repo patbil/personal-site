@@ -31,13 +31,20 @@ personal-site/
 │   ├── pl.json
 │   └── en.json
 ├── js/
-│   ├── index.js
+│   ├── index.js            # boot sequence
+│   ├── config.js           # shared constants (incl. CV hosting)
+│   ├── i18n.js             # translations, meta tags, localized assets
+│   ├── language-switcher.js
+│   ├── resume.js           # builds the CV link
 │   ├── animation.js
+│   ├── navigation.js
 │   ├── form.js
-│   ├── footer.js
-│   ├── language.js
 │   ├── mouse.js
-│   └── navigation.js
+│   ├── spotlight.js
+│   ├── scroll-progress.js
+│   ├── motion.js
+│   ├── dom.js
+│   └── footer.js
 └── scss/
     ├── styles.scss
     ├── abstracts/
@@ -82,6 +89,20 @@ npx sass scss/styles.scss css/styles.css --no-source-map
 ### Adding Translations
 
 Edit `i18n/pl.json` and `i18n/en.json`. Use `data-i18n` attributes in HTML to bind elements to translation keys. Nested keys and arrays are supported (e.g. `exp.items[0].role`).
+
+### Updating the CV
+
+The PDF lives on Google Drive, so swapping it doesn't need a commit.
+
+Setup, once: upload both files, share them as *Anyone with the link*, and copy
+each id from the share URL (`drive.google.com/file/d/<ID>/view`) into
+`RESUME.driveIds` in `js/config.js`.
+
+After that a new CV is just **right-click → Manage versions → Upload new
+version** in Drive — same id, same link, nothing to rebuild.
+
+`RESUME.mode` switches the button between Drive's viewer and a direct download.
+With no ids set, the site serves the copies from `assets/files/` instead.
 
 ## Deployment
 

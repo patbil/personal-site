@@ -1,4 +1,5 @@
 import { LANGUAGE } from "./config.js";
+import { resumeUrl } from "./resume.js";
 import { $, $$, setAttributes } from "./dom.js";
 
 const CHANGE_EVENT = "i18n:change";
@@ -63,7 +64,8 @@ function applyMeta() {
 
 function applyLocalizedAssets(language) {
   const resume = $(".resume");
-  if (resume) resume.href = `./assets/files/resume-${language}.pdf`;
+  if (!resume) return;
+  resume.href = resumeUrl(language);
 }
 
 // --- PUBLIC ---
